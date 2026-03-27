@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conway's Game of Life — interactive cellular automaton simulation" />
+  <title>Conway's Game of Life</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+  <!-- ===== TOOLBAR ===== -->
+  <header class="toolbar" role="toolbar" aria-label="Simulation controls">
+    <h1 class="toolbar__title">Game of Life</h1>
+
+    <!-- Action buttons -->
+    <div class="toolbar__group toolbar__actions">
+      <button id="btn-play" class="btn btn--primary" aria-label="Play simulation">
+        ▶ Play
+      </button>
+      <button id="btn-step" class="btn btn--secondary" aria-label="Advance one generation">
+        ⏭ Step
+      </button>
+      <button id="btn-clear" class="btn btn--secondary btn--danger" aria-label="Clear all cells">
+        ✕ Clear
+      </button>
+      <button id="btn-random" class="btn btn--secondary" aria-label="Randomise grid">
+        🎲 Random
+      </button>
+    </div>
+
+    <!-- Speed control -->
+    <div class="toolbar__group toolbar__speed">
+      <label for="speed-slider" class="toolbar__label">Speed</label>
+      <input
+        type="range"
+        id="speed-slider"
+        class="slider"
+        min="1"
+        max="30"
+        value="10"
+        aria-label="Generations per second"
+      />
+      <span id="speed-value" class="toolbar__value">10 gen/s</span>
+    </div>
+
+    <!-- Grid size -->
+    <div class="toolbar__group toolbar__grid-size">
+      <label for="grid-size" class="toolbar__label">Grid</label>
+      <select id="grid-size" class="select" aria-label="Grid size">
+        <option value="20">20 × 20</option>
+        <option value="30">30 × 30</option>
+        <option value="40">40 × 40</option>
+        <option value="50" selected>50 × 50</option>
+        <option value="60">60 × 60</option>
+        <option value="80">80 × 80</option>
+        <option value="100">100 × 100</option>
+      </select>
+    </div>
+
+    <!-- Preset patterns -->
+    <div class="toolbar__group toolbar__presets">
+      <label for="preset-select" class="toolbar__label">Preset</label>
+      <select id="preset-select" class="select" aria-label="Load preset pattern">
+        <option value="">— Select pattern —</option>
+        <option value="glider">Glider</option>
+        <option value="blinker">Blinker</option>
+        <option value="toad">Toad</option>
+        <option value="beacon">Beacon</option>
+        <option value="pulsar">Pulsar</option>
+        <option value="lwss">Lightweight Spaceship</option>
+        <option value="glider-gun">Gosper Glider Gun</option>
+        <option value="diehard">Diehard</option>
+        <option value="acorn">Acorn</option>
+      </select>
+    </div>
+
+    <!-- Stats -->
+    <div class="toolbar__group toolbar__stats" aria-live="polite">
+      <div class="stat">
+        <span class="stat__label">Generation</span>
+        <span id="stat-generation" class="stat__value">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat__label">Alive</span>
+        <span id="stat-alive" class="stat__value">0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== CANVAS ===== -->
+  <main class="canvas-container">
+    <canvas
+      id="game-canvas"
+      class="game-canvas"
+      aria-label="Game of Life grid — click or drag to draw cells"
+      role="img"
+    ></canvas>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    Conway's Game of Life · Student Project 2026
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

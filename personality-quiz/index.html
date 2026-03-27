@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Type of Coder Are You?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <!-- Intro View -->
+    <section id="view-intro" class="view view--intro active" aria-label="Introduction">
+      <span class="intro__emoji" aria-hidden="true">&#129489;&#8205;&#128187;</span>
+      <h1 class="intro__title">What Type of Coder Are You?</h1>
+      <p class="intro__subtitle">Answer 10 quick questions to discover your coding personality type. Are you an Architect, a Creative, a Debugger, a Full-Stack Hero, or a Hacker?</p>
+      <button id="btn-start" class="btn btn--primary">Start Quiz</button>
+      <ul class="intro__meta">
+        <li>&#128220; 10 Questions</li>
+        <li>&#9201; ~2 minutes</li>
+        <li>&#127919; 5 Personality Types</li>
+      </ul>
+    </section>
+
+    <!-- Quiz View -->
+    <section id="view-quiz" class="view view--quiz" hidden aria-label="Quiz">
+      <header class="quiz__header">
+        <p class="quiz__counter">Question <span id="question-current">1</span> of <span id="question-total">10</span></p>
+        <div class="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          <div id="progress-fill" class="progress__fill" style="width: 0%"></div>
+        </div>
+        <p class="quiz__percent" aria-live="polite"><span id="progress-text">0</span>% complete</p>
+      </header>
+      <h2 id="question-text" class="quiz__question"></h2>
+      <div id="answers-grid" class="answers" role="radiogroup" aria-labelledby="question-text">
+        <!-- Answer cards rendered by JS -->
+      </div>
+      <p class="quiz__hint" aria-live="polite">Press 1&ndash;4 or click to select</p>
+    </section>
+
+    <!-- Result View -->
+    <section id="view-result" class="view view--result" hidden aria-label="Result">
+      <div id="result-container" class="result">
+        <p class="result__label">Your Result:</p>
+        <span id="result-emoji" class="result__emoji" aria-hidden="true"></span>
+        <h1 id="result-title" class="result__title" tabindex="-1"></h1>
+        <p id="result-description" class="result__description"></p>
+        <div class="result__traits">
+          <h2 class="result__traits-heading">Your Traits:</h2>
+          <ul id="result-traits-list" class="result__traits-list"></ul>
+        </div>
+        <button id="btn-retake" class="btn btn--primary">Retake Quiz</button>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

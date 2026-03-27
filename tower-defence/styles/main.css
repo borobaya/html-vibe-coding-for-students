@@ -1,0 +1,237 @@
+/**
+ * File: main.css
+ * Description: Tower Defence styling – military theme
+ * Author: AI4Students
+ * Created: 2026-03-27
+ * Last Modified: 2026-03-27
+ */
+
+/* ── CSS Variables ── */
+:root {
+  --bg-primary: #1B2631;
+  --bg-secondary: #212F3D;
+  --ground: #3D4F2F;
+  --path: #C4A35A;
+  --accent: #F1C40F;
+  --danger: #E74C3C;
+  --text: #ECF0F1;
+  --text-muted: #ABB2B9;
+  --panel-bg: #1A252F;
+  --border: #2C3E50;
+  --radius: 8px;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--accent);
+  color: #000;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+/* ── Header ── */
+header {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-bottom: 2px solid var(--border);
+}
+header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+  color: var(--accent);
+  letter-spacing: 2px;
+}
+
+/* ── HUD ── */
+.hud {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  width: 100%;
+}
+.hud__item {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+}
+.hud__label { color: var(--text-muted); margin-right: 0.3rem; }
+.hud__value { color: var(--accent); font-weight: 700; }
+
+/* ── Main Layout ── */
+main {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1100px;
+  width: 100%;
+  flex: 1;
+}
+
+/* ── Canvas ── */
+.canvas-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+#game-canvas {
+  display: block;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  cursor: crosshair;
+}
+#wave-announce {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(241,196,15,0.6);
+  pointer-events: none;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 220px;
+}
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+}
+.panel__title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── Build Menu ── */
+#build-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.build-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.5rem;
+  color: var(--text);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.build-btn:hover { border-color: var(--accent); }
+.build-btn--active {
+  border-color: var(--accent);
+  background: rgba(241, 196, 15, 0.1);
+}
+.build-btn__swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.build-btn__name { flex: 1; }
+.build-btn__cost { color: var(--accent); font-weight: 700; }
+
+/* ── Upgrade Panel ── */
+#upgrade-panel .stat { font-size: 0.8rem; margin-bottom: 0.25rem; }
+#upgrade-panel .stat span { color: var(--accent); }
+
+.btn {
+  display: inline-block;
+  padding: 0.4rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: 0.4rem;
+  margin-right: 0.3rem;
+}
+.btn--upgrade { background: var(--accent); color: #000; }
+.btn--sell { background: var(--danger); color: #fff; }
+.btn--primary { background: var(--accent); color: #000; }
+
+#btn-start-wave {
+  width: 100%;
+  padding: 0.6rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* ── Game Over Overlay ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+.overlay__box {
+  background: var(--panel-bg);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  max-width: 400px;
+}
+.overlay__box h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--danger);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.overlay__box p { margin-bottom: 1rem; }
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  width: 100%;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  main { flex-direction: column; align-items: center; }
+  .sidebar { min-width: unset; width: 100%; max-width: 400px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

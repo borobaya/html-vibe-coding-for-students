@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover random Wikipedia articles with one click. Explore, learn, and build a history of interesting finds." />
+  <title>Random Wikipedia Explorer</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header__content">
+      <h1 class="header__title">
+        <span class="header__icon" aria-hidden="true">🌐</span>
+        Random Wikipedia Explorer
+      </h1>
+      <p class="header__subtitle">Discover something new with every click</p>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- Action Area -->
+    <div class="action-area">
+      <button type="button" id="surprise-btn" class="btn btn--surprise" aria-label="Fetch a random Wikipedia article">
+        <span class="btn__icon" aria-hidden="true">🎲</span>
+        <span class="btn__text">Surprise Me!</span>
+      </button>
+    </div>
+
+    <!-- Two-Column Layout -->
+    <div class="content-grid">
+
+      <!-- Article Display -->
+      <section class="article-section" aria-live="polite" aria-atomic="true">
+
+        <!-- Welcome State -->
+        <div id="welcome-state" class="state-message state-message--welcome">
+          <span class="state-message__icon" aria-hidden="true">📚</span>
+          <h2 class="state-message__title">Ready to Explore?</h2>
+          <p class="state-message__text">Click <strong>"Surprise Me!"</strong> to discover a random Wikipedia article.</p>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading-state" class="state-message state-message--loading" hidden>
+          <div class="spinner" role="status" aria-label="Loading article">
+            <div class="spinner__ring"></div>
+          </div>
+          <p class="state-message__text">Finding something interesting…</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error-state" class="state-message state-message--error" hidden>
+          <span class="state-message__icon" aria-hidden="true">⚠️</span>
+          <h2 class="state-message__title">Oops! Something went wrong</h2>
+          <p id="error-message" class="state-message__text">Could not fetch an article. Please try again.</p>
+          <button type="button" id="retry-btn" class="btn btn--retry">Try Again</button>
+        </div>
+
+        <!-- Article Card -->
+        <article id="article-card" class="article-card" hidden>
+          <div class="article-card__image-container">
+            <img id="article-thumbnail" class="article-card__thumbnail" src="" alt="" loading="lazy" />
+          </div>
+          <div class="article-card__body">
+            <h2 id="article-title" class="article-card__title"></h2>
+            <div id="article-extract" class="article-card__extract"></div>
+            <a id="article-link" class="article-card__link" href="#" target="_blank" rel="noopener noreferrer">Read Full Article →</a>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- History Panel -->
+      <aside class="history-panel">
+        <div class="history-panel__header">
+          <h2 class="history-panel__title">
+            History
+            <span id="history-count" class="history-panel__count" aria-label="Number of articles in history">0</span>
+          </h2>
+          <button type="button" id="clear-history-btn" class="btn btn--text" aria-label="Clear all history" hidden>Clear</button>
+        </div>
+        <div id="history-empty" class="history-panel__empty">
+          <p>No articles yet. Start exploring!</p>
+        </div>
+        <ul id="history-list" class="history-list" aria-label="Previously viewed articles"></ul>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>Built with the <a href="https://en.wikipedia.org/api/rest_v1/" target="_blank" rel="noopener noreferrer">Wikipedia REST API</a></p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

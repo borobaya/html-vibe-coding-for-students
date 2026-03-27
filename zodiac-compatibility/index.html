@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zodiac Compatibility Checker</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <h1 class="site-title">&#9734; Zodiac Compatibility &#9734;</h1>
+    <p class="site-subtitle">Enter two birthdays to reveal your cosmic connection</p>
+  </header>
+
+  <main>
+    <!-- Input Section -->
+    <section id="input-section" class="input-section" aria-label="Birthday inputs">
+      <div class="person-columns">
+        <div class="person-column">
+          <label class="input-label" for="birthday-1">Person 1</label>
+          <input id="birthday-1" class="date-input" type="date" aria-describedby="sign-card-1" />
+          <article id="sign-card-1" class="zodiac-card hidden" aria-live="polite">
+            <span class="zodiac-card__symbol" aria-hidden="true"></span>
+            <h2 class="zodiac-card__name"></h2>
+            <p class="zodiac-card__element"></p>
+            <p class="zodiac-card__dates"></p>
+            <p class="zodiac-card__traits"></p>
+          </article>
+        </div>
+
+        <div class="person-column">
+          <label class="input-label" for="birthday-2">Person 2</label>
+          <input id="birthday-2" class="date-input" type="date" aria-describedby="sign-card-2" />
+          <article id="sign-card-2" class="zodiac-card hidden" aria-live="polite">
+            <span class="zodiac-card__symbol" aria-hidden="true"></span>
+            <h2 class="zodiac-card__name"></h2>
+            <p class="zodiac-card__element"></p>
+            <p class="zodiac-card__dates"></p>
+            <p class="zodiac-card__traits"></p>
+          </article>
+        </div>
+      </div>
+
+      <button id="check-btn" class="btn btn--primary" disabled>&#128302; Check Compatibility</button>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results-section" class="results-section hidden" aria-label="Compatibility results">
+      <div class="sign-pairing">
+        <div class="sign-pairing__sign sign-pairing__sign--left">
+          <span class="sign-pairing__symbol" id="pairing-symbol-1"></span>
+          <span class="sign-pairing__name" id="pairing-name-1"></span>
+        </div>
+        <div class="sign-pairing__connector" aria-hidden="true">
+          <span class="sign-pairing__heart">&#128171;</span>
+        </div>
+        <div class="sign-pairing__sign sign-pairing__sign--right">
+          <span class="sign-pairing__symbol" id="pairing-symbol-2"></span>
+          <span class="sign-pairing__name" id="pairing-name-2"></span>
+        </div>
+      </div>
+
+      <div class="percentage-display">
+        <span id="percentage-number" class="percentage-display__number" aria-live="polite">0</span>
+        <span class="percentage-display__percent">%</span>
+      </div>
+
+      <div class="compat-meter" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="compat-meter__track">
+          <div class="compat-meter__fill"></div>
+        </div>
+      </div>
+
+      <p id="rating-label" class="rating-label" aria-live="polite"></p>
+
+      <article class="reading">
+        <h2 class="reading__title">Your Cosmic Reading</h2>
+        <p id="reading-text" class="reading__text"></p>
+      </article>
+
+      <button id="reset-btn" class="btn btn--secondary">&#128260; Try Again</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Zodiac Compatibility Checker</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

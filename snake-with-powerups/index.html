@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake with Power-Ups</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- HUD (heads-up display) -->
+  <header class="hud" role="banner">
+    <div class="hud__score">
+      <span class="hud__label">Score</span>
+      <span id="current-score" class="hud__value">0</span>
+    </div>
+    <div class="hud__high-score">
+      <span class="hud__label">High</span>
+      <span id="high-score" class="hud__value">0</span>
+    </div>
+    <div class="hud__powerup" id="powerup-indicator" aria-live="polite" hidden>
+      <span id="powerup-icon" class="hud__powerup-icon" aria-hidden="true"></span>
+      <span id="powerup-name" class="hud__powerup-name"></span>
+      <span id="powerup-timer" class="hud__powerup-timer"></span>
+    </div>
+  </header>
+
+  <!-- Game area -->
+  <main class="game-area" role="main">
+    <canvas id="game-canvas" width="600" height="600"
+            aria-label="Snake game board" tabindex="0"></canvas>
+
+    <!-- Game-over overlay (hidden by default) -->
+    <div id="game-over-overlay" class="overlay" hidden>
+      <h2 class="overlay__title">Game Over</h2>
+      <p class="overlay__score">Score: <span id="final-score">0</span></p>
+      <p class="overlay__high">High Score: <span id="final-high-score">0</span></p>
+      <button id="btn-play-again" class="btn btn--primary">Play Again</button>
+    </div>
+
+    <!-- Start screen overlay (visible initially) -->
+    <div id="start-overlay" class="overlay">
+      <h1 class="overlay__title">Snake</h1>
+      <p class="overlay__subtitle">with Power-Ups</p>
+      <button id="btn-start" class="btn btn--primary">Start Game</button>
+    </div>
+  </main>
+
+  <!-- Controls footer -->
+  <footer class="controls" role="contentinfo">
+    <button id="btn-start-footer" class="btn" aria-label="Start game">▶ Start</button>
+    <button id="btn-pause" class="btn" aria-label="Pause game" disabled>⏸ Pause</button>
+    <button id="btn-restart" class="btn" aria-label="Restart game" disabled>🔄 Restart</button>
+    <label class="controls__toggle">
+      <input type="checkbox" id="wall-mode-toggle" checked>
+      <span>Wall Collision</span>
+    </label>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

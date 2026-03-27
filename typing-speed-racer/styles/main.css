@@ -1,0 +1,276 @@
+/**
+ * File: main.css
+ * Description: Typing Speed Racer styling – racing theme
+ * Author: AI4Students
+ * Created: 2026-03-27
+ * Last Modified: 2026-03-27
+ */
+
+:root {
+  --colour-bg: #0f0f1a;
+  --colour-surface: #1a1a2e;
+  --colour-track: #2d2d44;
+  --colour-lane-line: #ffffff33;
+  --colour-primary: #e63946;
+  --colour-primary-hover: #c1121f;
+  --colour-secondary: #f1faee;
+  --colour-accent: #ffbe0b;
+  --colour-correct: #06d6a0;
+  --colour-wrong: #ef476f;
+  --colour-muted: #8d99ae;
+  --colour-progress-bg: #2d2d44;
+  --colour-progress-fill: #06d6a0;
+  --colour-overlay: #0f0f1acc;
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --max-width: 900px;
+  --border-radius: 8px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--colour-bg);
+  color: var(--colour-secondary);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ── Header ── */
+.header { text-align: center; padding: var(--space-xl); }
+.header__title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--colour-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.header__tagline { color: var(--colour-muted); font-size: 1.1rem; margin-top: var(--space-xs); }
+
+/* ── Game ── */
+.game {
+  width: 100%;
+  max-width: var(--max-width);
+  padding: 0 var(--space-md) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  flex: 1;
+}
+
+/* ── Dashboard ── */
+.dashboard {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  background: var(--colour-surface);
+  border-radius: var(--border-radius);
+  padding: var(--space-md) var(--space-lg);
+}
+.dashboard__stat { display: flex; flex-direction: column; align-items: center; }
+.dashboard__label {
+  font-size: 0.75rem; text-transform: uppercase;
+  color: var(--colour-muted); letter-spacing: 0.05em;
+}
+.dashboard__value {
+  font-family: var(--font-heading); font-size: 1.4rem;
+  font-weight: 700; color: var(--colour-accent);
+}
+.dashboard__value--warning { color: var(--colour-wrong); animation: pulse 1s infinite; }
+
+/* ── Race Track ── */
+.track { padding: var(--space-lg) 0; }
+.track__road {
+  position: relative; height: 100px;
+  background: var(--colour-track);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: 2px solid var(--colour-lane-line);
+}
+.track__road::before {
+  content: '';
+  position: absolute; top: 50%; left: 0; right: 0;
+  height: 4px; transform: translateY(-50%);
+  background: repeating-linear-gradient(
+    90deg, transparent, transparent 30px,
+    var(--colour-lane-line) 30px, var(--colour-lane-line) 60px
+  );
+}
+.track__car {
+  position: absolute; top: 50%; left: 2%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  transition: left 0.3s ease-out;
+  z-index: 1;
+}
+.track__finish {
+  position: absolute; right: 2%; top: 50%;
+  transform: translateY(-50%); font-size: 2rem;
+}
+.track__progress {
+  height: 8px; margin-top: var(--space-sm);
+  background: var(--colour-progress-bg);
+  border-radius: 4px; overflow: hidden;
+}
+.track__progress-bar {
+  width: 0%; height: 100%;
+  background: var(--colour-progress-fill);
+  transition: width 0.3s ease-out;
+  border-radius: 4px;
+}
+
+/* ── Word Display ── */
+.words {
+  text-align: center;
+  padding: var(--space-lg);
+  background: var(--colour-surface);
+  border-radius: var(--border-radius);
+}
+.words__queue {
+  display: flex; justify-content: center;
+  gap: var(--space-md); flex-wrap: nowrap; overflow: hidden;
+}
+.words__word {
+  font-family: var(--font-mono); font-size: 1.5rem;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 4px; transition: all 0.2s;
+}
+.words__word--current {
+  background: var(--colour-accent); color: var(--colour-bg);
+  font-weight: 600; transform: scale(1.1);
+}
+.words__word--correct { color: var(--colour-correct); opacity: 0.6; }
+.words__word--wrong { color: var(--colour-wrong); text-decoration: line-through; opacity: 0.6; }
+.words__word--upcoming { color: var(--colour-muted); }
+
+/* ── Input ── */
+.input-area { text-align: center; }
+.input-area__field {
+  width: 100%; max-width: var(--max-width);
+  padding: var(--space-md);
+  font-family: var(--font-mono); font-size: 1.25rem;
+  background: var(--colour-surface); color: var(--colour-secondary);
+  border: 2px solid var(--colour-track);
+  border-radius: var(--border-radius); outline: none;
+}
+.input-area__field:focus {
+  border-color: var(--colour-accent);
+  box-shadow: 0 0 0 3px rgba(255, 190, 11, 0.2);
+}
+.input-area__field:disabled { opacity: 0.5; cursor: not-allowed; }
+.input-area__feedback {
+  display: flex; justify-content: center;
+  gap: 2px; min-height: 1.6rem; margin-top: var(--space-sm);
+  font-family: var(--font-mono); font-size: 1.1rem; letter-spacing: 0.15em;
+}
+.char--correct { color: var(--colour-correct); }
+.char--wrong { color: var(--colour-wrong); text-decoration: underline; }
+.char--pending { color: var(--colour-muted); }
+
+/* ── Controls ── */
+.controls { display: flex; justify-content: center; gap: var(--space-md); }
+.controls__btn {
+  font-family: var(--font-heading); font-size: 1rem;
+  padding: var(--space-sm) var(--space-lg);
+  border: none; border-radius: var(--border-radius);
+  cursor: pointer; text-transform: uppercase;
+  letter-spacing: 0.05em; transition: background 0.2s;
+}
+.controls__btn--start { background: var(--colour-primary); color: var(--colour-secondary); }
+.controls__btn--start:hover { background: var(--colour-primary-hover); }
+.controls__btn--restart { background: var(--colour-track); color: var(--colour-secondary); }
+.controls__btn--restart:hover { background: var(--colour-muted); }
+.controls__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── Countdown Overlay ── */
+.countdown-overlay {
+  position: fixed; inset: 0;
+  background: var(--colour-overlay);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 100;
+}
+.countdown-overlay[hidden] { display: none; }
+.countdown-overlay__number {
+  font-family: var(--font-heading); font-size: 6rem;
+  font-weight: 900; color: var(--colour-accent);
+  animation: countdown-pulse 0.8s ease-out;
+}
+@keyframes countdown-pulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* ── Results Modal ── */
+.results-modal {
+  position: fixed; inset: 0;
+  background: var(--colour-overlay);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 200;
+}
+.results-modal[hidden] { display: none; }
+.results-modal__content {
+  background: var(--colour-surface);
+  border-radius: var(--border-radius);
+  padding: var(--space-2xl); text-align: center;
+  min-width: 320px; box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  animation: modal-fade-in 0.3s ease-out;
+}
+.results-modal__title {
+  font-family: var(--font-heading); font-size: 1.8rem;
+  color: var(--colour-accent); margin-bottom: var(--space-lg);
+}
+.results-modal__stats {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--space-md); margin-bottom: var(--space-lg);
+}
+.results-modal__stat dt {
+  color: var(--colour-muted); font-size: 0.85rem; text-transform: uppercase;
+}
+.results-modal__stat dd {
+  font-family: var(--font-heading); font-size: 1.4rem;
+  color: var(--colour-secondary); font-weight: 700;
+}
+@keyframes modal-fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Footer ── */
+.footer { padding: var(--space-md); text-align: center; color: var(--colour-muted); font-size: 0.85rem; }
+
+/* ── Animations ── */
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .dashboard { flex-wrap: wrap; gap: var(--space-md); }
+  .words__word { font-size: 1.2rem; }
+  .track__road { height: 80px; }
+  .track__car { font-size: 2rem; }
+}
+@media (max-width: 480px) {
+  .header__title { font-size: 1.6rem; }
+  .dashboard { flex-direction: column; align-items: center; }
+  .input-area__field { font-size: 1rem; }
+  .countdown-overlay__number { font-size: 4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <h1 class="header__title">💰 Budget Tracker</h1>
+  </header>
+
+  <main class="main">
+    <!-- Summary Cards -->
+    <section class="summary" aria-label="Financial summary">
+      <div class="summary__card summary__card--income">
+        <span class="summary__label">Income</span>
+        <span class="summary__value" id="summary-income">£0.00</span>
+      </div>
+      <div class="summary__card summary__card--expense">
+        <span class="summary__label">Expenses</span>
+        <span class="summary__value" id="summary-expense">£0.00</span>
+      </div>
+      <div class="summary__card summary__card--balance">
+        <span class="summary__label">Balance</span>
+        <span class="summary__value" id="summary-balance">£0.00</span>
+      </div>
+    </section>
+
+    <!-- Add Transaction Form -->
+    <section class="form-section" aria-label="Add transaction">
+      <h2 class="form-section__title">Add Transaction</h2>
+      <form class="form" id="transaction-form">
+        <div class="form__group">
+          <label class="form__label" for="type">Type</label>
+          <select class="form__select" id="type" name="type" required>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="amount">Amount (£)</label>
+          <input class="form__input" id="amount" name="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required />
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="category">Category</label>
+          <select class="form__select" id="category" name="category" required>
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="date">Date</label>
+          <input class="form__input" id="date" name="date" type="date" required />
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="description">Description</label>
+          <input class="form__input" id="description" name="description" type="text" placeholder="e.g. Monthly salary" maxlength="80" required />
+        </div>
+        <button type="submit" class="btn--primary">Add</button>
+      </form>
+    </section>
+
+    <!-- Filters -->
+    <section class="form-section" aria-label="Filter transactions">
+      <h2 class="form-section__title">Filters</h2>
+      <div class="filters" id="filters">
+        <div class="filters__group">
+          <button class="filters__btn filters__btn--active" data-filter-type="all" type="button">All</button>
+          <button class="filters__btn" data-filter-type="income" type="button">Income</button>
+          <button class="filters__btn" data-filter-type="expense" type="button">Expense</button>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="filter-category">Category</label>
+          <select class="form__select" id="filter-category">
+            <option value="">All Categories</option>
+          </select>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="filter-start">From</label>
+          <input class="form__input" id="filter-start" type="date" />
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="filter-end">To</label>
+          <input class="form__input" id="filter-end" type="date" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Transactions Table -->
+    <section class="transactions" aria-label="Transaction list">
+      <h2 class="transactions__title">Transactions</h2>
+      <div class="transactions__table-wrapper">
+        <table class="transactions__table">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Description</th>
+              <th scope="col">Category</th>
+              <th scope="col">Amount</th>
+              <th scope="col"><span class="sr-only">Actions</span></th>
+            </tr>
+          </thead>
+          <tbody id="transactions-body">
+            <!-- Populated dynamically -->
+          </tbody>
+        </table>
+        <p class="empty-msg" id="empty-msg">No transactions yet. Add one above!</p>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts" aria-label="Spending charts">
+      <div class="charts__card">
+        <h2 class="charts__title">Expenses by Category</h2>
+        <canvas class="charts__canvas" id="pie-chart" aria-label="Expenses by category donut chart" role="img"></canvas>
+        <div class="charts__legend" id="pie-legend"></div>
+      </div>
+      <div class="charts__card">
+        <h2 class="charts__title">Monthly Overview</h2>
+        <canvas class="charts__canvas" id="bar-chart" aria-label="Monthly income versus expense bar chart" role="img"></canvas>
+        <div class="charts__legend" id="bar-legend"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Budget Tracker &mdash; AI4Students 2026</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

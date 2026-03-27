@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive Newtonian gravity simulation — place celestial bodies and watch them orbit." />
+  <title>Gravity Sandbox</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <main id="app">
+
+    <!-- Simulation Canvas -->
+    <canvas id="sim-canvas" aria-label="Gravity simulation canvas — click to place celestial bodies" role="img">
+      Your browser does not support HTML5 Canvas.
+    </canvas>
+
+    <!-- Control Panel -->
+    <section id="controls" aria-label="Simulation controls">
+
+      <!-- Mass Slider -->
+      <div class="control-group control-group--mass">
+        <label for="mass-slider" class="control-label">Mass</label>
+        <input
+          type="range"
+          id="mass-slider"
+          class="slider slider--mass"
+          min="1"
+          max="100"
+          value="10"
+          step="1"
+          aria-valuemin="1"
+          aria-valuemax="100"
+          aria-valuenow="10"
+        />
+        <span id="mass-value" class="control-value" aria-live="polite">10</span>
+        <span class="mass-preview" id="mass-preview" aria-hidden="true"></span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="control-group control-group--actions">
+        <button id="btn-play-pause" class="btn btn--play" type="button" aria-label="Pause simulation">
+          <span class="btn__icon" aria-hidden="true">⏸</span>
+          <span class="btn__label">Pause</span>
+        </button>
+        <button id="btn-reset" class="btn btn--reset" type="button" aria-label="Reset simulation">
+          <span class="btn__icon" aria-hidden="true">↺</span>
+          <span class="btn__label">Reset</span>
+        </button>
+      </div>
+
+      <!-- Info Bar -->
+      <div id="info-bar" class="info-bar" aria-live="polite">
+        <span class="info-item" id="info-bodies">Bodies: <strong>0</strong></span>
+        <span class="info-item" id="info-fps">FPS: <strong>60</strong></span>
+        <span class="info-item info-item--hint" id="info-hint">Click to place · Drag to launch</span>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

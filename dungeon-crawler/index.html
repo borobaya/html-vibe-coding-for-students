@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dungeon Crawler</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <header class="title-bar" role="banner">
+    <h1 class="title-bar__name">⚔ Dungeon Crawler</h1>
+    <div class="title-bar__info">
+      <span id="floor-display" aria-label="Current floor">Floor: 1</span>
+      <span id="score-display" aria-label="Current score">Score: 0</span>
+    </div>
+  </header>
+
+  <main class="game-area" role="main">
+    <section class="map-container" aria-label="Dungeon map">
+      <div id="dungeon-grid" class="dungeon-grid" role="grid" aria-label="Dungeon tile grid"></div>
+    </section>
+
+    <aside class="sidebar" aria-label="Player information">
+      <section class="hud" aria-label="Player stats">
+        <h2 class="hud__name" id="player-name">Adventurer</h2>
+        <span class="hud__level" id="player-level">Lv. 1</span>
+
+        <div class="bar bar--hp" role="progressbar" aria-label="Health">
+          <div class="bar__fill" id="hp-fill" style="width: 100%"></div>
+          <span class="bar__label" id="hp-label">100/100</span>
+        </div>
+
+        <div class="bar bar--mp" role="progressbar" aria-label="Mana">
+          <div class="bar__fill" id="mp-fill" style="width: 100%"></div>
+          <span class="bar__label" id="mp-label">30/30</span>
+        </div>
+
+        <div class="bar bar--xp" role="progressbar" aria-label="Experience">
+          <div class="bar__fill" id="xp-fill" style="width: 0%"></div>
+          <span class="bar__label" id="xp-label">0/100 XP</span>
+        </div>
+
+        <div class="hud__stats">
+          <span>ATK: <strong id="stat-atk">5</strong></span>
+          <span>DEF: <strong id="stat-def">3</strong></span>
+          <span>SPD: <strong id="stat-spd">4</strong></span>
+        </div>
+
+        <div class="hud__equipment">
+          <div class="hud__slot">
+            <span class="hud__slot-label">Weapon:</span>
+            <span id="equipped-weapon">Rusty Dagger</span>
+          </div>
+          <div class="hud__slot">
+            <span class="hud__slot-label">Armour:</span>
+            <span id="equipped-armour">None</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="minimap-container" aria-label="Minimap">
+        <h3 class="minimap__title">Map</h3>
+        <div id="minimap" class="minimap" aria-hidden="true"></div>
+      </section>
+    </aside>
+  </main>
+
+  <section class="log-container" aria-label="Combat log" aria-live="polite">
+    <ul id="combat-log" class="combat-log" role="log"></ul>
+  </section>
+
+  <!-- Title Screen -->
+  <div id="title-overlay" class="overlay overlay--title" role="dialog" aria-label="Title screen" aria-modal="true">
+    <div class="overlay__content">
+      <h2 class="overlay__heading">⚔ Dungeon Crawler ⚔</h2>
+      <button id="btn-new-game" class="btn btn--primary">New Game</button>
+      <button id="btn-continue" class="btn" disabled>Continue</button>
+      <button id="btn-controls" class="btn">Controls</button>
+      <p id="best-run" class="overlay__subtext">Best Run: —</p>
+    </div>
+  </div>
+
+  <!-- Combat Overlay -->
+  <div id="combat-overlay" class="overlay overlay--combat" role="dialog" aria-label="Combat" aria-modal="true" hidden>
+    <div class="overlay__content">
+      <h2 class="overlay__heading">⚔ Combat ⚔</h2>
+      <div class="combat__enemy">
+        <span id="combat-enemy-name" class="combat__name">Enemy</span>
+        <div class="bar bar--enemy-hp" role="progressbar" aria-label="Enemy health">
+          <div class="bar__fill" id="enemy-hp-fill" style="width: 100%"></div>
+          <span class="bar__label" id="enemy-hp-label">0/0</span>
+        </div>
+      </div>
+      <div class="combat__player">
+        <span class="combat__name">Adventurer</span>
+        <div class="bar bar--hp" role="progressbar" aria-label="Your health">
+          <div class="bar__fill" id="combat-player-hp-fill" style="width: 100%"></div>
+          <span class="bar__label" id="combat-player-hp-label">0/0</span>
+        </div>
+      </div>
+      <div class="combat__actions">
+        <button id="btn-attack" class="btn btn--combat">1: Attack</button>
+        <button id="btn-defend" class="btn btn--combat">2: Defend</button>
+        <button id="btn-flee" class="btn btn--combat">3: Flee</button>
+      </div>
+      <ul id="combat-feed" class="combat__feed" role="log" aria-live="assertive"></ul>
+    </div>
+  </div>
+
+  <!-- Inventory Overlay -->
+  <div id="inventory-overlay" class="overlay overlay--inventory" role="dialog" aria-label="Inventory" aria-modal="true" hidden>
+    <div class="overlay__content">
+      <h2 class="overlay__heading">🎒 Inventory</h2>
+      <div class="inventory__equipment">
+        <div class="inventory__slot" id="inv-weapon-slot">
+          <span class="inventory__slot-label">Weapon</span>
+          <span class="inventory__slot-item" id="inv-weapon-name">Empty</span>
+        </div>
+        <div class="inventory__slot" id="inv-armour-slot">
+          <span class="inventory__slot-label">Armour</span>
+          <span class="inventory__slot-item" id="inv-armour-name">Empty</span>
+        </div>
+      </div>
+      <div id="inventory-grid" class="inventory__grid" role="listbox" aria-label="Inventory items"></div>
+      <div class="inventory__actions">
+        <button id="btn-use" class="btn" disabled>Use</button>
+        <button id="btn-equip" class="btn" disabled>Equip</button>
+        <button id="btn-discard" class="btn" disabled>Discard</button>
+        <button id="btn-close-inv" class="btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Over Overlay -->
+  <div id="gameover-overlay" class="overlay overlay--gameover" role="dialog" aria-label="Game over" aria-modal="true" hidden>
+    <div class="overlay__content">
+      <h2 class="overlay__heading">☠ Game Over ☠</h2>
+      <p id="go-floor">You perished on Floor 1.</p>
+      <p id="go-enemies">Enemies defeated: 0</p>
+      <p id="go-items">Items collected: 0</p>
+      <p id="go-level">Final level: 1</p>
+      <p id="go-score">Score: 0</p>
+      <button id="btn-retry" class="btn btn--primary">Try Again</button>
+    </div>
+  </div>
+
+  <!-- Controls Help -->
+  <div id="controls-overlay" class="overlay overlay--controls" role="dialog" aria-label="Controls help" aria-modal="true" hidden>
+    <div class="overlay__content">
+      <h2 class="overlay__heading">Controls</h2>
+      <table class="controls-table">
+        <thead><tr><th>Key</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>W / ↑</td><td>Move up</td></tr>
+          <tr><td>A / ←</td><td>Move left</td></tr>
+          <tr><td>S / ↓</td><td>Move down</td></tr>
+          <tr><td>D / →</td><td>Move right</td></tr>
+          <tr><td>I</td><td>Open / close inventory</td></tr>
+          <tr><td>E</td><td>Interact (chests, stairs)</td></tr>
+          <tr><td>1 / 2 / 3</td><td>Combat actions</td></tr>
+          <tr><td>Esc</td><td>Close overlay</td></tr>
+        </tbody>
+      </table>
+      <button id="btn-close-controls" class="btn">Close</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

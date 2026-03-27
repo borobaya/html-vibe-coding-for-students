@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Would You Rather?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__title">&#129300; Would You Rather?</h1>
+    <p class="header__subtitle">Choose wisely — there are no right answers!</p>
+  </header>
+
+  <main class="app">
+    <!-- Counter -->
+    <div class="counter" aria-live="polite">
+      <span class="counter__text" id="counter-text">Question 1 of 25</span>
+      <div class="counter__dots" id="counter-dots"></div>
+    </div>
+
+    <!-- Dilemma Cards -->
+    <section class="dilemma" id="dilemma-section" aria-label="Choose an option">
+      <article class="card card--a" id="card-a" role="button" tabindex="0" aria-label="Option A">
+        <span class="card__label">Option A</span>
+        <p class="card__text" id="card-a-text"></p>
+        <div class="card__results" id="results-a" aria-hidden="true">
+          <div class="card__progress">
+            <div class="card__progress-bar card__progress-bar--a" id="progress-a"></div>
+          </div>
+          <span class="card__percentage" id="percentage-a">0%</span>
+          <span class="card__votes" id="votes-a"></span>
+        </div>
+      </article>
+
+      <div class="vs-badge" aria-hidden="true">VS</div>
+
+      <article class="card card--b" id="card-b" role="button" tabindex="0" aria-label="Option B">
+        <span class="card__label">Option B</span>
+        <p class="card__text" id="card-b-text"></p>
+        <div class="card__results" id="results-b" aria-hidden="true">
+          <div class="card__progress">
+            <div class="card__progress-bar card__progress-bar--b" id="progress-b"></div>
+          </div>
+          <span class="card__percentage" id="percentage-b">0%</span>
+          <span class="card__votes" id="votes-b"></span>
+        </div>
+      </article>
+    </section>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button class="btn btn--next" id="btn-next" disabled>Next &rarr;</button>
+      <button class="btn btn--reset" id="btn-reset">Reset</button>
+    </div>
+
+    <!-- Done Screen -->
+    <section class="done-screen" id="done-screen" aria-hidden="true">
+      <h2 class="done-screen__title">&#127881; All Done!</h2>
+      <p class="done-screen__text">You've answered every dilemma. Want to play again?</p>
+      <button class="btn btn--next" id="btn-replay">&#128260; Play Again</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__text">You've answered <span id="total-answered">0</span> questions &mdash; Would You Rather? &copy; 2026</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

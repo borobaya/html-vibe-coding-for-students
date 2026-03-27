@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colour Palette Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <!-- Toolbar -->
+  <header class="toolbar" role="banner">
+    <h1 class="toolbar__title">Colour Palette Generator</h1>
+
+    <label for="harmony-mode" class="visually-hidden">Harmony mode</label>
+    <select id="harmony-mode" class="toolbar__select" aria-label="Harmony mode">
+      <option value="random">Random</option>
+      <option value="complementary">Complementary</option>
+      <option value="analogous">Analogous</option>
+      <option value="triadic">Triadic</option>
+      <option value="split-complementary">Split-Complementary</option>
+      <option value="monochromatic">Monochromatic</option>
+    </select>
+
+    <button id="generate-btn" class="toolbar__button" type="button">Generate</button>
+    <span class="toolbar__hint">or press Space</span>
+  </header>
+
+  <!-- Palette -->
+  <main class="palette" role="main">
+    <section class="swatch" data-index="0" aria-label="Swatch 1">
+      <button class="swatch__lock" aria-pressed="false" aria-label="Lock swatch" type="button">🔓</button>
+      <span class="swatch__hex" role="button" tabindex="0">#000000</span>
+      <span class="swatch__rgb" role="button" tabindex="0">rgb(0, 0, 0)</span>
+      <span class="swatch__tooltip" aria-live="polite"></span>
+    </section>
+
+    <section class="swatch" data-index="1" aria-label="Swatch 2">
+      <button class="swatch__lock" aria-pressed="false" aria-label="Lock swatch" type="button">🔓</button>
+      <span class="swatch__hex" role="button" tabindex="0">#000000</span>
+      <span class="swatch__rgb" role="button" tabindex="0">rgb(0, 0, 0)</span>
+      <span class="swatch__tooltip" aria-live="polite"></span>
+    </section>
+
+    <section class="swatch" data-index="2" aria-label="Swatch 3">
+      <button class="swatch__lock" aria-pressed="false" aria-label="Lock swatch" type="button">🔓</button>
+      <span class="swatch__hex" role="button" tabindex="0">#000000</span>
+      <span class="swatch__rgb" role="button" tabindex="0">rgb(0, 0, 0)</span>
+      <span class="swatch__tooltip" aria-live="polite"></span>
+    </section>
+
+    <section class="swatch" data-index="3" aria-label="Swatch 4">
+      <button class="swatch__lock" aria-pressed="false" aria-label="Lock swatch" type="button">🔓</button>
+      <span class="swatch__hex" role="button" tabindex="0">#000000</span>
+      <span class="swatch__rgb" role="button" tabindex="0">rgb(0, 0, 0)</span>
+      <span class="swatch__tooltip" aria-live="polite"></span>
+    </section>
+
+    <section class="swatch" data-index="4" aria-label="Swatch 5">
+      <button class="swatch__lock" aria-pressed="false" aria-label="Lock swatch" type="button">🔓</button>
+      <span class="swatch__hex" role="button" tabindex="0">#000000</span>
+      <span class="swatch__rgb" role="button" tabindex="0">rgb(0, 0, 0)</span>
+      <span class="swatch__tooltip" aria-live="polite"></span>
+    </section>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

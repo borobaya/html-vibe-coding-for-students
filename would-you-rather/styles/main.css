@@ -1,0 +1,370 @@
+/**
+ * File: main.css
+ * Description: Would You Rather styles — vibrant dark theme with gradient cards
+ * Author: AI4Students
+ * Created: 2025-01-20
+ * Last Modified: 2025-01-20
+ */
+
+:root {
+  --bg-primary: #0F0E17;
+  --bg-surface: #1A1A2E;
+  --card-a-start: #7F5AF0;
+  --card-a-end: #5A2D82;
+  --card-b-start: #FF6B6B;
+  --card-b-end: #C23A5B;
+  --text-primary: #FFFFFE;
+  --text-secondary: #A7A9BE;
+  --accent: #2CB67D;
+  --accent-hover: #3DD68C;
+  --danger: #E53170;
+  --danger-hover: #FF4F8B;
+  --vs-colour: #FFD803;
+  --border: #2E2E4A;
+  --progress-track: #2A2A3D;
+  --progress-fill-a: #7F5AF0;
+  --progress-fill-b: #FF6B6B;
+  --glow-selected: rgba(255, 255, 255, 0.25);
+  --disabled: #555570;
+  --font-main: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+  --font-accent: 'Fredoka One', 'Poppins', cursive, sans-serif;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.header {
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.header__title {
+  font-family: var(--font-accent);
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.header__subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* ── App ────────────────────────────────────────────── */
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md) var(--spacing-xl);
+}
+
+/* ── Counter ────────────────────────────────────────── */
+.counter {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.counter__text {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.counter__dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.counter__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.counter__dot--active {
+  background: var(--vs-colour);
+  transform: scale(1.3);
+}
+
+.counter__dot--done {
+  background: var(--accent);
+}
+
+/* ── Dilemma (Cards + VS) ───────────────────────────── */
+.dilemma {
+  display: flex;
+  align-items: stretch;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+/* ── Cards ──────────────────────────────────────────── */
+.card {
+  flex: 1;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), opacity var(--transition-normal);
+  outline: none;
+  min-height: 240px;
+  position: relative;
+}
+
+.card:focus-visible {
+  outline: 3px solid var(--vs-colour);
+  outline-offset: 4px;
+}
+
+.card--a {
+  background: linear-gradient(135deg, var(--card-a-start), var(--card-a-end));
+}
+
+.card--b {
+  background: linear-gradient(135deg, var(--card-b-start), var(--card-b-end));
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.card--selected {
+  transform: scale(1.05);
+  animation: pulse-glow 1.5s ease-in-out infinite;
+  box-shadow: 0 0 30px var(--glow-selected);
+}
+
+.card--dimmed {
+  opacity: 0.55;
+  transform: scale(0.97);
+  pointer-events: none;
+}
+
+.card--voted {
+  cursor: default;
+}
+
+.card--voted:hover {
+  transform: none;
+}
+
+.card--selected.card--voted:hover {
+  transform: scale(1.05);
+}
+
+.card__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.7;
+  margin-bottom: var(--spacing-sm);
+}
+
+.card__text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* ── Results ────────────────────────────────────────── */
+.card__results {
+  width: 100%;
+  margin-top: var(--spacing-lg);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.card__results--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card__progress {
+  width: 100%;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--progress-track);
+  overflow: hidden;
+  margin-bottom: var(--spacing-sm);
+}
+
+.card__progress-bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  width: 0%;
+  transition: width 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card__progress-bar--a {
+  background: var(--text-primary);
+}
+
+.card__progress-bar--b {
+  background: var(--text-primary);
+}
+
+.card__percentage {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: block;
+}
+
+.card__votes {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  display: block;
+}
+
+/* ── VS Badge ───────────────────────────────────────── */
+.vs-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--vs-colour);
+  color: var(--bg-primary);
+  font-family: var(--font-accent);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  align-self: center;
+  box-shadow: 0 4px 16px rgba(255, 216, 3, 0.3);
+}
+
+/* ── Controls ───────────────────────────────────────── */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  border: none;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--vs-colour);
+  outline-offset: 3px;
+}
+
+.btn--next {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+.btn--next:hover:not(:disabled) { background: var(--accent-hover); transform: scale(1.05); }
+.btn--next:disabled { background: var(--disabled); cursor: not-allowed; }
+
+.btn--reset {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.btn--reset:hover { background: var(--danger); color: var(--text-primary); }
+
+/* ── Done Screen ────────────────────────────────────── */
+.done-screen {
+  display: none;
+  text-align: center;
+  padding: var(--spacing-2xl);
+}
+
+.done-screen--visible { display: block; animation: fade-in 0.5s ease; }
+
+.done-screen__title {
+  font-family: var(--font-accent);
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.done-screen__text {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* ── Footer ─────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  padding: var(--spacing-lg);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+/* ── Keyframes ──────────────────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px var(--glow-selected); }
+  50% { box-shadow: 0 0 40px var(--glow-selected); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 640px) {
+  .header__title { font-size: 1.75rem; }
+  .dilemma { flex-direction: column; gap: var(--spacing-md); }
+  .card { min-height: 160px; padding: var(--spacing-lg); }
+  .card__text { font-size: 1.05rem; }
+  .vs-badge { width: 44px; height: 44px; font-size: 1rem; align-self: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

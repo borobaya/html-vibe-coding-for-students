@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Weather Dashboard — search for any city to view current conditions and a 5-day forecast">
+  <title>Weather Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__title">
+      <span class="header__icon" aria-hidden="true">☁️</span>
+      <h1 class="header__heading">Weather Dashboard</h1>
+    </div>
+    <div class="unit-toggle" role="radiogroup" aria-label="Temperature unit">
+      <button class="unit-toggle__btn unit-toggle__btn--active" data-unit="metric" aria-pressed="true">°C</button>
+      <button class="unit-toggle__btn" data-unit="imperial" aria-pressed="false">°F</button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- SEARCH SECTION -->
+    <section class="search" aria-label="City search">
+      <form class="search__form" role="search">
+        <label for="search-input" class="sr-only">Search for a city</label>
+        <input
+          type="text"
+          id="search-input"
+          class="search__input"
+          placeholder="Search for a city..."
+          autocomplete="off"
+          required
+        >
+        <button type="submit" class="search__btn" aria-label="Search">
+          <span aria-hidden="true">🔍</span>
+        </button>
+      </form>
+      <div class="search__recent" aria-label="Recent searches" role="list"></div>
+    </section>
+
+    <!-- ERROR MESSAGE (hidden by default) -->
+    <div class="error" role="alert" aria-live="polite" hidden>
+      <span class="error__icon" aria-hidden="true">⚠️</span>
+      <p class="error__message"></p>
+    </div>
+
+    <!-- LOADING SPINNER (hidden by default) -->
+    <div class="loading" aria-live="polite" hidden>
+      <div class="loading__spinner" aria-hidden="true"></div>
+      <p class="loading__text">Fetching weather data...</p>
+    </div>
+
+    <!-- WEATHER DASHBOARD (hidden until data loads) -->
+    <div class="dashboard" hidden>
+
+      <!-- Top row: Current Weather + Details -->
+      <div class="dashboard__top">
+
+        <!-- CURRENT WEATHER CARD -->
+        <section class="current-weather" aria-label="Current weather conditions">
+          <h2 class="current-weather__city">
+            <span class="current-weather__city-name">—</span>,
+            <span class="current-weather__country">—</span>
+          </h2>
+          <div class="current-weather__icon" aria-hidden="true">☀️</div>
+          <p class="current-weather__temp">—°</p>
+          <p class="current-weather__description">—</p>
+          <p class="current-weather__updated">
+            <time class="current-weather__time" datetime="">—</time>
+          </p>
+        </section>
+
+        <!-- WEATHER DETAILS PANEL -->
+        <section class="weather-details" aria-label="Detailed weather information">
+          <h2 class="weather-details__title">Weather Details</h2>
+          <dl class="weather-details__grid">
+            <div class="weather-details__item">
+              <dt class="weather-details__label">
+                <span class="weather-details__icon" aria-hidden="true">💧</span> Humidity
+              </dt>
+              <dd class="weather-details__value" data-detail="humidity">—%</dd>
+            </div>
+            <div class="weather-details__item">
+              <dt class="weather-details__label">
+                <span class="weather-details__icon" aria-hidden="true">💨</span> Wind
+              </dt>
+              <dd class="weather-details__value" data-detail="wind">— km/h</dd>
+            </div>
+            <div class="weather-details__item">
+              <dt class="weather-details__label">
+                <span class="weather-details__icon" aria-hidden="true">🌡️</span> Feels Like
+              </dt>
+              <dd class="weather-details__value" data-detail="feels-like">—°</dd>
+            </div>
+            <div class="weather-details__item">
+              <dt class="weather-details__label">
+                <span class="weather-details__icon" aria-hidden="true">📊</span> Pressure
+              </dt>
+              <dd class="weather-details__value" data-detail="pressure">— hPa</dd>
+            </div>
+            <div class="weather-details__item">
+              <dt class="weather-details__label">
+                <span class="weather-details__icon" aria-hidden="true">👁️</span> Visibility
+              </dt>
+              <dd class="weather-details__value" data-detail="visibility">— km</dd>
+            </div>
+            <div class="weather-details__item">
+              <dt class="weather-details__label">
+                <span class="weather-details__icon" aria-hidden="true">🌅</span> Sunrise
+              </dt>
+              <dd class="weather-details__value" data-detail="sunrise">—</dd>
+            </div>
+            <div class="weather-details__item">
+              <dt class="weather-details__label">
+                <span class="weather-details__icon" aria-hidden="true">🌇</span> Sunset
+              </dt>
+              <dd class="weather-details__value" data-detail="sunset">—</dd>
+            </div>
+            <div class="weather-details__item">
+              <dt class="weather-details__label">
+                <span class="weather-details__icon" aria-hidden="true">🧭</span> Wind Dir
+              </dt>
+              <dd class="weather-details__value" data-detail="wind-direction">—</dd>
+            </div>
+          </dl>
+        </section>
+
+      </div>
+
+      <!-- FORECAST SECTION -->
+      <section class="forecast" aria-label="5-day weather forecast">
+        <h2 class="forecast__title">5-Day Forecast</h2>
+        <div class="forecast__cards" role="list"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer__text">
+      Data provided by <a href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer" class="footer__link">OpenWeatherMap</a>
+      &bull; Weather Dashboard &copy; 2026
+    </p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

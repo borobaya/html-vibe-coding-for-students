@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fortune Teller</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@400;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <main class="app" role="main">
+    <header class="app__header">
+      <h1 class="app__title">Fortune Teller</h1>
+      <p class="app__subtitle">&#10022; Ask the Magic 8-Ball &#10022;</p>
+    </header>
+
+    <p class="app__prompt" id="prompt-text">Think of a yes-or-no question&hellip;</p>
+
+    <section class="ball-container" aria-label="Magic 8-Ball">
+      <div class="ball" id="magic-ball" role="button" tabindex="0" aria-label="Shake the Magic 8-Ball">
+        <div class="ball__glow" id="ball-glow" aria-hidden="true"></div>
+        <div class="ball__body">
+          <div class="ball__shine" aria-hidden="true"></div>
+          <span class="ball__eight" aria-hidden="true">8</span>
+          <div class="ball__window">
+            <div class="ball__triangle" id="answer-triangle">
+              <p class="ball__answer" id="answer-text" aria-live="polite" aria-atomic="true"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="question-section" aria-label="Ask your question">
+      <label class="sr-only" for="question-input">Type your yes-or-no question</label>
+      <input
+        id="question-input"
+        class="question-section__input"
+        type="text"
+        maxlength="200"
+        placeholder="Type your question here&hellip;"
+        autocomplete="off"
+      />
+    </section>
+
+    <section class="action-section">
+      <button id="shake-btn" class="shake-btn">&#128302; Shake</button>
+    </section>
+
+    <p class="app__tip" id="tip-text">
+      <span class="app__tip-icon" aria-hidden="true">&#128241;</span>
+      You can also shake your phone!
+    </p>
+  </main>
+
+  <footer class="app__footer">
+    <p>&copy; 2026 Fortune Teller</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

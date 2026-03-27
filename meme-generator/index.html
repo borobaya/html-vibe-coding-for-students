@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meme Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <h1 class="app-header__title">Meme Generator</h1>
+    <p class="app-header__subtitle">Upload an image, add text, download your meme</p>
+  </header>
+
+  <main class="app-main">
+    <!-- Upload Section -->
+    <section id="upload-section" class="upload-zone" aria-label="Image upload">
+      <div id="drop-zone" class="upload-zone__inner" role="button" tabindex="0" aria-label="Click or drag an image here to upload">
+        <div class="upload-zone__icon" aria-hidden="true">📁</div>
+        <p class="upload-zone__label"><strong>Click</strong> or <strong>drag &amp; drop</strong> an image here</p>
+        <p class="upload-zone__label">(PNG, JPEG, GIF, WebP — max 10 MB)</p>
+        <input type="file" id="file-input" class="upload-zone__input" accept="image/png,image/jpeg,image/gif,image/webp" aria-label="Choose image file" />
+      </div>
+    </section>
+
+    <!-- Canvas + Controls Section -->
+    <section id="canvas-section" class="canvas-section canvas-section--hidden" aria-label="Meme editor">
+      <canvas id="meme-canvas" class="canvas-section__preview" aria-label="Meme preview"></canvas>
+
+      <div class="controls" id="controls-section">
+        <!-- Text inputs -->
+        <div class="controls__group">
+          <div class="controls__field">
+            <label for="top-text" class="controls__label">Top Text</label>
+            <input type="text" id="top-text" class="controls__input" maxlength="120" placeholder="TOP TEXT" />
+          </div>
+          <div class="controls__field">
+            <label for="bottom-text" class="controls__label">Bottom Text</label>
+            <input type="text" id="bottom-text" class="controls__input" maxlength="120" placeholder="BOTTOM TEXT" />
+          </div>
+        </div>
+
+        <!-- Font & Size -->
+        <div class="controls__group">
+          <div class="controls__field">
+            <label for="font-select" class="controls__label">Font</label>
+            <select id="font-select" class="controls__select">
+              <option value="Impact, 'Arial Black', sans-serif" selected>Impact</option>
+              <option value="'Arial Black', Gadget, sans-serif">Arial Black</option>
+              <option value="'Comic Sans MS', cursive">Comic Sans</option>
+              <option value="'Courier New', monospace">Courier New</option>
+              <option value="Georgia, serif">Georgia</option>
+            </select>
+          </div>
+          <div class="controls__field">
+            <label for="font-size" class="controls__label">Font Size</label>
+            <select id="font-size" class="controls__select">
+              <option value="24">Small (24)</option>
+              <option value="36">Medium (36)</option>
+              <option value="48" selected>Large (48)</option>
+              <option value="60">Extra Large (60)</option>
+              <option value="72">Huge (72)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Colours & Actions -->
+        <div class="controls__group">
+          <div class="controls__field">
+            <label for="text-colour" class="controls__label">Text Colour</label>
+            <input type="color" id="text-colour" class="controls__colour" value="#ffffff" />
+          </div>
+          <div class="controls__field">
+            <label for="stroke-colour" class="controls__label">Stroke Colour</label>
+            <input type="color" id="stroke-colour" class="controls__colour" value="#000000" />
+          </div>
+          <div class="controls__actions">
+            <button id="change-image-btn" class="btn btn--secondary" type="button">Change Image</button>
+            <button id="download-btn" class="btn btn--primary" type="button" disabled>Download Meme</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Meme Generator &bull; AI4Students 2026</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quiz Battle — a two-player trivia game">
+  <title>Quiz Battle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- Start Screen -->
+  <section id="start-screen" class="screen screen--active" aria-label="Game setup">
+    <header class="start-screen__header">
+      <h1 class="start-screen__title">Quiz Battle <span aria-hidden="true">⚔️</span></h1>
+      <p class="start-screen__tagline">Test your knowledge — head to head!</p>
+    </header>
+
+    <form id="setup-form" class="setup-form" novalidate>
+      <div class="setup-form__players">
+        <div class="setup-form__player setup-form__player--p1">
+          <label for="player1-name" class="setup-form__label">Player 1</label>
+          <input type="text" id="player1-name" class="setup-form__input" placeholder="Enter name" maxlength="20" autocomplete="off" aria-describedby="player1-error">
+          <span id="player1-error" class="setup-form__error" role="alert" aria-live="polite"></span>
+        </div>
+        <div class="setup-form__player setup-form__player--p2">
+          <label for="player2-name" class="setup-form__label">Player 2</label>
+          <input type="text" id="player2-name" class="setup-form__input" placeholder="Enter name" maxlength="20" autocomplete="off" aria-describedby="player2-error">
+          <span id="player2-error" class="setup-form__error" role="alert" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <fieldset class="setup-form__fieldset">
+        <legend class="setup-form__legend">Choose a Category</legend>
+        <div class="setup-form__categories" role="radiogroup">
+          <label class="category-btn"><input type="radio" name="category" value="science"> Science</label>
+          <label class="category-btn"><input type="radio" name="category" value="history"> History</label>
+          <label class="category-btn"><input type="radio" name="category" value="geography"> Geography</label>
+          <label class="category-btn"><input type="radio" name="category" value="entertainment"> Entertainment</label>
+          <label class="category-btn"><input type="radio" name="category" value="sports"> Sports</label>
+          <label class="category-btn"><input type="radio" name="category" value="random" checked> Random</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="setup-form__fieldset">
+        <legend class="setup-form__legend">Number of Rounds</legend>
+        <div class="setup-form__rounds" role="radiogroup">
+          <label class="round-btn"><input type="radio" name="rounds" value="5" checked> 5</label>
+          <label class="round-btn"><input type="radio" name="rounds" value="10"> 10</label>
+          <label class="round-btn"><input type="radio" name="rounds" value="15"> 15</label>
+        </div>
+      </fieldset>
+
+      <button type="submit" id="start-btn" class="btn btn--primary btn--large">Start Battle</button>
+    </form>
+  </section>
+
+  <!-- Game Screen -->
+  <section id="game-screen" class="screen" hidden aria-label="Game in progress">
+    <header class="game-header">
+      <div class="game-header__player game-header__player--p1" aria-label="Player 1 score">
+        <span class="game-header__name" id="game-p1-name">Player 1</span>
+        <span class="game-header__score" id="game-p1-score">0</span>
+        <span class="game-header__streak" id="game-p1-streak"></span>
+      </div>
+      <div class="game-header__centre">
+        <div class="game-header__timer" id="timer-display" aria-live="polite" aria-label="Time remaining">
+          <span id="timer-text">15</span>
+        </div>
+        <div class="game-header__round" id="round-display">Round 1 / 10</div>
+      </div>
+      <div class="game-header__player game-header__player--p2" aria-label="Player 2 score">
+        <span class="game-header__name" id="game-p2-name">Player 2</span>
+        <span class="game-header__score" id="game-p2-score">0</span>
+        <span class="game-header__streak" id="game-p2-streak"></span>
+      </div>
+    </header>
+
+    <div class="timer-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+      <div class="timer-bar__fill" id="timer-bar-fill"></div>
+    </div>
+
+    <div class="turn-indicator" id="turn-indicator" aria-live="assertive">
+      <span id="turn-text">Player 1, it's your turn!</span>
+    </div>
+
+    <article class="question-card" id="question-card" aria-label="Current question">
+      <p class="question-card__category" id="question-category">Category</p>
+      <h2 class="question-card__text" id="question-text">Loading question...</h2>
+    </article>
+
+    <div class="answers" id="answers-container" role="group" aria-label="Answer options">
+      <button class="answer-btn" data-index="0" id="answer-0">A) —</button>
+      <button class="answer-btn" data-index="1" id="answer-1">B) —</button>
+      <button class="answer-btn" data-index="2" id="answer-2">C) —</button>
+      <button class="answer-btn" data-index="3" id="answer-3">D) —</button>
+    </div>
+
+    <div class="feedback-overlay" id="feedback-overlay" aria-live="polite" hidden>
+      <p class="feedback-overlay__text" id="feedback-text"></p>
+      <p class="feedback-overlay__points" id="feedback-points"></p>
+    </div>
+  </section>
+
+  <!-- Results Screen -->
+  <section id="results-screen" class="screen" hidden aria-label="Game results">
+    <header class="results-header">
+      <h1 class="results-header__title">🏆 Results 🏆</h1>
+      <p class="results-header__winner" id="winner-text">Player 1 wins!</p>
+    </header>
+
+    <div class="results-cards">
+      <article class="results-card results-card--p1" aria-label="Player 1 results">
+        <h2 class="results-card__name" id="results-p1-name">Player 1</h2>
+        <dl class="results-card__stats">
+          <div class="results-card__stat"><dt>Score</dt><dd id="results-p1-score">0</dd></div>
+          <div class="results-card__stat"><dt>Correct</dt><dd id="results-p1-correct">0 / 0</dd></div>
+          <div class="results-card__stat"><dt>Best Streak</dt><dd id="results-p1-streak">0</dd></div>
+          <div class="results-card__stat"><dt>Avg. Time</dt><dd id="results-p1-time">0s</dd></div>
+        </dl>
+      </article>
+      <article class="results-card results-card--p2" aria-label="Player 2 results">
+        <h2 class="results-card__name" id="results-p2-name">Player 2</h2>
+        <dl class="results-card__stats">
+          <div class="results-card__stat"><dt>Score</dt><dd id="results-p2-score">0</dd></div>
+          <div class="results-card__stat"><dt>Correct</dt><dd id="results-p2-correct">0 / 0</dd></div>
+          <div class="results-card__stat"><dt>Best Streak</dt><dd id="results-p2-streak">0</dd></div>
+          <div class="results-card__stat"><dt>Avg. Time</dt><dd id="results-p2-time">0s</dd></div>
+        </dl>
+      </article>
+    </div>
+
+    <div class="results-actions">
+      <button class="btn btn--primary" id="play-again-btn">Play Again</button>
+      <button class="btn btn--primary" id="change-category-btn">Change Category</button>
+    </div>
+  </section>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

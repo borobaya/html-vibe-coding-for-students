@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tower Defence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#game-canvas">Skip to game</a>
+
+  <header>
+    <h1>Tower Defence</h1>
+  </header>
+
+  <!-- HUD -->
+  <div class="hud" aria-label="Game stats">
+    <div class="hud__item"><span class="hud__label">Lives:</span><span class="hud__value" id="hud-lives">20</span></div>
+    <div class="hud__item"><span class="hud__label">Gold:</span><span class="hud__value" id="hud-gold">200</span></div>
+    <div class="hud__item"><span class="hud__label">Wave:</span><span class="hud__value" id="hud-wave">0</span></div>
+    <div class="hud__item"><span class="hud__label">Score:</span><span class="hud__value" id="hud-score">0</span></div>
+  </div>
+
+  <main id="main-content">
+    <!-- Canvas -->
+    <div class="canvas-wrapper">
+      <canvas id="game-canvas" aria-label="Tower defence game board"></canvas>
+      <div id="wave-announce" hidden aria-live="polite"></div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- Build Panel -->
+      <div class="panel">
+        <h2 class="panel__title">Build</h2>
+        <div id="build-menu" role="radiogroup" aria-label="Select turret to build"></div>
+      </div>
+
+      <!-- Upgrade Panel -->
+      <div class="panel" id="upgrade-panel" hidden>
+        <h2 class="panel__title">Upgrade</h2>
+        <p class="stat">Name: <span id="upgrade-name"></span></p>
+        <p class="stat">Damage: <span id="upgrade-damage"></span></p>
+        <p class="stat">Range: <span id="upgrade-range"></span></p>
+        <p class="stat">Upgrade: <span id="upgrade-cost"></span>g</p>
+        <button class="btn btn--upgrade" id="btn-upgrade">Upgrade</button>
+        <button class="btn btn--sell" id="btn-sell">Sell (<span id="sell-value"></span>g)</button>
+      </div>
+
+      <!-- Wave Panel -->
+      <div class="panel">
+        <h2 class="panel__title">Wave Info</h2>
+        <button class="btn btn--primary" id="btn-start-wave">Start Wave</button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Game Over Overlay -->
+  <div class="overlay" id="gameover-overlay" hidden>
+    <div class="overlay__box" role="dialog" aria-labelledby="go-title">
+      <h2 id="go-title">Game Over</h2>
+      <p>Final Score: <strong id="final-score">0</strong></p>
+      <button class="btn btn--primary" id="btn-restart">Play Again</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>Arrow keys / click to build &amp; upgrade. Press Start Wave to begin.</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

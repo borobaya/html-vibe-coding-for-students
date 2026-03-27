@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fake Text Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <!-- ── Header ─────────────────────────────────────── -->
+  <header class="site-header">
+    <h1 class="site-header__title">💬 Fake Text Generator</h1>
+    <button id="themeToggle" class="site-header__theme-toggle" aria-label="Toggle dark mode">🌙</button>
+  </header>
+
+  <!-- ── Main ───────────────────────────────────────── -->
+  <main class="app-layout">
+    <!-- Phone Preview -->
+    <section class="phone-preview" aria-label="Phone preview">
+      <div id="phoneFrame" class="phone-frame">
+        <!-- Status Bar -->
+        <div class="phone-frame__status-bar">
+          <span>9:41</span>
+          <span class="status-bar__icons">📶 🔋</span>
+        </div>
+
+        <!-- Chat Header -->
+        <div class="phone-frame__chat-header">
+          <span class="chat-header__back" aria-hidden="true">‹</span>
+          <div id="chatAvatar" class="chat-header__avatar">
+            <img id="avatarImg" class="chat-header__avatar-img"
+                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect fill='%23C7C7CC' width='36' height='36'/%3E%3Ccircle cx='18' cy='14' r='6' fill='%23fff'/%3E%3Cellipse cx='18' cy='30' rx='10' ry='8' fill='%23fff'/%3E%3C/svg%3E"
+                 alt="Contact avatar" />
+          </div>
+          <div>
+            <div id="chatName" class="chat-header__name">Contact</div>
+            <div class="chat-header__status">iMessage</div>
+          </div>
+        </div>
+
+        <!-- Messages -->
+        <div id="messagesContainer" class="phone-frame__messages">
+          <p id="emptyPlaceholder" class="messages__placeholder">No messages yet. Add one using the panel →</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Control Panel -->
+    <aside class="control-panel" aria-label="Message controls">
+      <!-- Contact Details -->
+      <fieldset class="control-panel__section">
+        <legend class="control-panel__legend">Contact Details</legend>
+
+        <label class="control-panel__label" for="contactName">Name</label>
+        <input id="contactName" class="control-panel__input" type="text" placeholder="Contact" maxlength="30" />
+
+        <label class="control-panel__label" for="avatarUpload">Upload Avatar</label>
+        <input id="avatarUpload" class="control-panel__file-input" type="file" accept="image/*" />
+
+        <span class="control-panel__label">Default Avatars</span>
+        <div id="defaultAvatars" class="control-panel__avatar-row">
+          <button type="button" class="avatar-option" data-emoji="😀" aria-label="Smiley avatar">😀</button>
+          <button type="button" class="avatar-option" data-emoji="😎" aria-label="Cool avatar">😎</button>
+          <button type="button" class="avatar-option" data-emoji="🤖" aria-label="Robot avatar">🤖</button>
+          <button type="button" class="avatar-option" data-emoji="👽" aria-label="Alien avatar">👽</button>
+        </div>
+      </fieldset>
+
+      <!-- Add Message -->
+      <fieldset class="control-panel__section">
+        <legend class="control-panel__legend">Add Message</legend>
+
+        <label class="control-panel__label" for="messageText">Message</label>
+        <textarea id="messageText" class="control-panel__textarea" placeholder="Type a message…" maxlength="500" rows="3"></textarea>
+        <span id="charCount" class="control-panel__char-count">0 / 500</span>
+
+        <div class="control-panel__direction">
+          <label class="control-panel__radio-label">
+            <input type="radio" name="direction" value="sent" checked />
+            Sent
+          </label>
+          <label class="control-panel__radio-label">
+            <input type="radio" name="direction" value="received" />
+            Received
+          </label>
+        </div>
+
+        <label class="control-panel__label" for="messageTime">Time (optional)</label>
+        <input id="messageTime" class="control-panel__time-input" type="time" />
+
+        <button id="addMessageBtn" type="button" class="control-panel__btn control-panel__btn--add">Add Message</button>
+      </fieldset>
+
+      <!-- Actions -->
+      <fieldset class="control-panel__section">
+        <legend class="control-panel__legend">Actions</legend>
+        <div class="control-panel__actions">
+          <button id="downloadBtn" type="button" class="control-panel__btn control-panel__btn--download">📥 Download PNG</button>
+          <button id="clearBtn" type="button" class="control-panel__btn control-panel__btn--clear">🗑️ Clear All</button>
+        </div>
+      </fieldset>
+    </aside>
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────── -->
+  <footer class="site-footer">
+    <p>Fake Text Generator &mdash; AI4Students 2026</p>
+  </footer>
+
+  <!-- html2canvas CDN (deferred) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

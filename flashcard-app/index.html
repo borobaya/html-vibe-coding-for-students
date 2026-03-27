@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashcard App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header__inner">
+      <span class="header__logo" aria-hidden="true">📚</span>
+      <h1 class="header__title">Flashcard App</h1>
+    </div>
+  </header>
+
+  <main id="app-main" class="app-main">
+    <!-- ═══ View: Deck List ═══ -->
+    <section id="view-deck-list" class="view">
+      <div class="view-header">
+        <h2 class="view-header__title">My Decks</h2>
+        <button id="btn-new-deck" class="btn btn--primary" type="button">+ New Deck</button>
+      </div>
+      <div id="empty-state-decks" class="empty-state" hidden>
+        <div class="empty-state__icon" aria-hidden="true">🗂️</div>
+        <p>No decks yet — create one to get started!</p>
+      </div>
+      <div id="deck-grid" class="deck-grid"></div>
+    </section>
+
+    <!-- ═══ View: Deck Detail ═══ -->
+    <section id="view-deck-detail" class="view" hidden>
+      <div class="deck-detail__header">
+        <button id="btn-back-to-decks" class="btn btn--ghost" type="button">← Back</button>
+        <h2 class="deck-detail__title">Deck</h2>
+        <button id="btn-rename-deck" class="btn btn--ghost btn--icon" type="button" aria-label="Rename deck">✏️</button>
+        <button id="btn-delete-deck" class="btn btn--danger-ghost btn--icon" type="button" aria-label="Delete deck">🗑️</button>
+      </div>
+
+      <div class="stats-bar" id="deck-stats">
+        <div class="stats-bar__item">
+          <span id="stat-total" class="stats-bar__value">0</span>
+          <span class="stats-bar__label">Total</span>
+        </div>
+        <div class="stats-bar__item">
+          <span id="stat-mastered" class="stats-bar__value">0</span>
+          <span class="stats-bar__label">Mastered</span>
+        </div>
+        <div class="stats-bar__item">
+          <span id="stat-percent" class="stats-bar__value">0%</span>
+          <span class="stats-bar__label">Progress</span>
+        </div>
+      </div>
+
+      <div id="deck-progress" class="progress-bar">
+        <div id="deck-progress-fill" class="progress-bar__fill" style="width: 0%"></div>
+      </div>
+
+      <div class="action-bar">
+        <button id="btn-add-card" class="btn btn--primary" type="button">+ Add Card</button>
+        <button id="btn-study-deck" class="btn btn--mastered" type="button" disabled>Study</button>
+      </div>
+
+      <div id="empty-state-cards" class="empty-state" hidden>
+        <div class="empty-state__icon" aria-hidden="true">📝</div>
+        <p>No cards yet — add some to start studying!</p>
+      </div>
+      <ul id="card-list" class="card-list"></ul>
+    </section>
+
+    <!-- ═══ View: Study ═══ -->
+    <section id="view-study" class="view" hidden>
+      <div class="study-header">
+        <button id="btn-exit-study" class="btn btn--ghost" type="button">✕ Exit</button>
+        <span id="study-counter" class="study-counter" aria-live="polite">1 / 10</span>
+      </div>
+
+      <div id="study-progress" class="progress-bar">
+        <div id="study-progress-fill" class="progress-bar__fill" style="width: 0%"></div>
+      </div>
+
+      <div id="flashcard-container" class="flashcard-container" role="button" aria-label="Click to flip card">
+        <div id="flashcard" class="flashcard" aria-live="polite">
+          <div id="flashcard-front" class="flashcard__face flashcard__front">
+            <span class="flashcard__label">Question</span>
+            <p id="flashcard-question" class="flashcard__content"></p>
+            <span class="flashcard__hint">Click to reveal answer</span>
+          </div>
+          <div id="flashcard-back" class="flashcard__face flashcard__back">
+            <span class="flashcard__label">Answer</span>
+            <p id="flashcard-answer" class="flashcard__content"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="study-actions">
+        <button id="btn-still-learning" class="btn btn--review" type="button">Still Learning</button>
+        <button id="btn-mastered" class="btn btn--mastered" type="button">✓ Mastered</button>
+      </div>
+
+      <div class="study-controls">
+        <button id="btn-shuffle" class="btn btn--ghost" type="button">🔀 Shuffle</button>
+        <button id="btn-filter-unmastered" class="btn btn--ghost" type="button">🎯 Unmastered Only</button>
+      </div>
+    </section>
+
+    <!-- ═══ View: Complete ═══ -->
+    <section id="view-complete" class="view" hidden>
+      <div class="complete-screen">
+        <div class="complete-screen__icon" aria-hidden="true">🎉</div>
+        <h2 class="complete-screen__title">Session Complete!</h2>
+
+        <div class="complete-stats">
+          <div class="complete-stat">
+            <span id="complete-total" class="complete-stat__value">0</span>
+            <span class="complete-stat__label">Total</span>
+          </div>
+          <div class="complete-stat">
+            <span id="complete-mastered" class="complete-stat__value">0</span>
+            <span class="complete-stat__label">Mastered</span>
+          </div>
+          <div class="complete-stat">
+            <span id="complete-learning" class="complete-stat__value">0</span>
+            <span class="complete-stat__label">Learning</span>
+          </div>
+          <div class="complete-stat">
+            <span id="complete-percent" class="complete-stat__value">0%</span>
+            <span class="complete-stat__label">Mastery</span>
+          </div>
+        </div>
+
+        <div class="complete-actions">
+          <button id="btn-study-again" class="btn btn--primary" type="button">Study Again</button>
+          <button id="btn-back-to-deck" class="btn btn--ghost" type="button">← Back to Deck</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ Modal: New Deck ═══ -->
+  <dialog id="modal-deck">
+    <h2 class="modal__title">New Deck</h2>
+    <form id="form-deck">
+      <div class="form-group">
+        <label for="input-deck-name" class="form-label">Deck Name</label>
+        <input type="text" id="input-deck-name" class="form-input" required maxlength="60" placeholder="e.g. Biology Chapter 5" />
+      </div>
+      <div class="modal__actions">
+        <button type="button" id="btn-cancel-deck" class="btn btn--ghost">Cancel</button>
+        <button type="submit" id="btn-save-deck" class="btn btn--primary">Create</button>
+      </div>
+    </form>
+    <button type="button" id="btn-close-deck-modal" class="btn btn--ghost btn--icon" aria-label="Close" style="position:absolute;top:12px;right:12px;">✕</button>
+  </dialog>
+
+  <!-- ═══ Modal: Add/Edit Card ═══ -->
+  <dialog id="modal-card">
+    <h2 class="modal__title">Card</h2>
+    <form id="form-card">
+      <div class="form-group">
+        <label for="input-question" class="form-label">Question</label>
+        <textarea id="input-question" class="form-input form-input--textarea" required maxlength="500" placeholder="Enter the question…"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="input-answer" class="form-label">Answer</label>
+        <textarea id="input-answer" class="form-input form-input--textarea" required maxlength="500" placeholder="Enter the answer…"></textarea>
+      </div>
+      <div class="modal__actions">
+        <button type="button" id="btn-cancel-card" class="btn btn--ghost">Cancel</button>
+        <button type="submit" id="btn-save-card" class="btn btn--primary">Save</button>
+      </div>
+    </form>
+    <button type="button" id="btn-close-modal" class="btn btn--ghost btn--icon" aria-label="Close" style="position:absolute;top:12px;right:12px;">✕</button>
+  </dialog>
+
+  <!-- ═══ Modal: Confirm Delete ═══ -->
+  <dialog id="modal-confirm">
+    <h2 class="modal__title">Confirm Delete</h2>
+    <p id="confirm-message" class="form-label" style="margin-bottom:var(--space-lg)">Are you sure you want to delete this deck and all its cards?</p>
+    <div class="modal__actions">
+      <button type="button" id="btn-confirm-cancel" class="btn btn--ghost">Cancel</button>
+      <button type="button" id="btn-confirm-delete" class="btn btn--danger">Delete</button>
+    </div>
+  </dialog>
+
+  <footer class="app-footer">
+    <p>Flashcard App &bull; AI4Students 2026</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

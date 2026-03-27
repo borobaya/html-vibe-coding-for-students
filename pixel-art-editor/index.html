@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Art Editor</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <h1>Pixel Art Editor</h1>
+    <div class="header-actions">
+      <button class="header-btn" id="btn-undo" disabled aria-label="Undo">↶ Undo</button>
+      <button class="header-btn" id="btn-redo" disabled aria-label="Redo">↷ Redo</button>
+    </div>
+  </header>
+
+  <div class="app-body">
+    <aside class="toolbar" role="toolbar" aria-label="Drawing tools">
+
+      <section class="tool-section">
+        <h3>Tools</h3>
+        <div class="tool-buttons">
+          <button class="tool-btn active" data-tool="pencil" aria-pressed="true">✏️ Pencil</button>
+          <button class="tool-btn" data-tool="eraser" aria-pressed="false">🧹 Eraser</button>
+          <button class="tool-btn" data-tool="fill" aria-pressed="false">🪣 Fill</button>
+          <button class="tool-btn" data-tool="picker" aria-pressed="false">💧 Picker</button>
+        </div>
+      </section>
+
+      <section class="colour-section">
+        <h3>Colour</h3>
+        <input type="color" id="colour-input" value="#000000" aria-label="Choose colour">
+        <div id="current-colour-preview" class="current-colour-preview" style="background-color: #000000;" aria-label="Current colour"></div>
+        <h3>Palette</h3>
+        <div id="palette-swatches" class="palette-swatches" role="list"></div>
+        <h3>Recent</h3>
+        <div id="recent-colours" class="recent-colours" role="list"></div>
+      </section>
+
+      <section class="size-section">
+        <h3>Grid Size</h3>
+        <div class="size-buttons">
+          <button class="size-btn" data-size="8">8×8</button>
+          <button class="size-btn active" data-size="16">16×16</button>
+          <button class="size-btn" data-size="32">32×32</button>
+          <button class="size-btn" data-size="64">64×64</button>
+        </div>
+      </section>
+
+      <section class="actions-section">
+        <h3>Actions</h3>
+        <div class="action-buttons">
+          <button class="action-btn action-btn--danger" id="btn-clear">🗑️ Clear</button>
+          <button class="action-btn action-btn--success" id="btn-export">📥 Export PNG</button>
+        </div>
+      </section>
+
+    </aside>
+
+    <main class="canvas-area">
+      <div class="canvas-container">
+        <div id="pixel-canvas" class="pixel-canvas" role="grid"></div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="app-footer">
+    <span>P Pencil · E Eraser · F Fill · I Picker · Ctrl+Z Undo · Ctrl+Y Redo · Ctrl+S Export</span>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

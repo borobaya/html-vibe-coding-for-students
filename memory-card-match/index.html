@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Memory Card Match — flip cards and find matching pairs across three difficulty levels.">
+  <title>Memory Card Match</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="header__title">Memory Card Match</h1>
+    <button class="header__help-btn" id="help-btn" aria-expanded="false" aria-controls="help-panel">How to Play</button>
+    <div class="header__help-panel" id="help-panel" role="region" aria-labelledby="help-btn" hidden>
+      <p>Flip two cards at a time. If they match they stay face-up. Match every pair to win!</p>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="controls" aria-label="Game controls">
+      <fieldset class="controls__difficulty">
+        <legend class="controls__legend">Difficulty</legend>
+        <label class="controls__label">
+          <input type="radio" name="difficulty" value="easy" checked class="controls__radio">
+          Easy (4×3)
+        </label>
+        <label class="controls__label">
+          <input type="radio" name="difficulty" value="medium" class="controls__radio">
+          Medium (4×4)
+        </label>
+        <label class="controls__label">
+          <input type="radio" name="difficulty" value="hard" class="controls__radio">
+          Hard (6×4)
+        </label>
+      </fieldset>
+      <button class="controls__start-btn" id="start-btn">Start Game</button>
+    </section>
+
+    <section class="stats" aria-label="Game statistics">
+      <div class="stats__item" aria-live="polite">
+        <span class="stats__icon" aria-hidden="true">⏱</span>
+        <span class="stats__label">Time</span>
+        <span class="stats__value" id="timer-display">00:00</span>
+      </div>
+      <div class="stats__item" aria-live="polite">
+        <span class="stats__icon" aria-hidden="true">🔄</span>
+        <span class="stats__label">Moves</span>
+        <span class="stats__value" id="moves-display">0</span>
+      </div>
+      <div class="stats__item" aria-live="polite">
+        <span class="stats__icon" aria-hidden="true">✅</span>
+        <span class="stats__label">Matches</span>
+        <span class="stats__value" id="matches-display">0 / 0</span>
+      </div>
+    </section>
+
+    <section class="board" aria-label="Game board">
+      <div class="board__grid" id="card-grid" role="list"></div>
+    </section>
+  </main>
+
+  <div class="overlay" id="win-overlay" role="dialog" aria-modal="true" aria-labelledby="win-title" hidden>
+    <div class="overlay__content">
+      <h2 class="overlay__title" id="win-title">🎉 You Win!</h2>
+      <p class="overlay__stat">Time: <span id="win-time">00:00</span></p>
+      <p class="overlay__stat">Moves: <span id="win-moves">0</span></p>
+      <button class="overlay__btn" id="play-again-btn">Play Again</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer__text">&copy; 2026 Memory Card Match</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+/**
+ * File: main.css
+ * Description: Styles for Traffic Light Simulator
+ * Author: AI4Students
+ * Created: 2025-01-20
+ * Last Modified: 2025-01-20
+ */
+
+/* ── CSS Variables ── */
+:root {
+  --bg-primary: #1a1a2e;
+  --bg-surface: #16213e;
+  --bg-panel: #0f3460;
+  --text-primary: #e8e8e8;
+  --text-secondary: #a0a0b8;
+  --accent: #e94560;
+  --green: #43a047;
+  --amber: #ffb300;
+  --red: #e53935;
+  --border: #2a2a4a;
+  --radius: 8px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Consolas', 'Courier New', monospace;
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+.header {
+  background: var(--bg-surface);
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.header__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.header__subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+/* ── Main Layout ── */
+.main {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  flex: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Canvas ── */
+.canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#sim-canvas {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Control Panel ── */
+.control-panel {
+  background: var(--bg-surface);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+.control-panel fieldset {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+}
+
+.control-panel legend {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 0 0.4rem;
+}
+
+/* ── Slider Rows ── */
+.slider-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.slider-row label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  min-width: 70px;
+}
+
+.slider-row input[type="range"] {
+  flex: 1;
+  height: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--border);
+  border-radius: 3px;
+  outline: none;
+}
+
+.slider-row input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+.slider-row input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: none;
+}
+
+.slider-row output {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  min-width: 28px;
+  text-align: right;
+  color: var(--text-primary);
+}
+
+/* ── Buttons ── */
+.btn-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  flex: 1;
+  min-width: 0;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--start {
+  background: var(--green);
+  color: #fff;
+}
+
+.btn--pause {
+  background: var(--amber);
+  color: #1a1a2e;
+}
+
+.btn--reset {
+  background: var(--red);
+  color: #fff;
+}
+
+.btn--ped {
+  background: var(--bg-panel);
+  color: var(--text-primary);
+  border: 1px solid var(--accent);
+  flex-basis: 100%;
+}
+
+/* ── Status Panel ── */
+.status-panel {
+  background: var(--bg-panel);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+}
+
+.status-panel h3 {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0;
+  font-size: 0.8rem;
+}
+
+.status-row__label {
+  color: var(--text-secondary);
+}
+
+.status-row__value {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.status-row__value[data-state="green"] {
+  color: var(--green);
+  text-shadow: 0 0 6px var(--green);
+}
+
+.status-row__value[data-state="amber"] {
+  color: var(--amber);
+  text-shadow: 0 0 6px var(--amber);
+}
+
+.status-row__value[data-state="red"] {
+  color: var(--red);
+  text-shadow: 0 0 6px var(--red);
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+}
+
+/* ── Responsive ── */
+@media (max-width: 899px) {
+  .main {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .control-panel {
+    max-height: none;
+  }
+}
+
+@media (max-width: 599px) {
+  .header__title {
+    font-size: 1.2rem;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .btn {
+    flex-basis: auto;
+  }
+}

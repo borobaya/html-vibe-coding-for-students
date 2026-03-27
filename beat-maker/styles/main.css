@@ -1,0 +1,154 @@
+/**
+ * File: main.css
+ * Description: Beat Maker styling – dark neon theme
+ * Author: AI4Students
+ * Created: 2026-03-27
+ * Last Modified: 2026-03-27
+ */
+
+:root {
+  --bg-primary: #0D0D0D;
+  --bg-surface: #1A1A2E;
+  --bg-raised: #16213E;
+  --border: #2A2A3D;
+  --text-primary: #E0E0E0;
+  --text-secondary: #8888AA;
+  --accent-active: #00F5D4;
+  --accent-playhead: #F72585;
+  --accent-play: #39FF14;
+  --accent-stop: #FF3131;
+  --accent-clear: #FFD60A;
+  --slider-track: #3A3A5C;
+  --slider-thumb: #00F5D4;
+  --glow-active: 0 0 12px rgba(0, 245, 212, 0.6);
+  --glow-playhead: 0 0 16px rgba(247, 37, 133, 0.5);
+  --font-main: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center; padding: 1.5rem 1rem 0.5rem;
+}
+.header__title { font-size: 1.75rem; font-weight: 700; }
+.header__subtitle { color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.25rem; }
+
+/* ── Transport ── */
+.transport {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1rem; flex-wrap: wrap;
+  padding: 1rem; margin: 0.5rem 1rem;
+  background: var(--bg-surface); border-radius: var(--radius-lg);
+  max-width: 900px; width: 100%;
+}
+.transport__btn {
+  padding: 0.5rem 1.25rem; border: none; border-radius: var(--radius-md);
+  font-size: 0.9rem; font-weight: 600; cursor: pointer;
+  color: #000; transition: all 0.15s;
+}
+.transport__btn--play { background: var(--accent-play); }
+.transport__btn--play:hover { filter: brightness(1.2); }
+.transport__btn--stop { background: var(--accent-stop); color: #fff; }
+.transport__btn--stop:hover { filter: brightness(1.2); }
+.transport__btn--clear { background: var(--accent-clear); }
+.transport__btn--clear:hover { filter: brightness(1.2); }
+.transport__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.transport__slider-group {
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.transport__label { font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap; }
+.transport__range {
+  width: 100px; accent-color: var(--slider-thumb);
+}
+.transport__readout {
+  font-family: var(--font-mono); font-size: 0.9rem;
+  color: var(--accent-active); font-weight: 700; min-width: 3ch;
+}
+
+/* ── Sequencer ── */
+.sequencer {
+  padding: 0 1rem 1rem; max-width: 900px; width: 100%;
+  overflow-x: auto;
+}
+#sequencer-grid {
+  display: grid;
+  grid-template-columns: 80px repeat(16, 1fr) 60px;
+  gap: 2px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  padding: 0.5rem;
+}
+.sequencer__corner, .sequencer__vol-header {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; color: var(--text-secondary); font-weight: 600;
+}
+.sequencer__step-number {
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-secondary);
+  padding: 0.25rem 0;
+}
+.sequencer__label {
+  display: flex; align-items: center;
+  font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600;
+  padding: 0 0.5rem; white-space: nowrap;
+}
+
+/* Pad */
+.sequencer__pad {
+  aspect-ratio: 1; border: none;
+  background: var(--bg-raised);
+  border-radius: var(--radius-sm);
+  cursor: pointer; transition: all 0.1s;
+  min-width: 28px; min-height: 28px;
+}
+.sequencer__pad:hover { filter: brightness(1.3); }
+.sequencer__pad--active { box-shadow: var(--glow-active); }
+.sequencer__pad.playhead {
+  outline: 2px solid var(--accent-playhead);
+  box-shadow: var(--glow-playhead);
+}
+
+/* Beat group dividers */
+.sequencer__pad:nth-child(18n+7),  /* step 5 */
+.sequencer__pad:nth-child(18n+11), /* step 9 */
+.sequencer__pad:nth-child(18n+15)  /* step 13 */ {
+  border-left: 2px solid var(--text-secondary);
+}
+
+.sequencer__vol-slider {
+  width: 50px; accent-color: var(--slider-thumb);
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center; padding: 1rem;
+  font-size: 0.75rem; color: var(--text-secondary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  #sequencer-grid {
+    grid-template-columns: 48px repeat(16, 28px) 48px;
+  }
+  .sequencer__label { font-size: 0; }
+  .sequencer__label::after { content: attr(data-short); font-size: 0.75rem; }
+  .transport { gap: 0.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traffic Light Simulator</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1 class="header__title">🚦 Traffic Light Simulator</h1>
+    <p class="header__subtitle">Four-way intersection with vehicles &amp; pedestrian crossings</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- Canvas -->
+    <section class="canvas-container">
+      <canvas id="sim-canvas" aria-label="Traffic intersection simulation"></canvas>
+    </section>
+
+    <!-- Controls -->
+    <aside class="control-panel" aria-label="Simulation controls">
+
+      <!-- Playback -->
+      <div class="btn-group">
+        <button class="btn btn--start" id="start-btn" aria-label="Start simulation">▶ Start</button>
+        <button class="btn btn--pause" id="pause-btn" aria-label="Pause simulation">⏸ Pause</button>
+        <button class="btn btn--reset" id="reset-btn" aria-label="Reset simulation">↺ Reset</button>
+        <button class="btn btn--ped" id="ped-btn" aria-label="Request pedestrian crossing">🚶 Request Crossing</button>
+      </div>
+
+      <!-- Timing -->
+      <fieldset>
+        <legend>Light Timing</legend>
+        <div class="slider-row">
+          <label for="green-duration">Green (s)</label>
+          <input type="range" id="green-duration" min="3" max="20" step="1" value="10" />
+          <output id="green-duration-val">10</output>
+        </div>
+        <div class="slider-row">
+          <label for="amber-duration">Amber (s)</label>
+          <input type="range" id="amber-duration" min="1" max="6" step="0.5" value="3" />
+          <output id="amber-duration-val">3</output>
+        </div>
+        <div class="slider-row">
+          <label for="all-red-duration">All Red (s)</label>
+          <input type="range" id="all-red-duration" min="1" max="5" step="0.5" value="2" />
+          <output id="all-red-duration-val">2</output>
+        </div>
+        <div class="slider-row">
+          <label for="ped-duration">Ped Walk (s)</label>
+          <input type="range" id="ped-duration" min="3" max="15" step="1" value="8" />
+          <output id="ped-duration-val">8</output>
+        </div>
+      </fieldset>
+
+      <!-- Traffic -->
+      <fieldset>
+        <legend>Traffic</legend>
+        <div class="slider-row">
+          <label for="spawn-interval">Spawn (s)</label>
+          <input type="range" id="spawn-interval" min="1" max="8" step="0.5" value="3" />
+          <output id="spawn-interval-val">3</output>
+        </div>
+        <div class="slider-row">
+          <label for="sim-speed">Speed</label>
+          <input type="range" id="sim-speed" min="0.5" max="3" step="0.25" value="1" />
+          <output id="sim-speed-val">1</output>
+        </div>
+      </fieldset>
+
+      <!-- Status -->
+      <div class="status-panel" aria-live="polite">
+        <h3>Status</h3>
+        <div class="status-row">
+          <span class="status-row__label">Phase</span>
+          <span class="status-row__value" id="phase-display">NS GREEN</span>
+        </div>
+        <div class="status-row">
+          <span class="status-row__label">Timer</span>
+          <span class="status-row__value" id="timer-display">10s</span>
+        </div>
+        <div class="status-row">
+          <span class="status-row__label">N / S</span>
+          <span class="status-row__value" id="ns-state" data-state="green">GREEN</span>
+        </div>
+        <div class="status-row">
+          <span class="status-row__label">E / W</span>
+          <span class="status-row__value" id="ew-state" data-state="red">RED</span>
+        </div>
+        <div class="status-row">
+          <span class="status-row__label">Pedestrian</span>
+          <span class="status-row__value" id="ped-state-display">STOP</span>
+        </div>
+        <div class="status-row">
+          <span class="status-row__label">Vehicles</span>
+          <span class="status-row__value" id="vehicle-count">0</span>
+        </div>
+        <div class="status-row">
+          <span class="status-row__label">Pedestrians</span>
+          <span class="status-row__value" id="ped-count">0</span>
+        </div>
+      </div>
+
+      <p style="font-size: 0.75rem; color: var(--text-secondary); text-align: center;">
+        Shortcuts: Space = Start &middot; P = Pause &middot; R = Reset
+      </p>
+
+    </aside>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Traffic Light Simulator &mdash; AI4Students 2026</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

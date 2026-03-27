@@ -1,0 +1,360 @@
+/**
+ * File: main.css
+ * Description: Ecosystem Simulator — dark navy theme with predator–prey styling
+ * Author: AI4Students
+ * Created: 2025-01-20
+ * Last Modified: 2025-01-20
+ */
+
+/* ──────────────── Variables ──────────────── */
+
+:root {
+  --canvas-bg: #1a1a2e;
+  --food-colour: #f5c842;
+  --prey-colour: #43b581;
+  --predator-colour: #e84057;
+  --graph-bg: #16213e;
+  --graph-grid: #2a2a4a;
+  --graph-prey-line: #43b581;
+  --graph-predator-line: #e84057;
+  --graph-axis: #8892b0;
+  --ui-bg: #0f3460;
+  --ui-bg-light: #16213e;
+  --ui-text: #e6e6e6;
+  --ui-text-muted: #8892b0;
+  --ui-accent: #00b4d8;
+  --ui-accent-hover: #0096c7;
+  --ui-border: #2a2a4a;
+  --ui-danger: #e84057;
+  --ui-success: #43b581;
+  --slider-track: #2a2a4a;
+  --slider-thumb: #00b4d8;
+  --slider-thumb-hover: #0096c7;
+  --font-primary: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', 'Consolas', monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --weight-normal: 400;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+}
+
+/* ──────────────── Reset ──────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: #0a0a1a;
+  color: var(--ui-text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ──────────────── Header ──────────────── */
+
+.site-header {
+  text-align: center;
+  padding: 1.5rem 1rem 1rem;
+  background: var(--ui-bg);
+  border-bottom: 2px solid var(--ui-border);
+}
+
+.site-header__title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+}
+
+.site-header__subtitle {
+  font-size: var(--text-sm);
+  color: var(--ui-text-muted);
+  margin-top: 0.25rem;
+}
+
+/* ──────────────── App layout ──────────────── */
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 3fr 280px;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ──────────────── Simulation canvas ──────────────── */
+
+.sim-panel__canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--ui-border);
+  border-radius: 8px;
+  background: var(--canvas-bg);
+}
+
+/* ──────────────── Control panel ──────────────── */
+
+.control-panel {
+  background: var(--ui-bg);
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 540px;
+  overflow-y: auto;
+}
+
+.control-panel__heading {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  text-align: center;
+}
+
+/* ──────────────── Buttons ──────────────── */
+
+.control-panel__buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  color: #fff;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 2px;
+}
+
+.btn--play {
+  background: var(--ui-success);
+}
+
+.btn--play:hover:not(:disabled) {
+  background: #3aa076;
+}
+
+.btn--pause {
+  background: var(--ui-accent);
+}
+
+.btn--pause:hover:not(:disabled) {
+  background: var(--ui-accent-hover);
+}
+
+.btn--reset {
+  background: var(--ui-danger);
+}
+
+.btn--reset:hover:not(:disabled) {
+  background: #c73549;
+}
+
+/* ──────────────── Slider groups ──────────────── */
+
+.control-panel__params {
+  border: none;
+}
+
+.control-panel__legend {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--ui-accent);
+  margin-bottom: 0.5rem;
+}
+
+.slider-group {
+  margin-bottom: 0.75rem;
+}
+
+.slider-group__label {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  margin-bottom: 0.25rem;
+}
+
+.slider-group__value {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ui-accent);
+}
+
+.slider-group__input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--slider-track);
+  border-radius: 3px;
+  outline: none;
+}
+
+.slider-group__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--slider-thumb);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.slider-group__input::-webkit-slider-thumb:hover {
+  background: var(--slider-thumb-hover);
+}
+
+.slider-group__input::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: none;
+  border-radius: 50%;
+  background: var(--slider-thumb);
+  cursor: pointer;
+}
+
+.slider-group__input:focus-visible {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 2px;
+}
+
+/* ──────────────── Stat display ──────────────── */
+
+.stat-display {
+  background: var(--ui-bg-light);
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+
+.stat-display__heading {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.stat-display__row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+.stat-display__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.stat-display__dot--prey {
+  background: var(--prey-colour);
+}
+
+.stat-display__dot--predator {
+  background: var(--predator-colour);
+}
+
+.stat-display__dot--food {
+  background: var(--food-colour);
+}
+
+.stat-display__count {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  margin-left: auto;
+}
+
+/* ──────────────── Graph section ──────────────── */
+
+.graph-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem 1rem;
+}
+
+.graph-section__canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--ui-border);
+  border-radius: 8px;
+  background: var(--graph-bg);
+}
+
+.graph-section__legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding-top: 0.5rem;
+  font-size: var(--text-sm);
+}
+
+.graph-legend__item--prey {
+  color: var(--graph-prey-line);
+}
+
+.graph-legend__item--predator {
+  color: var(--graph-predator-line);
+}
+
+/* ──────────────── Footer ──────────────── */
+
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+  color: var(--ui-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* ──────────────── Responsive ──────────────── */
+
+@media (max-width: 899px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .control-panel {
+    max-height: none;
+  }
+
+  .control-panel__buttons {
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}

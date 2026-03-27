@@ -1,0 +1,270 @@
+/**
+ * File: main.css
+ * Description: Snake with Power-Ups — retro neon styling
+ * Author: AI4Students
+ * Created: 2026-03-27
+ * Last Modified: 2026-03-27
+ */
+
+/* === 1. CSS Custom Properties === */
+:root {
+  --bg-page: #0a0a0a;
+  --bg-canvas: #111111;
+  --grid-line: #1a1a1a;
+  --snake-head: #39ff14;
+  --snake-body: #2ecc40;
+  --food: #ff4136;
+  --pu-speed: #ffdc00;
+  --pu-slow: #00bfff;
+  --pu-multiplier: #b10dc9;
+  --pu-shield: #2ecc40;
+  --pu-shrink: #ff851b;
+  --text-primary: #e0e0e0;
+  --text-accent: #39ff14;
+  --overlay-bg: rgba(0, 0, 0, 0.75);
+  --btn-bg: #1a1a1a;
+  --btn-text: #39ff14;
+  --btn-hover-bg: #222222;
+  --font-game: "Press Start 2P", monospace;
+  --canvas-size: 600px;
+  --cell-size: 30px;
+}
+
+/* === 2. Reset / Base === */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-game);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* === 3. HUD === */
+.hud {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-page);
+  font-family: var(--font-game);
+  color: var(--text-primary);
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 700px;
+}
+
+.hud__score,
+.hud__high-score,
+.hud__powerup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.hud__label {
+  font-size: 10px;
+  color: #888888;
+  text-transform: uppercase;
+}
+
+.hud__value {
+  font-size: 16px;
+  color: var(--text-accent);
+}
+
+.hud__powerup {
+  flex-direction: row;
+  gap: 0.5rem;
+  font-size: 12px;
+  align-items: center;
+}
+
+.hud__powerup-icon {
+  font-size: 16px;
+}
+
+.hud__powerup-name {
+  color: var(--text-accent);
+}
+
+.hud__powerup-timer {
+  color: #888888;
+}
+
+/* === 4. Power-Up Animations === */
+@keyframes powerup-pulse {
+  0%, 100% { opacity: 1; text-shadow: 0 0 6px var(--text-accent); }
+  50%      { opacity: 0.6; text-shadow: 0 0 12px var(--text-accent); }
+}
+
+.hud__powerup:not([hidden]) {
+  animation: powerup-pulse 1s ease-in-out infinite;
+}
+
+@keyframes powerup-expiring {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.2; }
+}
+
+.hud__powerup--expiring {
+  animation: powerup-expiring 0.4s ease-in-out infinite;
+}
+
+/* === 5. Game Area & Canvas === */
+.game-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  flex: 1;
+}
+
+#game-canvas {
+  display: block;
+  width: var(--canvas-size);
+  height: var(--canvas-size);
+  max-width: 90vw;
+  max-height: 90vw;
+  border: 2px solid var(--snake-head);
+  image-rendering: pixelated;
+}
+
+/* === 6. Overlays === */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--overlay-bg);
+  z-index: 10;
+  font-family: var(--font-game);
+  color: #ffffff;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.overlay[hidden] {
+  display: none;
+}
+
+.overlay__title {
+  font-size: 24px;
+  color: var(--text-accent);
+}
+
+.overlay__subtitle {
+  font-size: 14px;
+  color: #888888;
+}
+
+.overlay__score,
+.overlay__high {
+  font-size: 12px;
+}
+
+/* === 7. Controls Footer === */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+}
+
+.controls__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 10px;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.controls__toggle input[type="checkbox"] {
+  accent-color: var(--text-accent);
+}
+
+/* === 8. Buttons === */
+.btn {
+  font-family: var(--font-game);
+  font-size: 12px;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--btn-text);
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  background: var(--btn-hover-bg);
+  color: #2ecc40;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--text-accent);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: var(--text-accent);
+  color: var(--bg-page);
+  border-color: var(--text-accent);
+}
+
+.btn--primary:hover {
+  background: #2ecc40;
+  color: var(--bg-page);
+}
+
+/* === 9. Responsive === */
+@media (max-width: 640px) {
+  :root {
+    --canvas-size: 90vw;
+    --cell-size: calc(90vw / 20);
+  }
+
+  .hud {
+    font-size: 10px;
+    gap: 1rem;
+  }
+
+  .hud__value {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* === 10. Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .hud__powerup:not([hidden]) { animation: none; }
+  .hud__powerup--expiring { animation: none; }
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habit Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" role="banner">
+    <h1 class="header__title">Habit Tracker</h1>
+    <button id="btn-reset-all" class="btn btn--danger btn--sm" type="button">Reset All</button>
+  </header>
+
+  <div id="app" class="app">
+    <!-- Stats -->
+    <section class="stats" aria-label="Statistics" aria-live="polite">
+      <div class="stats__grid">
+        <div class="stats__card">
+          <span id="stat-total" class="stats__number">0</span>
+          <span class="stats__label">Total Habits</span>
+        </div>
+        <div class="stats__card">
+          <span id="stat-today" class="stats__number">0/0</span>
+          <span class="stats__label">Today</span>
+        </div>
+        <div class="stats__card">
+          <span id="stat-overall" class="stats__number">0%</span>
+          <span class="stats__label">Overall Rate</span>
+        </div>
+        <div class="stats__card">
+          <span id="stat-best-day" class="stats__number">0</span>
+          <span class="stats__label">Best Day</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add Habit -->
+    <section class="add-habit" aria-label="Add a new habit">
+      <h2 class="add-habit__title">Add Habit</h2>
+      <form id="form-add-habit" class="add-habit__form">
+        <input type="text" id="input-habit-name" class="add-habit__input" placeholder="Habit name…" required aria-label="Habit name" maxlength="60" />
+        <input type="text" id="input-habit-emoji" class="add-habit__input add-habit__emoji" placeholder="✅" maxlength="4" aria-label="Emoji (optional)" />
+        <button type="submit" class="btn btn--accent">Add</button>
+      </form>
+    </section>
+
+    <!-- Habit List -->
+    <section class="habits-section" aria-label="Your habits">
+      <h2 class="habits-section__title">Today's Habits</h2>
+      <div id="habits-empty" class="habits-empty" role="status" style="display: none;">
+        <p>No habits yet — add one above to get started!</p>
+      </div>
+      <ul id="habits-list" class="habits-list"></ul>
+    </section>
+
+    <!-- Heatmap -->
+    <section class="heatmap" aria-label="Activity heatmap">
+      <div class="heatmap__header">
+        <h2 class="heatmap__title">Activity</h2>
+        <div class="heatmap__nav">
+          <button id="btn-heatmap-prev" class="heatmap__nav-btn" type="button" aria-label="Previous year">◄</button>
+          <span id="heatmap-year" class="heatmap__year">2025</span>
+          <button id="btn-heatmap-next" class="heatmap__nav-btn" type="button" aria-label="Next year">►</button>
+        </div>
+      </div>
+      <div id="heatmap-wrapper" class="heatmap__wrapper">
+        <div id="heatmap-grid" class="heatmap__grid"></div>
+      </div>
+      <div class="heatmap__legend">
+        <span>Less</span>
+        <div class="heatmap__legend-cell" style="background: var(--clr-heatmap-0);"></div>
+        <div class="heatmap__legend-cell" style="background: var(--clr-heatmap-1);"></div>
+        <div class="heatmap__legend-cell" style="background: var(--clr-heatmap-2);"></div>
+        <div class="heatmap__legend-cell" style="background: var(--clr-heatmap-3);"></div>
+        <div class="heatmap__legend-cell" style="background: var(--clr-heatmap-4);"></div>
+        <span>More</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- Heatmap Tooltip -->
+  <div id="heatmap-tooltip" class="tooltip" role="tooltip">
+    <span id="tooltip-text"></span>
+  </div>
+
+  <!-- Edit Modal -->
+  <dialog id="modal-edit">
+    <h2 class="modal__title">Edit Habit</h2>
+    <form id="form-edit-habit" class="modal__form">
+      <div class="modal__field">
+        <label for="edit-habit-name" class="modal__label">Name</label>
+        <input type="text" id="edit-habit-name" class="modal__input" required maxlength="60" />
+      </div>
+      <div class="modal__field">
+        <label for="edit-habit-emoji" class="modal__label">Emoji</label>
+        <input type="text" id="edit-habit-emoji" class="modal__input" maxlength="4" />
+      </div>
+      <div class="modal__actions">
+        <button type="button" id="btn-edit-cancel" class="btn btn--ghost">Cancel</button>
+        <button type="submit" class="btn btn--accent">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Delete Confirmation Modal -->
+  <dialog id="modal-delete">
+    <h2 class="modal__title">Delete Habit</h2>
+    <p class="modal__text">Are you sure? This will remove all data for this habit.</p>
+    <div class="modal__actions">
+      <button type="button" id="btn-delete-cancel" class="btn btn--ghost">Cancel</button>
+      <button type="button" id="btn-delete-confirm" class="btn btn--danger">Delete</button>
+    </div>
+  </dialog>
+
+  <footer class="footer">
+    <p>Habit Tracker &bull; AI4Students 2026</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

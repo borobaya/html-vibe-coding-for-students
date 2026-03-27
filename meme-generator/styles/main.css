@@ -1,0 +1,280 @@
+/**
+ * File: main.css
+ * Description: Styles for the meme generator — dark cinematic theme
+ * Author: AI4Students
+ * Created: 2025-01-20
+ * Last Modified: 2025-01-20
+ */
+
+/* ── CSS Variables ──────────────────────────────────── */
+:root {
+  --clr-bg: #1a1a2e;
+  --clr-surface: #16213e;
+  --clr-primary: #0f3460;
+  --clr-accent: #e94560;
+  --clr-accent-hover: #ff6b81;
+  --clr-text: #ffffff;
+  --clr-text-muted: #a0a0b0;
+  --clr-input-bg: #0f3460;
+  --clr-input-border: #333355;
+  --clr-focus: #4da6ff;
+  --clr-success: #2ecc71;
+  --clr-zone-border: #555577;
+  --ff-ui: 'Poppins', sans-serif;
+  --ff-meme: 'Impact', 'Arial Black', sans-serif;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Reset ──────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-ui);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.app-header {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: var(--clr-surface);
+  box-shadow: var(--shadow);
+}
+
+.app-header__title {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(--clr-accent);
+}
+
+.app-header__subtitle {
+  color: var(--clr-text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+/* ── Main ───────────────────────────────────────────── */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Upload Zone ────────────────────────────────────── */
+.upload-zone {
+  width: 100%;
+}
+
+.upload-zone--hidden {
+  display: none;
+}
+
+.upload-zone__inner {
+  border: 3px dashed var(--clr-zone-border);
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  background: var(--clr-surface);
+}
+
+.upload-zone__inner:hover,
+.upload-zone__inner.drag-over {
+  border-color: var(--clr-accent);
+  background: rgba(233, 69, 96, 0.08);
+}
+
+.upload-zone__icon {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+.upload-zone__label {
+  font-size: 1.1rem;
+  color: var(--clr-text-muted);
+}
+
+.upload-zone__label strong {
+  color: var(--clr-accent);
+}
+
+.upload-zone__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Canvas Section ─────────────────────────────────── */
+.canvas-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.canvas-section--hidden {
+  display: none;
+}
+
+.canvas-section__preview {
+  max-width: 100%;
+  max-height: 500px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: #000;
+}
+
+/* ── Controls ───────────────────────────────────────── */
+.controls {
+  width: 100%;
+  background: var(--clr-surface);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.controls__group {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.controls__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.controls__label {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.controls__input,
+.controls__select {
+  background: var(--clr-input-bg);
+  border: 1px solid var(--clr-input-border);
+  border-radius: 6px;
+  color: var(--clr-text);
+  padding: 0.5rem 0.75rem;
+  font-family: var(--ff-ui);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.controls__input:focus,
+.controls__select:focus {
+  border-color: var(--clr-focus);
+}
+
+.controls__colour {
+  width: 48px;
+  height: 36px;
+  border: 1px solid var(--clr-input-border);
+  border-radius: 6px;
+  background: none;
+  cursor: pointer;
+  padding: 2px;
+}
+
+/* ── Buttons ────────────────────────────────────────── */
+.controls__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.btn {
+  padding: 0.65rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--ff-ui);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--primary {
+  background: var(--clr-accent);
+  color: var(--clr-text);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--clr-accent-hover);
+}
+
+.btn--primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn--secondary {
+  background: var(--clr-primary);
+  color: var(--clr-text);
+}
+
+.btn--secondary:hover {
+  background: #13407a;
+}
+
+/* ── Footer ─────────────────────────────────────────── */
+.app-footer {
+  text-align: center;
+  padding: 1rem;
+  color: var(--clr-text-muted);
+  font-size: 0.8rem;
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 600px) {
+  .app-header__title {
+    font-size: 1.4rem;
+  }
+
+  .upload-zone__inner {
+    padding: 2rem 1rem;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .controls__group {
+    flex: 1 1 100%;
+  }
+}

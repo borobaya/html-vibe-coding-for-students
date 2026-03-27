@@ -1,0 +1,482 @@
+/**
+ * File: main.css
+ * Description: Habit tracker styles — GitHub-inspired dark theme with heatmap
+ * Author: AI4Students
+ * Created: 2025-01-20
+ * Last Modified: 2025-01-20
+ */
+
+/* ── Variables ──────────────────────────────────────── */
+:root {
+  --clr-bg: #0d1117;
+  --clr-surface: #161b22;
+  --clr-surface-raised: #21262d;
+  --clr-border: #30363d;
+  --clr-text: #e6edf3;
+  --clr-text-secondary: #8b949e;
+  --clr-accent: #58a6ff;
+  --clr-accent-hover: #79c0ff;
+  --clr-success: #3fb950;
+  --clr-danger: #f85149;
+  --clr-danger-hover: #ff7b72;
+  --clr-warning: #d29922;
+  --clr-heatmap-0: #161b22;
+  --clr-heatmap-1: #0e4429;
+  --clr-heatmap-2: #006d32;
+  --clr-heatmap-3: #26a641;
+  --clr-heatmap-4: #39d353;
+  --clr-tooltip-bg: #1b1f23;
+  --clr-tooltip-text: #f0f6fc;
+  --font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --fs-xs: 0.7rem;
+  --fs-sm: 0.8rem;
+  --fs-base: 0.95rem;
+  --fs-md: 1.1rem;
+  --fs-lg: 1.3rem;
+  --fs-xl: 1.6rem;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --heatmap-cell: 13px;
+  --heatmap-gap: 3px;
+}
+
+/* ── Reset ──────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-family);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.header {
+  background: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-border);
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__title {
+  font-size: var(--fs-lg);
+  color: var(--clr-accent);
+  letter-spacing: 1px;
+}
+
+/* ── App Layout ─────────────────────────────────────── */
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* ── Stats ──────────────────────────────────────────── */
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.stats__card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.stats__number {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--clr-accent);
+  display: block;
+}
+
+.stats__label {
+  font-size: var(--fs-xs);
+  color: var(--clr-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: var(--space-xs);
+}
+
+/* ── Add Habit ──────────────────────────────────────── */
+.add-habit {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.add-habit__title {
+  font-size: var(--fs-md);
+  margin-bottom: var(--space-md);
+}
+
+.add-habit__form {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.add-habit__input {
+  flex: 1;
+  min-width: 150px;
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  color: var(--clr-text);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-family);
+  font-size: var(--fs-base);
+  outline: none;
+}
+
+.add-habit__input:focus {
+  border-color: var(--clr-accent);
+}
+
+.add-habit__emoji {
+  width: 60px;
+  text-align: center;
+}
+
+/* ── Buttons ────────────────────────────────────────── */
+.btn {
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+  padding: var(--space-sm) var(--space-md);
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn--accent {
+  background: var(--clr-accent);
+  color: #fff;
+}
+
+.btn--accent:hover { background: var(--clr-accent-hover); }
+
+.btn--danger {
+  background: var(--clr-danger);
+  color: #fff;
+}
+
+.btn--danger:hover { background: var(--clr-danger-hover); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--clr-text-secondary);
+  padding: var(--space-xs);
+}
+
+.btn--ghost:hover { color: var(--clr-text); }
+
+.btn--sm { font-size: var(--fs-sm); padding: var(--space-xs) var(--space-sm); }
+
+/* ── Habits List ────────────────────────────────────── */
+.habits-section__title {
+  font-size: var(--fs-md);
+  margin-bottom: var(--space-md);
+}
+
+.habits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.habits-empty {
+  text-align: center;
+  color: var(--clr-text-secondary);
+  padding: var(--space-xl);
+}
+
+/* ── Habit Card ─────────────────────────────────────── */
+.habit-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.habit-card--completed {
+  border-color: var(--clr-success);
+  background: rgba(63, 185, 80, 0.05);
+}
+
+.habit-card__checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.habit-card__checkbox input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--clr-success);
+}
+
+.habit-card__emoji {
+  font-size: 1.3rem;
+}
+
+.habit-card__name {
+  flex: 1;
+  font-weight: 600;
+}
+
+.habit-card__fire {
+  opacity: 0.2;
+  transition: opacity 0.3s;
+}
+
+.habit-card__fire--active {
+  opacity: 1;
+  animation: fire-pulse 1.5s infinite;
+}
+
+@keyframes fire-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.habit-card__streak,
+.habit-card__best {
+  font-size: var(--fs-xs);
+  color: var(--clr-text-secondary);
+  white-space: nowrap;
+}
+
+/* ── Heatmap ────────────────────────────────────────── */
+.heatmap {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.heatmap__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.heatmap__title {
+  font-size: var(--fs-md);
+}
+
+.heatmap__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.heatmap__nav-btn {
+  background: var(--clr-surface-raised);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-text);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
+  cursor: pointer;
+  font-size: var(--fs-sm);
+}
+
+.heatmap__nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.heatmap__year {
+  font-weight: 700;
+  min-width: 4ch;
+  text-align: center;
+}
+
+.heatmap__wrapper {
+  overflow-x: auto;
+  padding-bottom: var(--space-sm);
+}
+
+.heatmap__grid {
+  display: grid;
+  grid-template-rows: repeat(7, var(--heatmap-cell));
+  grid-auto-flow: column;
+  grid-auto-columns: var(--heatmap-cell);
+  gap: var(--heatmap-gap);
+  width: max-content;
+}
+
+.heatmap__cell {
+  width: var(--heatmap-cell);
+  height: var(--heatmap-cell);
+  border-radius: 2px;
+  background: var(--clr-heatmap-0);
+}
+
+.heatmap__cell[data-level="1"] { background: var(--clr-heatmap-1); }
+.heatmap__cell[data-level="2"] { background: var(--clr-heatmap-2); }
+.heatmap__cell[data-level="3"] { background: var(--clr-heatmap-3); }
+.heatmap__cell[data-level="4"] { background: var(--clr-heatmap-4); }
+
+.heatmap__month-label {
+  font-size: var(--fs-xs);
+  color: var(--clr-text-secondary);
+}
+
+.heatmap__legend {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+  font-size: var(--fs-xs);
+  color: var(--clr-text-secondary);
+}
+
+.heatmap__legend-cell {
+  width: var(--heatmap-cell);
+  height: var(--heatmap-cell);
+  border-radius: 2px;
+}
+
+/* ── Tooltip ────────────────────────────────────────── */
+.tooltip {
+  position: fixed;
+  background: var(--clr-tooltip-bg);
+  color: var(--clr-tooltip-text);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-xs);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-100%);
+  transition: opacity 0.15s;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+.tooltip--visible {
+  opacity: 1;
+}
+
+/* ── Modals ─────────────────────────────────────────── */
+dialog {
+  background: var(--clr-surface);
+  color: var(--clr-text);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  max-width: 400px;
+  width: 90vw;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal__title {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.modal__label {
+  font-size: var(--fs-sm);
+  color: var(--clr-text-secondary);
+}
+
+.modal__input {
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  color: var(--clr-text);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-family);
+  font-size: var(--fs-base);
+  outline: none;
+}
+
+.modal__input:focus {
+  border-color: var(--clr-accent);
+}
+
+.modal__actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: flex-end;
+  margin-top: var(--space-md);
+}
+
+.modal__text {
+  color: var(--clr-text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+/* ── Footer ─────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  padding: var(--space-lg);
+  color: var(--clr-text-secondary);
+  font-size: var(--fs-xs);
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .stats__grid { grid-template-columns: repeat(2, 1fr); }
+  .heatmap__cell { --heatmap-cell: 11px; }
+}
+
+@media (max-width: 480px) {
+  .stats__grid { grid-template-columns: 1fr; }
+  .add-habit__form { flex-direction: column; }
+  .habit-card { flex-wrap: wrap; }
+  .heatmap__cell { --heatmap-cell: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

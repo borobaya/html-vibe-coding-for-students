@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beat Maker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="header__title">🥁 Beat Maker</h1>
+    <p class="header__subtitle">Create beats with the step sequencer</p>
+  </header>
+
+  <section class="transport" aria-label="Transport controls">
+    <button class="transport__btn transport__btn--play" id="btn-play">▶ Play</button>
+    <button class="transport__btn transport__btn--stop" id="btn-stop" disabled>⏹ Stop</button>
+    <button class="transport__btn transport__btn--clear" id="btn-clear">✖ Clear</button>
+
+    <div class="transport__slider-group">
+      <label class="transport__label" for="bpm-slider">BPM</label>
+      <input type="range" id="bpm-slider" class="transport__range" min="60" max="200" value="120">
+      <output id="bpm-display" class="transport__readout">120</output>
+    </div>
+
+    <div class="transport__slider-group">
+      <label class="transport__label" for="master-volume">Vol</label>
+      <input type="range" id="master-volume" class="transport__range" min="0" max="100" value="80">
+      <output id="volume-display" class="transport__readout">80%</output>
+    </div>
+  </section>
+
+  <section class="sequencer" aria-label="Step sequencer grid">
+    <div id="sequencer-grid" role="grid"></div>
+  </section>
+
+  <footer class="footer">
+    <p>Space: Play/Stop · C: Clear · Click pads to toggle</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

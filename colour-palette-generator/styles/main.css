@@ -1,0 +1,226 @@
+/**
+ * File: main.css
+ * Description: Full-viewport colour palette generator styles
+ * Author: AI4Students
+ * Created: 2025-01-20
+ * Last Modified: 2025-01-20
+ */
+
+/* ── Variables ──────────────────────────────────────── */
+:root {
+  --toolbar-bg: rgba(26, 26, 46, 0.9);
+  --toolbar-text: #e0e0e0;
+  --btn-bg: #16213e;
+  --btn-hover: #0f3460;
+  --btn-text: #ffffff;
+  --focus-ring: #e94560;
+  --tooltip-bg: #1a1a2e;
+  --tooltip-text: #ffffff;
+  --toolbar-height: 56px;
+  --font-stack: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Reset ──────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-stack);
+}
+
+/* ── Toolbar ────────────────────────────────────────── */
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--toolbar-height);
+  background: var(--toolbar-bg);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.toolbar__title {
+  font-size: 1.1rem;
+  color: var(--toolbar-text);
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.toolbar__select {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-stack);
+  font-size: 0.85rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.toolbar__select:focus {
+  box-shadow: 0 0 0 2px var(--focus-ring);
+}
+
+.toolbar__button {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 0.4rem 1.2rem;
+  font-family: var(--font-stack);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.toolbar__button:hover {
+  background: var(--btn-hover);
+}
+
+.toolbar__button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--focus-ring);
+}
+
+.toolbar__hint {
+  font-size: 0.75rem;
+  color: rgba(224, 224, 224, 0.5);
+}
+
+/* ── Palette ────────────────────────────────────────── */
+.palette {
+  display: flex;
+  height: 100vh;
+  padding-top: var(--toolbar-height);
+}
+
+/* ── Swatch ─────────────────────────────────────────── */
+.swatch {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  transition: background-color 0.4s ease;
+  cursor: default;
+}
+
+.swatch__lock {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s, transform 0.15s;
+  padding: 0.3rem;
+}
+
+.swatch__lock:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.swatch__lock[aria-pressed="true"] {
+  opacity: 1;
+}
+
+.swatch__hex,
+.swatch__rgb {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: all;
+  transition: transform 0.15s;
+  border: none;
+  background: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.swatch__hex {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+.swatch__rgb {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.swatch__hex:hover,
+.swatch__rgb:hover {
+  transform: scale(1.05);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* ── Tooltip ────────────────────────────────────────── */
+.swatch__tooltip {
+  position: absolute;
+  bottom: 15%;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s, transform 0.25s;
+  pointer-events: none;
+}
+
+.swatch__tooltip--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 767px) {
+  .palette {
+    flex-direction: column;
+  }
+
+  .swatch {
+    flex: none;
+    height: 20vh;
+  }
+
+  .toolbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .toolbar__title {
+    width: 100%;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .toolbar__hint {
+    display: none;
+  }
+
+  .palette {
+    padding-top: 90px;
+  }
+}

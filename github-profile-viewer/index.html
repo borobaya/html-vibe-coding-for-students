@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Search any GitHub username and view their profile, stats, and top repositories.">
+  <title>GitHub Profile Viewer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__container">
+      <h1 class="header__title">
+        <svg class="header__logo" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true">
+          <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+        GitHub Profile Viewer
+      </h1>
+
+      <!-- SEARCH FORM -->
+      <form class="search" id="search-form" role="search" aria-label="Search GitHub users">
+        <label for="search-input" class="visually-hidden">GitHub username</label>
+        <input
+          type="text"
+          id="search-input"
+          class="search__input"
+          placeholder="Enter a GitHub username…"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+          maxlength="39"
+          required
+        >
+        <button type="submit" class="search__button" id="search-button">
+          <svg class="search__icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+            <path fill="currentColor" d="M11.5 7a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm-.82 4.74a6 6 0 1 1 1.06-1.06l3.04 3.04a.75.75 0 1 1-1.06 1.06l-3.04-3.04Z"></path>
+          </svg>
+          Search
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main" id="main-content">
+    <div class="container">
+
+      <!-- ERROR MESSAGE (hidden by default) -->
+      <div class="error" id="error-container" role="alert" aria-live="polite" hidden>
+        <svg class="error__icon" viewBox="0 0 16 16" width="24" height="24" aria-hidden="true">
+          <path fill="currentColor" d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575ZM8 5a.75.75 0 0 0-.75.75v2.5a.75.75 0 0 0 1.5 0v-2.5A.75.75 0 0 0 8 5Zm1 6a1 1 0 1 0-2 0 1 1 0 0 0 2 0Z"></path>
+        </svg>
+        <p class="error__message" id="error-message"></p>
+      </div>
+
+      <!-- LOADING SKELETON (hidden by default) -->
+      <div class="skeleton" id="skeleton-container" hidden>
+        <div class="skeleton__profile">
+          <div class="skeleton__avatar"></div>
+          <div class="skeleton__lines">
+            <div class="skeleton__line skeleton__line--wide"></div>
+            <div class="skeleton__line skeleton__line--medium"></div>
+            <div class="skeleton__line skeleton__line--narrow"></div>
+          </div>
+        </div>
+        <div class="skeleton__stats">
+          <div class="skeleton__stat-block"></div>
+          <div class="skeleton__stat-block"></div>
+          <div class="skeleton__stat-block"></div>
+        </div>
+        <div class="skeleton__repos">
+          <div class="skeleton__repo-card"></div>
+          <div class="skeleton__repo-card"></div>
+          <div class="skeleton__repo-card"></div>
+          <div class="skeleton__repo-card"></div>
+        </div>
+      </div>
+
+      <!-- PROFILE CARD (hidden by default) -->
+      <section class="profile" id="profile-container" aria-label="User profile" hidden>
+        <div class="profile__header">
+          <img class="profile__avatar" id="profile-avatar" src="" alt="" width="150" height="150" loading="lazy">
+          <div class="profile__info">
+            <h2 class="profile__name" id="profile-name"></h2>
+            <a class="profile__username" id="profile-username" href="" target="_blank" rel="noopener noreferrer"></a>
+            <p class="profile__bio" id="profile-bio"></p>
+            <div class="profile__meta" id="profile-meta"></div>
+          </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats" id="stats-container">
+          <div class="stats__item">
+            <span class="stats__number" id="stat-repos">0</span>
+            <span class="stats__label">Repos</span>
+          </div>
+          <div class="stats__item">
+            <span class="stats__number" id="stat-followers">0</span>
+            <span class="stats__label">Followers</span>
+          </div>
+          <div class="stats__item">
+            <span class="stats__number" id="stat-following">0</span>
+            <span class="stats__label">Following</span>
+          </div>
+        </div>
+
+        <!-- JOINED DATE -->
+        <p class="profile__joined" id="profile-joined"></p>
+      </section>
+
+      <!-- REPOSITORIES SECTION (hidden by default) -->
+      <section class="repos" id="repos-container" aria-label="Top repositories" hidden>
+        <h3 class="repos__heading">Top Repositories</h3>
+        <div class="repos__grid" id="repos-grid"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer__text">
+      Powered by the <a href="https://docs.github.com/en/rest" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub REST API</a>
+    </p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

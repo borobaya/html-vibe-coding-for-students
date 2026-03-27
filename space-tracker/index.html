@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ISS Space Tracker</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="site-header__brand">
+      <span class="site-header__logo" aria-hidden="true">🛰️</span>
+      <h1 class="site-header__title">ISS Tracker</h1>
+    </div>
+
+    <div class="site-header__controls">
+      <div class="status">
+        <span class="status__dot" aria-hidden="true"></span>
+        <span id="status-label">Connecting…</span>
+      </div>
+
+      <button class="btn" id="btn-recentre" type="button">
+        🎯 Re-centre
+      </button>
+      <button
+        class="btn"
+        id="btn-trail"
+        type="button"
+        aria-pressed="true"
+      >
+        🛤️ Trail
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Main layout ── -->
+  <div class="app-layout">
+    <!-- Map -->
+    <div class="map-container">
+      <div id="map" role="application" aria-label="ISS position map"></div>
+
+      <div class="coordinates" aria-live="polite">
+        <div class="coordinates__group">
+          <span class="coordinates__label">Lat</span>
+          <span class="coordinates__value" id="lat-value">—</span>
+        </div>
+        <div class="coordinates__group">
+          <span class="coordinates__label">Lng</span>
+          <span class="coordinates__value" id="lng-value">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Crew panel -->
+    <aside class="crew-panel" aria-labelledby="crew-heading">
+      <div class="crew-panel__header">
+        <h2 class="crew-panel__heading" id="crew-heading">Crew Aboard</h2>
+        <span class="crew-panel__count" aria-label="crew count">–</span>
+      </div>
+      <div class="crew-panel__body" id="crew-list"></div>
+    </aside>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="toast-container" aria-live="assertive"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    Data from
+    <a href="http://open-notify.org/" target="_blank" rel="noopener noreferrer">
+      Open Notify API
+    </a>
+    • Map tiles by
+    <a href="https://carto.com/" target="_blank" rel="noopener noreferrer">CARTO</a>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

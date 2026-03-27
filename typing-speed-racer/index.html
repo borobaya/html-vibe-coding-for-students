@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Speed Racer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="header__title">Typing Speed Racer</h1>
+    <p class="header__tagline">Type fast. Drive faster.</p>
+  </header>
+
+  <main class="game">
+    <section class="dashboard" aria-label="Race statistics">
+      <div class="dashboard__stat">
+        <span class="dashboard__label">Time</span>
+        <span class="dashboard__value" id="timer">60</span>
+      </div>
+      <div class="dashboard__stat">
+        <span class="dashboard__label">WPM</span>
+        <span class="dashboard__value" id="wpm" aria-live="polite">0</span>
+      </div>
+      <div class="dashboard__stat">
+        <span class="dashboard__label">Accuracy</span>
+        <span class="dashboard__value" id="accuracy">100%</span>
+      </div>
+      <div class="dashboard__stat">
+        <span class="dashboard__label">Words</span>
+        <span class="dashboard__value" id="word-count">0</span>
+      </div>
+    </section>
+
+    <section class="track" aria-label="Race track">
+      <div class="track__road">
+        <div class="track__lane-lines"></div>
+        <div class="track__car" id="car" role="img" aria-label="Your racing car">🏎️</div>
+        <div class="track__finish" aria-label="Finish line">🏁</div>
+      </div>
+      <div class="track__progress">
+        <div class="track__progress-bar" id="progress-bar" role="progressbar"
+             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </section>
+
+    <section class="words" aria-label="Words to type">
+      <div class="words__queue" id="word-queue"></div>
+    </section>
+
+    <section class="input-area" aria-label="Typing input">
+      <label for="typing-input" class="sr-only">Type the displayed word</label>
+      <input type="text" id="typing-input" class="input-area__field"
+             placeholder="Type here…" autocomplete="off" autocapitalize="off"
+             autocorrect="off" spellcheck="false" disabled>
+      <div class="input-area__feedback" id="char-feedback" aria-live="polite"></div>
+    </section>
+
+    <section class="controls" aria-label="Game controls">
+      <button class="controls__btn controls__btn--start" id="start-btn" type="button">▶ Start Race</button>
+      <button class="controls__btn controls__btn--restart" id="restart-btn" type="button" disabled>↻ Restart</button>
+    </section>
+  </main>
+
+  <div class="countdown-overlay" id="countdown-overlay" aria-live="assertive" hidden>
+    <span class="countdown-overlay__number" id="countdown-number"></span>
+  </div>
+
+  <div class="results-modal" id="results-modal" role="dialog" aria-modal="true"
+       aria-labelledby="results-title" hidden>
+    <div class="results-modal__content">
+      <h2 class="results-modal__title" id="results-title">🏁 Race Finished!</h2>
+      <dl class="results-modal__stats">
+        <div class="results-modal__stat">
+          <dt>WPM</dt>
+          <dd id="result-wpm">0</dd>
+        </div>
+        <div class="results-modal__stat">
+          <dt>Accuracy</dt>
+          <dd id="result-accuracy">0%</dd>
+        </div>
+        <div class="results-modal__stat">
+          <dt>Words Typed</dt>
+          <dd id="result-words">0</dd>
+        </div>
+        <div class="results-modal__stat">
+          <dt>Correct Words</dt>
+          <dd id="result-correct">0</dd>
+        </div>
+      </dl>
+      <button class="controls__btn controls__btn--start" id="race-again-btn" type="button">Race Again</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Built with HTML, CSS &amp; JavaScript</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI4Students 2026 – Vibe Coding Projects</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #38bdf8;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--text-muted);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin: 2.5rem 0 1rem;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 0.5rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+      list-style: none;
+    }
+
+    .projects a {
+      display: block;
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 1.125rem;
+      font-weight: 500;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .projects a:hover,
+    .projects a:focus-visible {
+      background: var(--accent);
+      color: var(--bg);
+      transform: translateY(-2px);
+    }
+
+    .notice {
+      max-width: 960px;
+      margin: 0 auto 2rem;
+      background: #1e293b;
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .notice code {
+      background: #0f172a;
+      padding: 0.15em 0.4em;
+      border-radius: 0.25rem;
+      font-size: 0.9em;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Vibe Coding Projects</h1>
+    <p>AI4Students 2026</p>
+  </header>
+
+  <p class="notice">
+    If some features don't work when opening files directly, try running a local web server.
+    Run <code>python3 -m http.server 5500</code> at the project root, then visit
+    <code>http://localhost:5500</code>.
+  </p>
+
+  <div class="container">
+    <h2>Games</h2>
+    <ul class="projects">
+      <li><a href="endless-runner/index.html">Endless Runner</a></li>
+      <li><a href="quiz-battle/index.html">Quiz Battle</a></li>
+      <li><a href="dungeon-crawler/index.html">Dungeon Crawler</a></li>
+      <li><a href="typing-speed-racer/index.html">Typing Speed Racer</a></li>
+      <li><a href="memory-card-match/index.html">Memory Card Match</a></li>
+      <li><a href="snake-with-powerups/index.html">Snake with Power-Ups</a></li>
+      <li><a href="tower-defence/index.html">Tower Defence</a></li>
+    </ul>
+
+    <h2>Creative Tools</h2>
+    <ul class="projects">
+      <li><a href="pixel-art-editor/index.html">Pixel Art Editor</a></li>
+      <li><a href="beat-maker/index.html">Beat Maker</a></li>
+      <li><a href="meme-generator/index.html">Meme Generator</a></li>
+      <li><a href="colour-palette-generator/index.html">Colour Palette Generator</a></li>
+    </ul>
+
+    <h2>Productivity</h2>
+    <ul class="projects">
+      <li><a href="pomodoro-timer/index.html">Pomodoro Timer</a></li>
+      <li><a href="habit-tracker/index.html">Habit Tracker</a></li>
+      <li><a href="flashcard-app/index.html">Flashcard App</a></li>
+      <li><a href="budget-tracker/index.html">Budget Tracker</a></li>
+    </ul>
+
+    <h2>Fun / Social</h2>
+    <ul class="projects">
+      <li><a href="would-you-rather/index.html">Would You Rather</a></li>
+      <li><a href="personality-quiz/index.html">Personality Quiz</a></li>
+      <li><a href="fortune-teller/index.html">Fortune Teller</a></li>
+      <li><a href="fake-text-generator/index.html">Fake Text Generator</a></li>
+      <li><a href="zodiac-compatibility/index.html">Zodiac Compatibility</a></li>
+    </ul>
+
+    <h2>Data / Visual</h2>
+    <ul class="projects">
+      <li><a href="weather-dashboard/index.html">Weather Dashboard</a></li>
+      <li><a href="space-tracker/index.html">Space Tracker</a></li>
+      <li><a href="github-profile-viewer/index.html">GitHub Profile Viewer</a></li>
+      <li><a href="random-wikipedia-explorer/index.html">Random Wikipedia Explorer</a></li>
+    </ul>
+
+    <h2>Simulation</h2>
+    <ul class="projects">
+      <li><a href="ecosystem-simulator/index.html">Ecosystem Simulator</a></li>
+      <li><a href="gravity-sandbox/index.html">Gravity Sandbox</a></li>
+      <li><a href="traffic-light-simulator/index.html">Traffic Light Simulator</a></li>
+      <li><a href="game-of-life/index.html">Game of Life</a></li>
+    </ul>
+  </div>
+</body>
+</html>

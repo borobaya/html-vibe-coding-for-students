@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pomodoro Timer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" role="banner">
+    <h1 class="header__brand">Pomodoro Timer</h1>
+    <button id="settings-toggle" class="header__settings-btn" type="button" aria-label="Open settings">⚙ Settings</button>
+  </header>
+
+  <main class="app-main">
+    <!-- Mode Label -->
+    <p id="mode-label" class="mode-label">Work</p>
+
+    <!-- Timer -->
+    <div class="timer" role="timer" aria-label="Countdown timer">
+      <svg class="timer__ring" viewBox="0 0 264 264" aria-hidden="true">
+        <circle class="timer__ring-bg" cx="132" cy="132" r="126" />
+        <circle id="progress-ring" class="timer__ring-progress" cx="132" cy="132" r="126" />
+      </svg>
+      <div class="timer__display">
+        <span id="timer-digits" class="timer__digits" aria-live="off">25:00</span>
+      </div>
+    </div>
+
+    <!-- Screen reader announcement region -->
+    <div id="sr-announcement" class="sr-only" aria-live="assertive" role="status"></div>
+
+    <!-- Controls -->
+    <div class="controls" role="group" aria-label="Timer controls">
+      <button id="btn-start" class="controls__btn controls__btn--start" type="button" aria-label="Start timer">▶ Start</button>
+      <button id="btn-reset" class="controls__btn controls__btn--reset" type="button" aria-label="Reset timer" disabled>↺ Reset</button>
+      <button id="btn-skip" class="controls__btn controls__btn--skip" type="button" aria-label="Skip to next session" disabled>⏭ Skip</button>
+    </div>
+
+    <!-- Sessions -->
+    <div class="sessions">
+      <p id="sessions-label" class="sessions__label">Session 0 of 4</p>
+      <div id="sessions-dots" class="sessions__dots" aria-hidden="true"></div>
+    </div>
+
+    <!-- Stats -->
+    <section class="stats" aria-label="Today's statistics">
+      <h2 id="stats-heading" class="stats__heading">Today's Stats</h2>
+      <div class="stats__grid">
+        <div class="stats__card">
+          <span id="stat-sessions" class="stats__value">0</span>
+          <span class="stats__label">Sessions</span>
+        </div>
+        <div class="stats__card">
+          <span id="stat-focus-time" class="stats__value">0 min</span>
+          <span class="stats__label">Focus Time</span>
+        </div>
+        <div class="stats__card">
+          <span id="stat-streak" class="stats__value">0</span>
+          <span class="stats__label">Streak</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Settings Overlay -->
+  <div id="settings-overlay" class="settings-overlay"></div>
+
+  <!-- Settings Panel -->
+  <aside id="settings-panel" class="settings" role="dialog" aria-label="Timer settings" aria-modal="true">
+    <h2 class="settings__title">Settings</h2>
+    <form id="settings-form" class="settings__form">
+      <div class="settings__field">
+        <label for="setting-work" class="settings__label">Work Duration (min)</label>
+        <input type="number" id="setting-work" class="settings__input" min="1" max="120" value="25" />
+      </div>
+      <div class="settings__field">
+        <label for="setting-short-break" class="settings__label">Short Break (min)</label>
+        <input type="number" id="setting-short-break" class="settings__input" min="1" max="60" value="5" />
+      </div>
+      <div class="settings__field">
+        <label for="setting-long-break" class="settings__label">Long Break (min)</label>
+        <input type="number" id="setting-long-break" class="settings__input" min="1" max="60" value="15" />
+      </div>
+      <div class="settings__field">
+        <label for="setting-sessions" class="settings__label">Sessions Before Long Break</label>
+        <input type="number" id="setting-sessions" class="settings__input" min="1" max="10" value="4" />
+      </div>
+      <button id="settings-save" class="settings__save-btn" type="submit">Save &amp; Close</button>
+    </form>
+  </aside>
+
+  <footer class="app-footer">
+    <p>Pomodoro Timer &bull; AI4Students 2026 &bull; <kbd>Space</kbd> Start/Pause &bull; <kbd>R</kbd> Reset &bull; <kbd>S</kbd> Skip</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

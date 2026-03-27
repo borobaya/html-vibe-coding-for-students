@@ -1,0 +1,174 @@
+/**
+ * File: main.css
+ * Description: Quiz Battle styling – dark competitive theme
+ * Author: AI4Students
+ * Created: 2026-03-27
+ * Last Modified: 2026-03-27
+ */
+
+:root {
+  --color-bg: #0f0f1a;
+  --color-surface: #1a1a2e;
+  --color-surface-alt: #16213e;
+  --color-text: #e0e0e0;
+  --color-text-muted: #8888a0;
+  --color-border: #2a2a4a;
+  --color-player1: #ff6b6b;
+  --color-player1-light: #ff8e8e;
+  --color-player1-bg: #2e1a1a;
+  --color-player2: #4ecdc4;
+  --color-player2-light: #7eddd6;
+  --color-player2-bg: #1a2e2c;
+  --color-correct: #51cf66;
+  --color-wrong: #ff6b6b;
+  --color-warning: #ffd43b;
+  --color-accent: #845ef7;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  --radius: 8px;
+  --radius-lg: 12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex; justify-content: center; align-items: center;
+}
+
+.screen { display: none; width: 100%; max-width: 800px; padding: 2rem 1rem; }
+.screen--active { display: block; }
+.screen[hidden] { display: none; }
+
+/* ── Start Screen ── */
+.start-screen__header { text-align: center; margin-bottom: 2rem; }
+.start-screen__title { font-family: var(--font-heading); font-size: 2.5rem; color: var(--color-accent); }
+.start-screen__tagline { color: var(--color-text-muted); margin-top: 0.5rem; }
+
+.setup-form { display: flex; flex-direction: column; gap: 1.5rem; }
+.setup-form__players { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.setup-form__player { flex: 1; min-width: 200px; }
+.setup-form__player--p1 .setup-form__label { color: var(--color-player1); }
+.setup-form__player--p2 .setup-form__label { color: var(--color-player2); }
+.setup-form__label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+.setup-form__input {
+  width: 100%; padding: 0.75rem; background: var(--color-surface);
+  border: 2px solid var(--color-border); border-radius: var(--radius);
+  color: var(--color-text); font-size: 1rem;
+}
+.setup-form__input:focus { border-color: var(--color-accent); outline: none; }
+.setup-form__error { color: var(--color-wrong); font-size: 0.8rem; }
+
+.setup-form__fieldset { border: none; }
+.setup-form__legend { font-weight: 600; margin-bottom: 0.5rem; color: var(--color-text-muted); }
+.setup-form__categories, .setup-form__rounds {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+}
+.category-btn, .round-btn {
+  cursor: pointer; padding: 0.5rem 1rem;
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius); color: var(--color-text); font-size: 0.9rem;
+  transition: all 0.2s;
+}
+.category-btn:has(:checked), .round-btn:has(:checked) {
+  background: var(--color-accent); color: #fff; border-color: var(--color-accent);
+}
+.category-btn input, .round-btn input { display: none; }
+
+.btn { cursor: pointer; border: none; border-radius: var(--radius-lg); font-weight: 600; transition: background 0.2s; }
+.btn--primary { background: var(--color-accent); color: #fff; }
+.btn--primary:hover { background: #7048e8; }
+.btn--large { padding: 1rem 2rem; font-size: 1.2rem; width: 100%; }
+
+/* ── Game Screen ── */
+.game-header {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--color-surface); border-radius: var(--radius); padding: 1rem; margin-bottom: 0.5rem;
+}
+.game-header__player { text-align: center; flex: 1; padding: 0.5rem; border-radius: var(--radius); transition: all 0.3s; }
+.game-header__player--p1 { border-left: 3px solid var(--color-player1); }
+.game-header__player--p2 { border-right: 3px solid var(--color-player2); }
+.game-header__player--active.game-header__player--p1 { background: var(--color-player1-bg); box-shadow: 0 0 15px rgba(255,107,107,0.3); }
+.game-header__player--active.game-header__player--p2 { background: var(--color-player2-bg); box-shadow: 0 0 15px rgba(78,205,196,0.3); }
+.game-header__name { display: block; font-weight: 600; font-size: 0.85rem; }
+.game-header__score { display: block; font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--color-accent); }
+.game-header__streak { font-size: 0.85rem; }
+.game-header__centre { text-align: center; }
+.game-header__timer { font-family: var(--font-mono); font-size: 2rem; font-weight: 700; color: var(--color-accent); }
+.game-header__round { font-size: 0.8rem; color: var(--color-text-muted); }
+
+.timer-bar { height: 6px; background: var(--color-border); border-radius: 3px; margin-bottom: 1rem; overflow: hidden; }
+.timer-bar__fill { height: 100%; background: var(--color-accent); transition: width 1s linear; border-radius: 3px; }
+.timer-bar__fill--warning { background: var(--color-warning); }
+
+.turn-indicator {
+  text-align: center; padding: 0.75rem;
+  background: var(--color-surface-alt); border-radius: var(--radius);
+  font-weight: 600; margin-bottom: 1rem;
+}
+
+.question-card {
+  background: var(--color-surface-alt); border-radius: var(--radius-lg);
+  padding: 2rem; text-align: center; margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.question-card__category { color: var(--color-text-muted); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+.question-card__text { font-family: var(--font-heading); font-size: 1.3rem; line-height: 1.4; }
+
+.answers { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; }
+.answer-btn {
+  padding: 1rem; background: var(--color-surface); border: 2px solid var(--color-border);
+  border-radius: var(--radius); color: var(--color-text); font-size: 1rem;
+  cursor: pointer; transition: all 0.2s; text-align: left;
+}
+.answer-btn:hover:not(:disabled) { border-color: var(--color-accent); background: var(--color-surface-alt); }
+.answer-btn:disabled { cursor: not-allowed; opacity: 0.7; }
+.answer-btn--correct { border-color: var(--color-correct); background: rgba(81,207,102,0.15); }
+.answer-btn--wrong { border-color: var(--color-wrong); background: rgba(255,107,107,0.15); }
+
+.feedback-overlay {
+  text-align: center; padding: 1rem;
+  background: var(--color-surface); border-radius: var(--radius);
+  animation: fadeIn 0.3s;
+}
+.feedback-overlay[hidden] { display: none; }
+.feedback-overlay__text { font-size: 1.5rem; font-weight: 700; }
+.feedback-overlay__points { color: var(--color-accent); font-family: var(--font-heading); }
+
+/* ── Results Screen ── */
+.results-header { text-align: center; margin-bottom: 2rem; }
+.results-header__title { font-family: var(--font-heading); font-size: 2rem; color: var(--color-accent); }
+.results-header__winner { font-size: 1.3rem; margin-top: 0.5rem; }
+
+.results-cards { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem; }
+.results-card {
+  flex: 1; min-width: 240px; max-width: 350px;
+  background: var(--color-surface); border-radius: var(--radius-lg);
+  padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.results-card--p1 { border-top: 3px solid var(--color-player1); }
+.results-card--p2 { border-top: 3px solid var(--color-player2); }
+.results-card__name { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 1rem; text-align: center; }
+.results-card__stats { list-style: none; }
+.results-card__stat { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px solid var(--color-border); }
+.results-card__stat dt { color: var(--color-text-muted); }
+.results-card__stat dd { font-weight: 600; color: var(--color-accent); }
+
+.results-actions { display: flex; gap: 1rem; justify-content: center; }
+.results-actions .btn { padding: 0.75rem 1.5rem; font-size: 1rem; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+@media (max-width: 600px) {
+  .answers { grid-template-columns: 1fr; }
+  .game-header { flex-direction: column; gap: 0.5rem; }
+  .start-screen__title { font-size: 1.8rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

@@ -1,0 +1,421 @@
+/**
+ * File: main.css
+ * Description: Pomodoro timer styles — dark theme with mode-adaptive accent colours
+ * Author: AI4Students
+ * Created: 2025-01-20
+ * Last Modified: 2025-01-20
+ */
+
+/* ── Variables ──────────────────────────────────────── */
+:root {
+  --clr-bg: #1A1A2E;
+  --clr-surface: #16213E;
+  --clr-surface-alt: #0F3460;
+  --clr-text: #E8E8E8;
+  --clr-text-muted: #9A9ABF;
+  --clr-work: #E94560;
+  --clr-work-glow: rgba(233, 69, 96, 0.2);
+  --clr-short-break: #00B4D8;
+  --clr-short-break-glow: rgba(0, 180, 216, 0.2);
+  --clr-long-break: #2DC653;
+  --clr-long-break-glow: rgba(45, 198, 83, 0.2);
+  --clr-active: var(--clr-work);
+  --clr-active-glow: var(--clr-work-glow);
+  --clr-btn-bg: #233554;
+  --clr-btn-hover: #2A4066;
+  --clr-btn-text: #FFFFFF;
+  --clr-dot-complete: var(--clr-active);
+  --clr-dot-incomplete: #3A3A5C;
+  --clr-overlay: rgba(0, 0, 0, 0.5);
+  --font-primary: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --transition: 0.3s ease;
+}
+
+/* ── Reset ──────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Screen Reader Only ─────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.header {
+  width: 100%;
+  background: var(--clr-surface);
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.header__brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--clr-active);
+  letter-spacing: 1px;
+}
+
+.header__settings-btn {
+  background: var(--clr-btn-bg);
+  color: var(--clr-btn-text);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.header__settings-btn:hover {
+  background: var(--clr-btn-hover);
+}
+
+/* ── Main Content ───────────────────────────────────── */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xl);
+  padding: var(--space-xl) var(--space-md);
+  max-width: 500px;
+  width: 100%;
+}
+
+/* ── Mode Label ─────────────────────────────────────── */
+.mode-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--clr-active);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* ── Timer Ring ─────────────────────────────────────── */
+.timer {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  transition: transform 0.3s ease;
+}
+
+.timer--complete {
+  animation: pulse-complete 0.5s ease 3;
+}
+
+@keyframes pulse-complete {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.timer__ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.timer__ring-bg {
+  fill: none;
+  stroke: var(--clr-surface);
+  stroke-width: 8;
+}
+
+.timer__ring-progress {
+  fill: none;
+  stroke: var(--clr-active);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease;
+  filter: drop-shadow(0 0 8px var(--clr-active-glow));
+}
+
+.timer__display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.timer__digits {
+  font-family: var(--font-mono);
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--clr-text);
+}
+
+/* ── Controls ───────────────────────────────────────── */
+.controls {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.controls__btn {
+  background: var(--clr-btn-bg);
+  color: var(--clr-btn-text);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform 0.1s ease;
+  min-width: 48px;
+  min-height: 44px;
+}
+
+.controls__btn:hover:not(:disabled) {
+  background: var(--clr-btn-hover);
+}
+
+.controls__btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.controls__btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.controls__btn--start {
+  background: var(--clr-active);
+  min-width: 120px;
+}
+
+.controls__btn--start:hover:not(:disabled) {
+  filter: brightness(1.1);
+  background: var(--clr-active);
+}
+
+/* ── Sessions ───────────────────────────────────────── */
+.sessions {
+  text-align: center;
+}
+
+.sessions__label {
+  font-size: 0.85rem;
+  color: var(--clr-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.sessions__dots {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+.sessions__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--clr-dot-incomplete);
+  transition: background var(--transition), transform 0.2s ease;
+}
+
+.sessions__dot--complete {
+  background: var(--clr-active);
+  transform: scale(1.2);
+}
+
+/* ── Stats ──────────────────────────────────────────── */
+.stats {
+  width: 100%;
+}
+
+.stats__heading {
+  font-size: 0.85rem;
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.stats__card {
+  background: var(--clr-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.stats__value {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--clr-active);
+}
+
+.stats__label {
+  font-size: 0.75rem;
+  color: var(--clr-text-muted);
+  margin-top: var(--space-xs);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── Settings Overlay ───────────────────────────────── */
+.settings-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--clr-overlay);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.settings-overlay--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Settings Panel ─────────────────────────────────── */
+.settings {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  max-width: 90vw;
+  height: 100vh;
+  background: var(--clr-surface-alt);
+  z-index: 300;
+  transform: translateX(100%);
+  transition: transform var(--transition);
+  padding: var(--space-xl) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  overflow-y: auto;
+}
+
+.settings--open {
+  transform: translateX(0);
+}
+
+.settings__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+.settings__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.settings__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.settings__label {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.settings__input {
+  background: var(--clr-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: var(--clr-text);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.settings__input:focus {
+  border-color: var(--clr-active);
+}
+
+.settings__save-btn {
+  background: var(--clr-active);
+  color: var(--clr-btn-text);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter var(--transition);
+}
+
+.settings__save-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* ── Footer ─────────────────────────────────────────── */
+.app-footer {
+  text-align: center;
+  padding: var(--space-md);
+  color: var(--clr-text-muted);
+  font-size: 0.75rem;
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 480px) {
+  .timer {
+    width: 220px;
+    height: 220px;
+  }
+
+  .timer__digits {
+    font-size: 2.5rem;
+  }
+
+  .stats__grid {
+    grid-template-columns: 1fr;
+  }
+}
