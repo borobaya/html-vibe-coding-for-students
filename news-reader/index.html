@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Reader</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header>
+    <h1>📰 News Reader</h1>
+    <nav class="categories" id="categories">
+      <button class="cat-btn active" data-cat="all">All</button>
+      <button class="cat-btn" data-cat="world">World</button>
+      <button class="cat-btn" data-cat="tech">Tech</button>
+      <button class="cat-btn" data-cat="sport">Sport</button>
+      <button class="cat-btn" data-cat="science">Science</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="featured" id="featured"></div>
+    <div class="article-grid" id="article-grid"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 News Reader</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

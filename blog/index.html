@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header>
+    <h1 class="site-title">My Blog</h1>
+    <p class="site-subtitle">Thoughts, stories, and things I'm learning.</p>
+    <nav>
+      <a href="#" class="nav-link active">All Posts</a>
+      <a href="#" class="nav-link" data-tag="life">Life</a>
+      <a href="#" class="nav-link" data-tag="tech">Tech</a>
+      <a href="#" class="nav-link" data-tag="school">School</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="posts" id="posts">
+      <!-- Blog posts appear here -->
+    </div>
+
+    <aside class="sidebar">
+      <section class="widget">
+        <h3>About</h3>
+        <p>Welcome to my blog! I write about whatever interests me. Have a look around 👋</p>
+      </section>
+      <section class="widget">
+        <h3>Search</h3>
+        <input type="search" id="search" placeholder="Search posts…" aria-label="Search posts">
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 My Blog</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

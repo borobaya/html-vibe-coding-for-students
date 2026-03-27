@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Shop</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header>
+    <h1 class="logo">🛍️ My Shop</h1>
+    <div class="cart-icon" id="cart-icon">
+      🛒 <span class="cart-count" id="cart-count">0</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="filters">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="clothing">Clothing</button>
+      <button class="filter-btn" data-category="accessories">Accessories</button>
+      <button class="filter-btn" data-category="stickers">Stickers</button>
+    </section>
+
+    <section class="product-grid" id="product-grid">
+      <!-- Products appear here -->
+    </section>
+  </main>
+
+  <!-- Cart drawer -->
+  <div class="cart-overlay" id="cart-overlay" hidden>
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button class="close-cart" id="close-cart">&times;</button>
+      </div>
+      <div class="cart-items" id="cart-items">
+        <p class="empty-cart">Your cart is empty.</p>
+      </div>
+      <div class="cart-footer">
+        <p class="cart-total">Total: £<span id="cart-total">0.00</span></p>
+        <button class="checkout-btn" id="checkout-btn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 My Shop</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

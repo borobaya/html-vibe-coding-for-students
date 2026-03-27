@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <span class="logo">My Portfolio</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <img src="assets/avatar.png" alt="Photo of me" class="avatar" onerror="this.style.display='none'">
+      <h1>Hi, I'm <span class="highlight">Your Name</span></h1>
+      <p class="tagline">I like making cool things on the internet.</p>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About Me</h2>
+      <p>Write a bit about yourself here — what you enjoy, what you're learning, anything you want people to know!</p>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2>My Projects</h2>
+      <div class="project-grid" id="project-grid">
+        <!-- Projects get added here by JavaScript -->
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Get in Touch</h2>
+      <p>Want to say hello? Fill in the form below!</p>
+      <form id="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+      <p id="form-response" class="form-response" hidden></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Your Name</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

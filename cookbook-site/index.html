@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cookbook</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header>
+    <h1>🍳 My Cookbook</h1>
+    <p class="subtitle">Simple recipes I love.</p>
+    <div class="search-bar">
+      <input type="search" id="search" placeholder="Search recipes…" aria-label="Search recipes">
+    </div>
+    <nav class="tags" id="tags">
+      <button class="tag active" data-tag="all">All</button>
+      <button class="tag" data-tag="breakfast">Breakfast</button>
+      <button class="tag" data-tag="lunch">Lunch</button>
+      <button class="tag" data-tag="dinner">Dinner</button>
+      <button class="tag" data-tag="snack">Snack</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="recipe-grid" id="recipe-grid"></div>
+  </main>
+
+  <!-- Recipe detail modal -->
+  <div class="modal-overlay" id="modal" hidden>
+    <div class="modal">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 My Cookbook</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

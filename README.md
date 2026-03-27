@@ -24,7 +24,20 @@ Then visit `http://localhost:5500`.
 
 ## Starter Projects
 
-Ready to build your own? Pick one of these ideas, create a new folder, and start vibe-coding with AI!
+These are ready-to-go projects with basic structure and starter content. Open one, then customise it to make it your own!
+
+| Project | Description |
+|---------|-------------|
+| [portfolio](portfolio/README.md) | Personal homepage with about section, project showcase, and contact form |
+| [blog](blog/README.md) | Blog with posts, tag filtering, search, and a sidebar |
+| [e-commerce](e-commerce/README.md) | Online shop with product grid, category filters, and a cart drawer |
+| [interactive-story](interactive-story/README.md) | Choose-your-adventure game with branching paths and multiple endings |
+| [cookbook-site](cookbook-site/README.md) | Recipe collection with search, meal-type filters, and detail modals |
+| [news-reader](news-reader/README.md) | News site with featured article, category filters, and article cards |
+
+### More Ideas
+
+Want to build something from scratch? Pick one of these, create a new folder, and start vibe-coding with AI!
 
 | Idea | What to Build |
 |------|---------------|

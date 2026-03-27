@@ -1,0 +1,103 @@
+/* ── Theme ── */
+:root {
+  --bg: #0f0f1a;
+  --surface: #1a1a2e;
+  --primary: #e94560;
+  --text: #eee;
+  --text-muted: #aaa;
+  --radius: 10px;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ── Nav ── */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--surface);
+}
+.logo { font-size: 1.3rem; font-weight: 700; color: var(--primary); }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--primary); }
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 5rem 2rem 3rem;
+}
+.avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 3px solid var(--primary); }
+.hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.highlight { color: var(--primary); }
+.tagline { font-size: 1.2rem; color: var(--text-muted); }
+
+/* ── Sections ── */
+section { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
+h2 { font-size: 1.8rem; margin-bottom: 1rem; border-bottom: 2px solid var(--primary); display: inline-block; padding-bottom: 0.3rem; }
+
+/* ── Projects grid ── */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.project-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: transform 0.2s;
+}
+.project-card:hover { transform: translateY(-4px); }
+.project-card h3 { color: var(--primary); margin-bottom: 0.5rem; }
+.project-card p { color: var(--text-muted); font-size: 0.95rem; }
+.project-card a {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ── Contact form ── */
+form { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1rem; }
+label { font-weight: 600; }
+input, textarea {
+  padding: 0.6rem;
+  border: 1px solid #333;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1rem;
+}
+button {
+  padding: 0.7rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+button:hover { opacity: 0.85; }
+.form-response { margin-top: 1rem; color: #4caf50; font-weight: 600; }
+
+/* ── Footer ── */
+footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.8rem; }
+  .nav-links { gap: 1rem; }
+  nav { flex-direction: column; gap: 0.8rem; }
+}
