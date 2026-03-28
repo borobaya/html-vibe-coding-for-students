@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Stack of blocks -->
+  <rect x="8" y="30" width="14" height="14" rx="3" fill="#38bdf8" opacity="0.6" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="26" y="30" width="14" height="14" rx="3" fill="#38bdf8" opacity="0.4" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="17" y="16" width="14" height="14" rx="3" fill="#38bdf8" opacity="0.8" stroke="#38bdf8" stroke-width="1.5"/>
+  <!-- Small block floating up -->
+  <rect x="20" y="4" width="8" height="8" rx="2" fill="#38bdf8" opacity="0.3" stroke="#38bdf8" stroke-width="1"/>
+  <!-- Upward arrow hint -->
+  <line x1="24" y1="14" x2="24" y2="6" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
+</svg>

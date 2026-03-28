@@ -1,0 +1,417 @@
+:root {
+  --bg: #0f172a;
+  --slide-bg: #1e293b;
+  --accent: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.3);
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --card-bg: #334155;
+  --card-border: #475569;
+  --radius: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* ---- Back link ---- */
+.back-link {
+  position: fixed;
+  top: 12px;
+  left: 16px;
+  z-index: 200;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+/* ---- Progress bar ---- */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--slide-bg);
+  z-index: 100;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 20%;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+/* ---- Slides ---- */
+.slide {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateX(60px);
+  padding: 2rem 2rem 4.5rem;
+  overflow-y: auto;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.slide.exiting {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+.slide-content {
+  max-width: 860px;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+/* ---- Typography ---- */
+.slide-label {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: clamp(0.7rem, 1.2vh, 0.85rem);
+  color: var(--accent);
+  margin-bottom: clamp(0.4rem, 1vh, 1rem);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(1.4rem, 3.5vh, 3rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: clamp(0.5rem, 1.5vh, 1.25rem);
+}
+
+.highlight {
+  color: var(--accent);
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.analogy {
+  margin-top: clamp(0.5rem, 1.5vh, 1.5rem);
+  font-size: clamp(0.85rem, 1.5vh, 1.1rem);
+  color: var(--text-muted);
+  background: var(--card-bg);
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
+}
+
+/* ---- Hero graphic (Slide 1) ---- */
+.hero-graphic {
+  display: block;
+  margin: 2rem auto 0;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* ---- VS Code mockup graphics ---- */
+.mockup-graphic {
+  display: block;
+  margin: clamp(0.5rem, 1.5vh, 1.5rem) auto 0;
+  max-width: 680px;
+  max-height: 38vh;
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ---- Feature list (Slide 2) ---- */
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.4rem, 1vh, 1rem);
+  margin: clamp(0.5rem, 1.5vh, 1.5rem) auto;
+  max-width: 500px;
+  text-align: left;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--card-bg);
+  padding: clamp(0.5rem, 1.2vh, 1rem) 1.25rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
+}
+
+.feature-list .icon {
+  width: clamp(2rem, 3.5vh, 2.8rem);
+  height: clamp(2rem, 3.5vh, 2.8rem);
+  flex-shrink: 0;
+}
+
+.feature-list strong {
+  display: block;
+  font-size: 1.05rem;
+}
+
+.feature-list p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.15rem;
+}
+
+/* ---- Project grid (Slide 3) ---- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin: 1.5rem auto;
+  max-width: 640px;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card span {
+  padding: 0.5rem 0.5rem;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ---- Steps list (Slide 4) ---- */
+.steps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.4rem, 1vh, 1rem);
+  margin: clamp(0.5rem, 1.5vh, 1.5rem) auto;
+  max-width: 520px;
+  text-align: left;
+}
+
+.steps-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--card-bg);
+  padding: clamp(0.5rem, 1.2vh, 1rem) 1.25rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
+}
+
+.step-icon {
+  width: clamp(2rem, 3.5vh, 2.8rem);
+  height: clamp(2rem, 3.5vh, 2.8rem);
+  flex-shrink: 0;
+}
+
+.steps-list strong {
+  display: block;
+  font-size: 1.05rem;
+}
+
+.steps-list p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.15rem;
+}
+
+/* ---- Tips grid (Slide 5) ---- */
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem auto;
+  max-width: 720px;
+}
+
+.tip-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+
+.tip-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+.tip-card strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 1rem;
+}
+
+.tip-card p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* ---- CTA (Slide 5) ---- */
+.cta {
+  margin-top: 2rem;
+}
+
+.cta p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.go {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.rocket-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* ---- Navigation ---- */
+.slide-nav {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 50;
+}
+
+.nav-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+.nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.nav-btn:disabled:hover {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  color: var(--text);
+}
+
+.slide-counter {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  min-width: 3rem;
+  text-align: center;
+}
+
+/* ---- Keyboard hint ---- */
+.keyboard-hint {
+  position: fixed;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  opacity: 0.6;
+  transition: opacity 1s ease;
+  z-index: 50;
+}
+
+.keyboard-hint.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+  }
+
+  .visual {
+    font-size: 1.8rem;
+    letter-spacing: 0.5rem;
+  }
+}

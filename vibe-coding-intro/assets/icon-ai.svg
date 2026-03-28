@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Sparkle / AI star -->
+  <path d="M24,4 L28,18 L42,18 L30,26 L34,40 L24,32 L14,40 L18,26 L6,18 L20,18 Z" fill="#38bdf8" opacity="0.15" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Gear teeth suggestion -->
+  <circle cx="24" cy="24" r="8" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+  <circle cx="24" cy="24" r="3" fill="#38bdf8"/>
+  <!-- Small sparkles -->
+  <circle cx="38" cy="8" r="2" fill="#38bdf8" opacity="0.6"/>
+  <circle cx="8" cy="10" r="1.5" fill="#38bdf8" opacity="0.4"/>
+  <circle cx="40" cy="38" r="1.5" fill="#38bdf8" opacity="0.5"/>
+</svg>

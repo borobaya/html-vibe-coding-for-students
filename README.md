@@ -6,6 +6,8 @@ A collection of websites and web-based games for students learning to vibe-code 
 
 This is a monorepo where each student project lives in its own folder. Projects are built with HTML, CSS, and JavaScript — no frameworks, no build tools, just code.
 
+> **New here?** Check out the [Intro to Vibe Coding](vibe-coding-intro/README.md) presentation to see what it's all about.
+
 ## Getting Started
 
 1. Tell Copilot what you want to build — it'll create the project folder for you.
