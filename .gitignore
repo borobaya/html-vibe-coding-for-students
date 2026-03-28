@@ -8,3 +8,7 @@ Thumbs.db
 
 # Environment/secrets
 .env
+
+node_modules/
+dist/
+build/

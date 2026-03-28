@@ -7,6 +7,7 @@
  */
 
 import { fetchCurrentWeather, fetchForecast, fetchWeatherByCoords, fetchForecastByCoords } from './modules/api.js';
+import { API_KEY } from './modules/config.js';
 import {
   renderCurrentWeather,
   renderForecast,
@@ -18,6 +19,11 @@ import {
   hideLoading,
   showDashboard,
 } from './modules/dom.js';
+
+if (API_KEY === 'YOUR_API_KEY_HERE') {
+  const banner = document.querySelector('.demo-banner');
+  if (banner) banner.hidden = false;
+}
 import { initSearch } from './modules/search.js';
 import {
   getRecentSearches,

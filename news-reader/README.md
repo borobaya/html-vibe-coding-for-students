@@ -1,3 +1,5 @@
+[← Back to all projects](../README.md) | [🌐 Open Website](index.html)
+
 # News Reader
 
 A news website with a featured article, card grid, and category filters.

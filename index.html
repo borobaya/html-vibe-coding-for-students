@@ -58,15 +58,27 @@
     }
 
     .projects a {
-      display: block;
+      display: flex;
+      flex-direction: column;
       background: var(--card-bg);
-      padding: 1.5rem;
       border-radius: 0.75rem;
       text-decoration: none;
       color: var(--text);
       font-size: 1.125rem;
       font-weight: 500;
+      overflow: hidden;
       transition: background 0.2s, transform 0.2s;
+    }
+
+    .projects a img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .projects a span {
+      padding: 1rem 1.25rem;
     }
 
     .projects a:hover,
@@ -110,66 +122,72 @@
   </p>
 
   <div class="container">
-    <h2>Starter Projects</h2>
+    <h2>Your Projects</h2>
+    <p style="color: var(--text-muted); margin-bottom: 1rem;">This is where your projects will appear. Create a new folder, start vibe-coding, and add your project here!</p>
     <ul class="projects">
-      <li><a href="portfolio/index.html">Portfolio</a></li>
-      <li><a href="blog/index.html">Blog</a></li>
-      <li><a href="e-commerce/index.html">E-Commerce Shop</a></li>
-      <li><a href="interactive-story/index.html">Interactive Story</a></li>
-      <li><a href="cookbook-site/index.html">Cookbook Site</a></li>
-      <li><a href="news-reader/index.html">News Reader</a></li>
+    </ul>
+
+    <h2>Starter Projects</h2>
+    <p style="color: var(--text-muted); margin-bottom: 1rem;">Ready-made projects to explore, remix, and learn from. Pick one that catches your eye, open it up, and make it your own!</p>
+    <ul class="projects">
+      <li><a href="portfolio/index.html"><img src="portfolio/assets/thumbnail.png" alt="Portfolio preview"><span>Portfolio</span></a></li>
+      <li><a href="blog/index.html"><img src="blog/assets/thumbnail.png" alt="Blog preview"><span>Blog</span></a></li>
+      <li><a href="e-commerce/index.html"><img src="e-commerce/assets/thumbnail.png" alt="E-Commerce Shop preview"><span>E-Commerce Shop</span></a></li>
+      <li><a href="interactive-story/index.html"><img src="interactive-story/assets/thumbnail.png" alt="Interactive Story preview"><span>Interactive Story</span></a></li>
+      <li><a href="cookbook-site/index.html"><img src="cookbook-site/assets/thumbnail.png" alt="Cookbook Site preview"><span>Cookbook Site</span></a></li>
+      <li><a href="news-reader/index.html"><img src="news-reader/assets/thumbnail.png" alt="News Reader preview"><span>News Reader</span></a></li>
     </ul>
 
     <h2>Games</h2>
     <ul class="projects">
-      <li><a href="endless-runner/index.html">Endless Runner</a></li>
-      <li><a href="quiz-battle/index.html">Quiz Battle</a></li>
-      <li><a href="dungeon-crawler/index.html">Dungeon Crawler</a></li>
-      <li><a href="typing-speed-racer/index.html">Typing Speed Racer</a></li>
-      <li><a href="memory-card-match/index.html">Memory Card Match</a></li>
-      <li><a href="snake-with-powerups/index.html">Snake with Power-Ups</a></li>
-      <li><a href="tower-defence/index.html">Tower Defence</a></li>
+      <li><a href="endless-runner/index.html"><img src="endless-runner/assets/thumbnail.png" alt="Endless Runner preview"><span>Endless Runner</span></a></li>
+      <li><a href="quiz-battle/index.html"><img src="quiz-battle/assets/thumbnail.png" alt="Quiz Battle preview"><span>Quiz Battle</span></a></li>
+      <li><a href="dungeon-crawler/index.html"><img src="dungeon-crawler/assets/thumbnail.png" alt="Dungeon Crawler preview"><span>Dungeon Crawler</span></a></li>
+      <li><a href="typing-speed-racer/index.html"><img src="typing-speed-racer/assets/thumbnail.png" alt="Typing Speed Racer preview"><span>Typing Speed Racer</span></a></li>
+      <li><a href="memory-card-match/index.html"><img src="memory-card-match/assets/thumbnail.png" alt="Memory Card Match preview"><span>Memory Card Match</span></a></li>
+      <li><a href="snake-with-powerups/index.html"><img src="snake-with-powerups/assets/thumbnail.png" alt="Snake with Power-Ups preview"><span>Snake with Power-Ups</span></a></li>
+      <li><a href="tower-defence/index.html"><img src="tower-defence/assets/thumbnail.png" alt="Tower Defence preview"><span>Tower Defence</span></a></li>
     </ul>
 
     <h2>Creative Tools</h2>
     <ul class="projects">
-      <li><a href="pixel-art-editor/index.html">Pixel Art Editor</a></li>
-      <li><a href="beat-maker/index.html">Beat Maker</a></li>
-      <li><a href="meme-generator/index.html">Meme Generator</a></li>
-      <li><a href="colour-palette-generator/index.html">Colour Palette Generator</a></li>
+      <li><a href="pixel-art-editor/index.html"><img src="pixel-art-editor/assets/thumbnail.png" alt="Pixel Art Editor preview"><span>Pixel Art Editor</span></a></li>
+      <li><a href="beat-maker/index.html"><img src="beat-maker/assets/thumbnail.png" alt="Beat Maker preview"><span>Beat Maker</span></a></li>
+      <li><a href="meme-generator/index.html"><img src="meme-generator/assets/thumbnail.png" alt="Meme Generator preview"><span>Meme Generator</span></a></li>
+      <li><a href="colour-palette-generator/index.html"><img src="colour-palette-generator/assets/thumbnail.png" alt="Colour Palette Generator preview"><span>Colour Palette Generator</span></a></li>
     </ul>
 
     <h2>Productivity</h2>
     <ul class="projects">
-      <li><a href="pomodoro-timer/index.html">Pomodoro Timer</a></li>
-      <li><a href="habit-tracker/index.html">Habit Tracker</a></li>
-      <li><a href="flashcard-app/index.html">Flashcard App</a></li>
-      <li><a href="budget-tracker/index.html">Budget Tracker</a></li>
+      <li><a href="pomodoro-timer/index.html"><img src="pomodoro-timer/assets/thumbnail.png" alt="Pomodoro Timer preview"><span>Pomodoro Timer</span></a></li>
+      <li><a href="habit-tracker/index.html"><img src="habit-tracker/assets/thumbnail.png" alt="Habit Tracker preview"><span>Habit Tracker</span></a></li>
+      <li><a href="flashcard-app/index.html"><img src="flashcard-app/assets/thumbnail.png" alt="Flashcard App preview"><span>Flashcard App</span></a></li>
+      <li><a href="budget-tracker/index.html"><img src="budget-tracker/assets/thumbnail.png" alt="Budget Tracker preview"><span>Budget Tracker</span></a></li>
     </ul>
 
     <h2>Fun / Social</h2>
     <ul class="projects">
-      <li><a href="would-you-rather/index.html">Would You Rather</a></li>
-      <li><a href="personality-quiz/index.html">Personality Quiz</a></li>
-      <li><a href="fortune-teller/index.html">Fortune Teller</a></li>
-      <li><a href="fake-text-generator/index.html">Fake Text Generator</a></li>
-      <li><a href="zodiac-compatibility/index.html">Zodiac Compatibility</a></li>
+      <li><a href="would-you-rather/index.html"><img src="would-you-rather/assets/thumbnail.png" alt="Would You Rather preview"><span>Would You Rather</span></a></li>
+      <li><a href="personality-quiz/index.html"><img src="personality-quiz/assets/thumbnail.png" alt="Personality Quiz preview"><span>Personality Quiz</span></a></li>
+      <li><a href="fortune-teller/index.html"><img src="fortune-teller/assets/thumbnail.png" alt="Fortune Teller preview"><span>Fortune Teller</span></a></li>
+      <li><a href="fake-text-generator/index.html"><img src="fake-text-generator/assets/thumbnail.png" alt="Fake Text Generator preview"><span>Fake Text Generator</span></a></li>
+      <li><a href="zodiac-compatibility/index.html"><img src="zodiac-compatibility/assets/thumbnail.png" alt="Zodiac Compatibility preview"><span>Zodiac Compatibility</span></a></li>
     </ul>
 
     <h2>Data / Visual</h2>
     <ul class="projects">
-      <li><a href="weather-dashboard/index.html">Weather Dashboard</a></li>
-      <li><a href="space-tracker/index.html">Space Tracker</a></li>
-      <li><a href="github-profile-viewer/index.html">GitHub Profile Viewer</a></li>
-      <li><a href="random-wikipedia-explorer/index.html">Random Wikipedia Explorer</a></li>
+      <li><a href="weather-dashboard/index.html"><img src="weather-dashboard/assets/thumbnail.png" alt="Weather Dashboard preview"><span>Weather Dashboard</span></a></li>
+      <li><a href="space-tracker/index.html"><img src="space-tracker/assets/thumbnail.png" alt="Space Tracker preview"><span>Space Tracker</span></a></li>
+      <li><a href="github-profile-viewer/index.html"><img src="github-profile-viewer/assets/thumbnail.png" alt="GitHub Profile Viewer preview"><span>GitHub Profile Viewer</span></a></li>
+      <li><a href="random-wikipedia-explorer/index.html"><img src="random-wikipedia-explorer/assets/thumbnail.png" alt="Random Wikipedia Explorer preview"><span>Random Wikipedia Explorer</span></a></li>
     </ul>
 
     <h2>Simulation</h2>
     <ul class="projects">
-      <li><a href="ecosystem-simulator/index.html">Ecosystem Simulator</a></li>
-      <li><a href="gravity-sandbox/index.html">Gravity Sandbox</a></li>
-      <li><a href="traffic-light-simulator/index.html">Traffic Light Simulator</a></li>
-      <li><a href="game-of-life/index.html">Game of Life</a></li>
+      <li><a href="ecosystem-simulator/index.html"><img src="ecosystem-simulator/assets/thumbnail.png" alt="Ecosystem Simulator preview"><span>Ecosystem Simulator</span></a></li>
+      <li><a href="gravity-sandbox/index.html"><img src="gravity-sandbox/assets/thumbnail.png" alt="Gravity Sandbox preview"><span>Gravity Sandbox</span></a></li>
+      <li><a href="traffic-light-simulator/index.html"><img src="traffic-light-simulator/assets/thumbnail.png" alt="Traffic Light Simulator preview"><span>Traffic Light Simulator</span></a></li>
+      <li><a href="game-of-life/index.html"><img src="game-of-life/assets/thumbnail.png" alt="Game of Life preview"><span>Game of Life</span></a></li>
     </ul>
   </div>
 </body>

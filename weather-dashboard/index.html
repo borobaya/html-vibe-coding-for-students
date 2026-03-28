@@ -45,6 +45,12 @@
       <div class="search__recent" aria-label="Recent searches" role="list"></div>
     </section>
 
+    <!-- DEMO MODE BANNER (shown when no API key is set) -->
+    <div class="demo-banner" hidden>
+      <span class="demo-banner__icon" aria-hidden="true">🔑</span>
+      <p class="demo-banner__text">Demo mode — showing sample data. Add your <a href="https://openweathermap.org/api" target="_blank" rel="noopener">OpenWeatherMap API key</a> in <code>js/modules/config.js</code> for live weather.</p>
+    </div>
+
     <!-- ERROR MESSAGE (hidden by default) -->
     <div class="error" role="alert" aria-live="polite" hidden>
       <span class="error__icon" aria-hidden="true">⚠️</span>

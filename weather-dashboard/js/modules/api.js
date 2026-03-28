@@ -6,7 +6,30 @@
  * Last Modified: 2025-01-20
  */
 
-import { ENDPOINTS } from './config.js';
+import { API_KEY, ENDPOINTS } from './config.js';
+import { DEMO_CURRENT, DEMO_FORECAST } from './demo-data.js';
+
+const isDemoMode = API_KEY === 'YOUR_API_KEY_HERE';
+
+const cToF = (c) => c * 9 / 5 + 32;
+
+function getDemoData(units) {
+  if (units === 'imperial') {
+    const current = JSON.parse(JSON.stringify(DEMO_CURRENT));
+    current.main.temp = Math.round(cToF(current.main.temp));
+    current.main.feels_like = Math.round(cToF(current.main.feels_like));
+    current.wind.speed = Math.round(current.wind.speed * 2.237 * 10) / 10;
+
+    const forecast = JSON.parse(JSON.stringify(DEMO_FORECAST));
+    for (const entry of forecast.list) {
+      entry.main.temp = Math.round(cToF(entry.main.temp));
+      entry.main.temp_min = Math.round(cToF(entry.main.temp_min));
+      entry.main.temp_max = Math.round(cToF(entry.main.temp_max));
+    }
+    return { current, forecast };
+  }
+  return { current: DEMO_CURRENT, forecast: DEMO_FORECAST };
+}
 
 /**
  * Returns a user-friendly error message based on HTTP status.
@@ -37,6 +60,7 @@ function getErrorMessage(error) {
  * @throws {string} User-friendly error message
  */
 export async function fetchCurrentWeather(city, units = 'metric') {
+  if (isDemoMode) return getDemoData(units).current;
   const url = ENDPOINTS.currentWeather(city, units);
   try {
     const response = await fetch(url);
@@ -57,6 +81,7 @@ export async function fetchCurrentWeather(city, units = 'metric') {
  * @throws {string} User-friendly error message
  */
 export async function fetchForecast(city, units = 'metric') {
+  if (isDemoMode) return getDemoData(units).forecast;
   const url = ENDPOINTS.forecast(city, units);
   try {
     const response = await fetch(url);
@@ -78,6 +103,7 @@ export async function fetchForecast(city, units = 'metric') {
  * @throws {string} User-friendly error message
  */
 export async function fetchWeatherByCoords(lat, lon, units = 'metric') {
+  if (isDemoMode) return getDemoData(units).current;
   const url = ENDPOINTS.currentWeatherByCoords(lat, lon, units);
   try {
     const response = await fetch(url);
@@ -99,6 +125,7 @@ export async function fetchWeatherByCoords(lat, lon, units = 'metric') {
  * @throws {string} User-friendly error message
  */
 export async function fetchForecastByCoords(lat, lon, units = 'metric') {
+  if (isDemoMode) return getDemoData(units).forecast;
   const url = ENDPOINTS.forecastByCoords(lat, lon, units);
   try {
     const response = await fetch(url);

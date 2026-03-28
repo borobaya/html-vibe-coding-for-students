@@ -1,3 +1,5 @@
+[← Back to all projects](../README.md) | [🌐 Open Website](index.html)
+
 # Blog
 
 A personal blog with posts, tags, search, and a sidebar.

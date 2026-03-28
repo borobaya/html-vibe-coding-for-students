@@ -1,3 +1,5 @@
+[← Back to all projects](../README.md) | [🌐 Open Website](index.html)
+
 # Interactive Story
 
 A "choose your adventure" game where clicking different choices takes you down different paths.

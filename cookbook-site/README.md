@@ -1,3 +1,5 @@
+[← Back to all projects](../README.md) | [🌐 Open Website](index.html)
+
 # Cookbook Site
 
 A recipe collection you can browse, search, and filter by meal type.

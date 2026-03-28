@@ -1,3 +1,5 @@
+[← Back to all projects](../README.md) | [🌐 Open Website](index.html)
+
 # Portfolio
 
 A personal portfolio website to introduce yourself and show off your projects.

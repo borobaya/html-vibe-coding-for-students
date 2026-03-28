@@ -1,3 +1,5 @@
+[← Back to all projects](../README.md) | [🌐 Open Website](index.html)
+
 # E-Commerce Shop
 
 A simple online shop with product listings, category filters, and a sliding cart drawer.
