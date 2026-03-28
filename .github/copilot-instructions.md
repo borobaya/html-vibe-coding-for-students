@@ -40,7 +40,7 @@ This document defines how Copilot should assist in this repository for front-end
 
 ## Recommended Project Structure
 
-This is a monorepo. Each project lives in its own top-level folder:
+This is a monorepo. Each project lives in its own top-level folder. When a student asks to build something new, create the folder and set up this structure for them:
 
 ```text
 project-root/
@@ -132,30 +132,6 @@ Then open:
   3. JavaScript behaviour.
 - After each step, briefly describe what the student will see in the browser.
 - Suggest what the student could try next.
-
----
-
-## Adding a New Project to the Gallery
-
-When a student creates a new project folder, add it to the **Your Projects** section in both the root `README.md` and `index.html`. Do this automatically — don't wait for the student to ask.
-
-### Root `README.md`
-
-Add a new row to the table under the **Your Projects** heading. Use this format:
-
-```markdown
-| ![](folder-name/assets/thumbnail.png) | [folder-name](folder-name/README.md) | Short description |
-```
-
-### Root `index.html`
-
-Add a new `<li>` inside the `<ul class="projects">` under the **Your Projects** `<h2>`. Use this format:
-
-```html
-<li><a href="folder-name/index.html"><img src="folder-name/assets/thumbnail.png" alt="Project Name preview"><span>Project Name</span></a></li>
-```
-
-If the project doesn't have a thumbnail yet, leave the `<img>` tag in place — it will show once a screenshot is taken later.
 
 ---
 

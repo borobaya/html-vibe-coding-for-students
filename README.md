@@ -8,9 +8,9 @@ This is a monorepo where each student project lives in its own folder. Projects 
 
 ## Getting Started
 
-1. Create a new folder at the repo root for your project.
-2. Add an `index.html` as your entry point.
-3. Use the folder structure from the [copilot instructions](.github/copilot-instructions.md) as a guide.
+1. Tell Copilot what you want to build — it'll create the project folder for you.
+2. Describe features in plain English and watch your site come to life.
+3. Preview your project in the browser to see the results.
 
 ## Previewing Your Project
 
@@ -24,7 +24,7 @@ Then visit `http://localhost:5500`.
 
 ## Your Projects
 
-This is where your projects will appear. Create a new folder, start vibe-coding, and add your project here!
+This is where your projects will appear. Tell Copilot what you want to build and it'll set everything up for you!
 
 | Preview | Project | Description |
 |---------|---------|-------------|
@@ -44,7 +44,7 @@ These are ready-to-go projects with basic structure and starter content. Open on
 
 ### More Ideas
 
-Want to build something from scratch? Pick one of these, create a new folder, and start vibe-coding with AI!
+Want to build something from scratch? Pick one of these and tell Copilot to get started!
 
 | Idea | What to Build |
 |------|---------------|
