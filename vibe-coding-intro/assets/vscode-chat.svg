@@ -79,14 +79,73 @@
   <text x="294" y="222" fill="#cdd6f4" font-family="monospace" font-size="12">My Cool Site</text>
   <text x="390" y="222" fill="#f38ba8" font-family="monospace" font-size="12">&lt;/h1&gt;</text>
 
-  <text x="210" y="240" fill="#6c7086" font-family="monospace" font-size="12">10</text>
-  <text x="246" y="240" fill="#f38ba8" font-family="monospace" font-size="12">&lt;/header&gt;</text>
+  <!-- Cursor Phase 1: blinks at line 9 until 2.2s -->
+  <rect x="414" y="212" width="2" height="14" fill="#cdd6f4">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" to="0" begin="2.2s" dur="0.1s" fill="freeze"/>
+  </rect>
 
-  <text x="210" y="258" fill="#6c7086" font-family="monospace" font-size="12">11</text>
-  <text x="246" y="258" fill="#f38ba8" font-family="monospace" font-size="12">&lt;main&gt;</text>
+  <!-- ===== NEW CODE Phase 1 — appears at 2.2s (dark mode toggle) ===== -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="2.2s" dur="0.4s" fill="freeze"/>
 
-  <text x="210" y="276" fill="#6c7086" font-family="monospace" font-size="12">12</text>
-  <text x="260" y="276" fill="#6c7086" font-family="monospace" font-size="12">...</text>
+    <!-- Green highlight flash behind new line -->
+    <rect x="198" y="231" width="302" height="18" fill="#a6e3a1" opacity="0">
+      <animate attributeName="opacity" values="0;0.12;0" begin="2.2s" dur="1.5s" fill="freeze"/>
+    </rect>
+
+    <text x="210" y="240" fill="#6c7086" font-family="monospace" font-size="12">10</text>
+    <text x="246" y="240" fill="#f38ba8" font-family="monospace" font-size="12">&lt;button</text>
+    <text x="302" y="240" fill="#89b4fa" font-family="monospace" font-size="12">id</text>
+    <text x="320" y="240" fill="#cdd6f4" font-family="monospace" font-size="12">=</text>
+    <text x="328" y="240" fill="#a6e3a1" font-family="monospace" font-size="12">"dark"</text>
+    <text x="370" y="240" fill="#f38ba8" font-family="monospace" font-size="12">&gt;</text>
+    <text x="380" y="240" fill="#cdd6f4" font-family="monospace" font-size="12">🌙</text>
+    <text x="400" y="240" fill="#f38ba8" font-family="monospace" font-size="12">&lt;/button&gt;</text>
+
+    <text x="210" y="258" fill="#6c7086" font-family="monospace" font-size="12">11</text>
+    <text x="246" y="258" fill="#f38ba8" font-family="monospace" font-size="12">&lt;/header&gt;</text>
+
+    <text x="210" y="276" fill="#6c7086" font-family="monospace" font-size="12">12</text>
+    <text x="246" y="276" fill="#f38ba8" font-family="monospace" font-size="12">&lt;main&gt;</text>
+  </g>
+
+  <!-- Cursor Phase 2: blinks at line 12, visible 2.2s–5.8s -->
+  <rect x="282" y="266" width="2" height="14" fill="#cdd6f4" opacity="0">
+    <animate attributeName="opacity" values="0;1;0;1" dur="1s" begin="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" to="0" begin="5.8s" dur="0.1s" fill="freeze"/>
+  </rect>
+
+  <!-- ===== NEW CODE Phase 2 — appears at 5.8s (confetti) ===== -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="5.8s" dur="0.4s" fill="freeze"/>
+
+    <!-- Green highlight flash behind new lines -->
+    <rect x="198" y="285" width="302" height="36" fill="#a6e3a1" opacity="0">
+      <animate attributeName="opacity" values="0;0.12;0" begin="5.8s" dur="1.5s" fill="freeze"/>
+    </rect>
+
+    <text x="210" y="294" fill="#6c7086" font-family="monospace" font-size="12">13</text>
+    <text x="260" y="294" fill="#f38ba8" font-family="monospace" font-size="12">&lt;button</text>
+    <text x="316" y="294" fill="#89b4fa" font-family="monospace" font-size="12">id</text>
+    <text x="334" y="294" fill="#cdd6f4" font-family="monospace" font-size="12">=</text>
+    <text x="342" y="294" fill="#a6e3a1" font-family="monospace" font-size="12">"party"</text>
+    <text x="390" y="294" fill="#f38ba8" font-family="monospace" font-size="12">&gt;</text>
+    <text x="400" y="294" fill="#cdd6f4" font-family="monospace" font-size="12">🎉</text>
+    <text x="420" y="294" fill="#f38ba8" font-family="monospace" font-size="12">&lt;/button&gt;</text>
+
+    <text x="210" y="312" fill="#6c7086" font-family="monospace" font-size="12">14</text>
+    <text x="260" y="312" fill="#f38ba8" font-family="monospace" font-size="12">&lt;script</text>
+    <text x="316" y="312" fill="#89b4fa" font-family="monospace" font-size="12">src</text>
+    <text x="339" y="312" fill="#cdd6f4" font-family="monospace" font-size="12">=</text>
+    <text x="347" y="312" fill="#a6e3a1" font-family="monospace" font-size="12">"confetti.js"</text>
+    <text x="445" y="312" fill="#f38ba8" font-family="monospace" font-size="12">&gt;</text>
+  </g>
+
+  <!-- Cursor Phase 3: blinks at line 14, from 5.8s onward -->
+  <rect x="455" y="302" width="2" height="14" fill="#cdd6f4" opacity="0">
+    <animate attributeName="opacity" values="0;1;0;1" dur="1s" begin="6.1s" repeatCount="indefinite"/>
+  </rect>
 
   <!-- Divider line between editor and chat -->
   <rect x="500" y="32" width="1" height="408" fill="#313244"/>
@@ -98,33 +157,84 @@
   <rect x="501" y="32" width="299" height="28" fill="#11111b"/>
   <text x="516" y="50" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="600">✦ Copilot</text>
 
-  <!-- User message -->
-  <rect x="580" y="72" width="204" height="40" rx="8" fill="#313244"/>
-  <text x="592" y="89" fill="#cdd6f4" font-family="system-ui, sans-serif" font-size="11.5">Add a dark mode toggle</text>
-  <text x="592" y="104" fill="#cdd6f4" font-family="system-ui, sans-serif" font-size="11.5">button in the top right</text>
+  <!-- ===== User message 1 — slides in at 0.5s ===== -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="0.5s" dur="0.4s" fill="freeze"/>
+    <rect x="580" y="72" width="204" height="40" rx="8" fill="#313244"/>
+    <text x="592" y="89" fill="#cdd6f4" font-family="system-ui, sans-serif" font-size="11.5">Add a dark mode toggle</text>
+    <text x="592" y="104" fill="#cdd6f4" font-family="system-ui, sans-serif" font-size="11.5">button in the top right</text>
+  </g>
 
-  <!-- Copilot response -->
-  <rect x="516" y="124" width="260" height="76" rx="8" fill="#1e1e2e" stroke="#313244" stroke-width="1"/>
-  <text x="528" y="143" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">✦ Copilot</text>
-  <text x="528" y="161" fill="#a6adc8" font-family="system-ui, sans-serif" font-size="11.5">Done! There's now a 🌙 button</text>
-  <text x="528" y="177" fill="#a6adc8" font-family="system-ui, sans-serif" font-size="11.5">in the top right corner. Click it</text>
-  <text x="528" y="193" fill="#a6adc8" font-family="system-ui, sans-serif" font-size="11.5">to switch light ↔ dark mode.</text>
+  <!-- ===== Typing indicator — appears at 1.2s, hides at 2.2s ===== -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="1.2s" dur="0.2s" fill="freeze"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.2s" dur="0.15s" fill="freeze"/>
+    <rect x="516" y="124" width="70" height="30" rx="8" fill="#1e1e2e" stroke="#313244" stroke-width="1"/>
+    <text x="528" y="143" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">✦ Copilot</text>
+    <!-- Bouncing dots -->
+    <circle cx="535" cy="148" r="3" fill="#6c7086">
+      <animate attributeName="cy" values="148;144;148" dur="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="547" cy="148" r="3" fill="#6c7086">
+      <animate attributeName="cy" values="148;144;148" dur="0.5s" begin="0.15s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="559" cy="148" r="3" fill="#6c7086">
+      <animate attributeName="cy" values="148;144;148" dur="0.5s" begin="0.3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
 
-  <!-- User message 2 -->
-  <rect x="580" y="214" width="204" height="40" rx="8" fill="#313244"/>
-  <text x="592" y="231" fill="#cdd6f4" font-family="system-ui, sans-serif" font-size="11.5">Make confetti fall when I</text>
-  <text x="592" y="246" fill="#cdd6f4" font-family="system-ui, sans-serif" font-size="11.5">click the party button 🎉</text>
+  <!-- ===== Copilot response 1 — appears at 2.2s ===== -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="2.2s" dur="0.4s" fill="freeze"/>
+    <rect x="516" y="124" width="260" height="76" rx="8" fill="#1e1e2e" stroke="#313244" stroke-width="1"/>
+    <text x="528" y="143" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">✦ Copilot</text>
+    <text x="528" y="161" fill="#a6adc8" font-family="system-ui, sans-serif" font-size="11.5">Done! There's now a 🌙 button</text>
+    <text x="528" y="177" fill="#a6adc8" font-family="system-ui, sans-serif" font-size="11.5">in the top right corner. Click it</text>
+    <text x="528" y="193" fill="#a6adc8" font-family="system-ui, sans-serif" font-size="11.5">to switch light ↔ dark mode.</text>
+  </g>
 
-  <!-- Copilot response 2 -->
-  <rect x="516" y="268" width="260" height="76" rx="8" fill="#1e1e2e" stroke="#313244" stroke-width="1"/>
-  <text x="528" y="287" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">✦ Copilot</text>
-  <text x="528" y="305" fill="#a6adc8" font-family="system-ui, sans-serif" font-size="11.5">Nice idea! I've added a 🎉 button</text>
-  <text x="528" y="321" fill="#a6adc8" font-family="system-ui, sans-serif" font-size="11.5">next to the dark mode toggle.</text>
-  <text x="528" y="337" fill="#a6adc8" font-family="system-ui, sans-serif" font-size="11.5">Click it and confetti rains down!</text>
+  <!-- ===== User message 2 — slides in at 4s ===== -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="4s" dur="0.4s" fill="freeze"/>
+    <rect x="580" y="214" width="204" height="40" rx="8" fill="#313244"/>
+    <text x="592" y="231" fill="#cdd6f4" font-family="system-ui, sans-serif" font-size="11.5">Make confetti fall when I</text>
+    <text x="592" y="246" fill="#cdd6f4" font-family="system-ui, sans-serif" font-size="11.5">click the party button 🎉</text>
+  </g>
 
-  <!-- Chat input -->
+  <!-- ===== Typing indicator 2 — appears at 4.8s, hides at 5.8s ===== -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="4.8s" dur="0.2s" fill="freeze"/>
+    <animate attributeName="opacity" from="1" to="0" begin="5.8s" dur="0.15s" fill="freeze"/>
+    <rect x="516" y="268" width="70" height="30" rx="8" fill="#1e1e2e" stroke="#313244" stroke-width="1"/>
+    <text x="528" y="287" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">✦ Copilot</text>
+    <circle cx="535" cy="292" r="3" fill="#6c7086">
+      <animate attributeName="cy" values="292;288;292" dur="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="547" cy="292" r="3" fill="#6c7086">
+      <animate attributeName="cy" values="292;288;292" dur="0.5s" begin="0.15s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="559" cy="292" r="3" fill="#6c7086">
+      <animate attributeName="cy" values="292;288;292" dur="0.5s" begin="0.3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- ===== Copilot response 2 — appears at 5.8s ===== -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="5.8s" dur="0.4s" fill="freeze"/>
+    <rect x="516" y="268" width="260" height="76" rx="8" fill="#1e1e2e" stroke="#313244" stroke-width="1"/>
+    <text x="528" y="287" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">✦ Copilot</text>
+    <text x="528" y="305" fill="#a6adc8" font-family="system-ui, sans-serif" font-size="11.5">Nice idea! I've added a 🎉 button</text>
+    <text x="528" y="321" fill="#a6adc8" font-family="system-ui, sans-serif" font-size="11.5">next to the dark mode toggle.</text>
+    <text x="528" y="337" fill="#a6adc8" font-family="system-ui, sans-serif" font-size="11.5">Click it and confetti rains down!</text>
+  </g>
+
+  <!-- Chat input (always visible) -->
   <rect x="516" y="396" width="268" height="32" rx="8" fill="#313244"/>
   <text x="528" y="416" fill="#6c7086" font-family="system-ui, sans-serif" font-size="11">Ask Copilot anything...</text>
+  <!-- Blinking cursor in chat input -->
+  <rect x="648" y="406" width="1.5" height="12" fill="#6c7086">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
   <rect x="754" y="400" width="22" height="22" rx="4" fill="#38bdf8" opacity="0.7"/>
   <text x="765" y="415" text-anchor="middle" fill="#181825" font-family="system-ui, sans-serif" font-size="12" font-weight="700">↑</text>
 </svg>

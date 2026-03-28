@@ -11,18 +11,51 @@ const total = slides.length;
 
 totalSlidesEl.textContent = total;
 
+// ---- Staggered entrance animations ----
+function animateSlide(slide) {
+  const items = slide.querySelectorAll(".animate-in");
+  items.forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
+  });
+}
+
+// Reset delays when leaving a slide so re-entry re-staggers
+function resetSlide(slide) {
+  const items = slide.querySelectorAll(".animate-in");
+  items.forEach((el) => {
+    el.style.transitionDelay = "0s";
+  });
+}
+
+// Animate the first slide on load
+animateSlide(slides[0]);
+
+// Restart SVG animations by re-setting the src
+function restartSVGs(slide) {
+  const imgs = slide.querySelectorAll('img[src$=".svg"]');
+  imgs.forEach((img) => {
+    const src = img.getAttribute("src");
+    img.removeAttribute("src");
+    requestAnimationFrame(() => {
+      img.setAttribute("src", src);
+    });
+  });
+}
+
 function goToSlide(index) {
   if (index < 0 || index >= total) return;
 
+  resetSlide(slides[current]);
   slides[current].classList.add("exiting");
   slides[current].classList.remove("active");
 
-  // Clean up the exiting class after the transition
   const prevSlide = slides[current];
   setTimeout(() => prevSlide.classList.remove("exiting"), 500);
 
   current = index;
 
+  animateSlide(slides[current]);
+  restartSVGs(slides[current]);
   slides[current].classList.add("active");
   currentSlideEl.textContent = current + 1;
   progressFill.style.width = ((current + 1) / total) * 100 + "%";
@@ -30,9 +63,29 @@ function goToSlide(index) {
   prevBtn.disabled = current === 0;
   nextBtn.disabled = current === total - 1;
 
-  // Hide the keyboard hint after first navigation
   keyboardHint.classList.add("hidden");
 }
+
+// ---- Floating particles background ----
+function createParticles() {
+  const container = document.getElementById("particles");
+  const count = 25;
+
+  for (let i = 0; i < count; i++) {
+    const particle = document.createElement("div");
+    particle.classList.add("particle");
+    particle.style.left = Math.random() * 100 + "%";
+    particle.style.bottom = -(Math.random() * 20) + "%";
+    particle.style.width = (2 + Math.random() * 3) + "px";
+    particle.style.height = particle.style.width;
+    particle.style.animationDuration = (8 + Math.random() * 12) + "s";
+    particle.style.animationDelay = (Math.random() * 10) + "s";
+    particle.style.opacity = 0;
+    container.appendChild(particle);
+  }
+}
+
+createParticles();
 
 function next() {
   goToSlide(current + 1);

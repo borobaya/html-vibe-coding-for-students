@@ -1,10 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-  <!-- Stack of blocks -->
-  <rect x="8" y="30" width="14" height="14" rx="3" fill="#38bdf8" opacity="0.6" stroke="#38bdf8" stroke-width="1.5"/>
-  <rect x="26" y="30" width="14" height="14" rx="3" fill="#38bdf8" opacity="0.4" stroke="#38bdf8" stroke-width="1.5"/>
-  <rect x="17" y="16" width="14" height="14" rx="3" fill="#38bdf8" opacity="0.8" stroke="#38bdf8" stroke-width="1.5"/>
-  <!-- Small block floating up -->
-  <rect x="20" y="4" width="8" height="8" rx="2" fill="#38bdf8" opacity="0.3" stroke="#38bdf8" stroke-width="1"/>
+  <!-- Bottom blocks — appear after 0.7s card delay -->
+  <rect x="8" y="30" width="14" height="14" rx="3" fill="#38bdf8" opacity="0" stroke="#38bdf8" stroke-width="1.5">
+    <animate attributeName="opacity" from="0" to="0.6" begin="1.0s" dur="0.3s" fill="freeze"/>
+  </rect>
+  <rect x="26" y="30" width="14" height="14" rx="3" fill="#38bdf8" opacity="0" stroke="#38bdf8" stroke-width="1.5">
+    <animate attributeName="opacity" from="0" to="0.4" begin="1.2s" dur="0.3s" fill="freeze"/>
+  </rect>
+  <!-- Middle block — stacks on -->
+  <rect x="17" y="16" width="14" height="14" rx="3" fill="#38bdf8" opacity="0" stroke="#38bdf8" stroke-width="1.5">
+    <animate attributeName="opacity" from="0" to="0.8" begin="1.6s" dur="0.3s" fill="freeze"/>
+  </rect>
+  <!-- Small block — floats up gently -->
+  <g>
+    <rect x="20" y="4" width="8" height="8" rx="2" fill="#38bdf8" stroke="#38bdf8" stroke-width="1" opacity="0">
+      <animate attributeName="opacity" from="0" to="0.3" begin="2.0s" dur="0.3s" fill="freeze"/>
+    </rect>
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 -2;0 0" dur="3s" begin="2.2s" repeatCount="indefinite"/>
+  </g>
   <!-- Upward arrow hint -->
-  <line x1="24" y1="14" x2="24" y2="6" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
+  <line x1="24" y1="14" x2="24" y2="6" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="1.8s" dur="0.3s" fill="freeze"/>
+  </line>
 </svg>

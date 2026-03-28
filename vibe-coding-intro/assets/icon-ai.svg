@@ -1,11 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-  <!-- Sparkle / AI star -->
-  <path d="M24,4 L28,18 L42,18 L30,26 L34,40 L24,32 L14,40 L18,26 L6,18 L20,18 Z" fill="#38bdf8" opacity="0.15" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Sparkle / AI star — slow spin -->
+  <g transform-origin="24 24">
+    <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="8s" repeatCount="indefinite"/>
+    <path d="M24,4 L28,18 L42,18 L30,26 L34,40 L24,32 L14,40 L18,26 L6,18 L20,18 Z" fill="#38bdf8" opacity="0.15" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round"/>
+  </g>
   <!-- Gear teeth suggestion -->
   <circle cx="24" cy="24" r="8" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
-  <circle cx="24" cy="24" r="3" fill="#38bdf8"/>
-  <!-- Small sparkles -->
-  <circle cx="38" cy="8" r="2" fill="#38bdf8" opacity="0.6"/>
-  <circle cx="8" cy="10" r="1.5" fill="#38bdf8" opacity="0.4"/>
-  <circle cx="40" cy="38" r="1.5" fill="#38bdf8" opacity="0.5"/>
+  <circle cx="24" cy="24" r="3" fill="#38bdf8">
+    <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Small sparkles — twinkle -->
+  <circle cx="38" cy="8" r="2" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="8" cy="10" r="1.5" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.1;0.7;0.1" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="40" cy="38" r="1.5" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.2;0.8;0.2" dur="1.8s" begin="1s" repeatCount="indefinite"/>
+  </circle>
 </svg>

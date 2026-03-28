@@ -1,16 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Glow halo behind bulb — pulses -->
+  <circle cx="24" cy="19" r="18" fill="#38bdf8" opacity="0">
+    <animate attributeName="opacity" values="0;0.08;0" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="16;20;16" dur="3s" repeatCount="indefinite"/>
+  </circle>
   <!-- Lightbulb outline -->
   <path d="M24,4 C15,4 8,11 8,19 C8,24 11,28 15,31 L15,36 C15,37.5 16.5,39 18,39 L30,39 C31.5,39 33,37.5 33,36 L33,31 C37,28 40,24 40,19 C40,11 33,4 24,4 Z" fill="#334155" stroke="#38bdf8" stroke-width="2"/>
-  <!-- Filament glow -->
-  <path d="M20,22 L24,16 L28,22" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <line x1="24" y1="22" x2="24" y2="30" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Filament glow — pulses -->
+  <path d="M20,22 L24,16 L28,22" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  </path>
+  <line x1="24" y1="22" x2="24" y2="30" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  </line>
   <!-- Base lines -->
   <line x1="17" y1="42" x2="31" y2="42" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
   <line x1="19" y1="45" x2="29" y2="45" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
-  <!-- Glow rays -->
-  <line x1="24" y1="0" x2="24" y2="0" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
-  <circle cx="4" cy="14" r="1.5" fill="#38bdf8" opacity="0.3"/>
-  <circle cx="44" cy="14" r="1.5" fill="#38bdf8" opacity="0.3"/>
-  <circle cx="6" cy="28" r="1" fill="#38bdf8" opacity="0.2"/>
-  <circle cx="42" cy="28" r="1" fill="#38bdf8" opacity="0.2"/>
+  <!-- Glow rays — twinkle -->
+  <circle cx="4" cy="14" r="1.5" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.1;0.5;0.1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="44" cy="14" r="1.5" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.1;0.5;0.1" dur="2s" begin="0.7s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="6" cy="28" r="1" fill="#38bdf8">
+    <animate attributeName="opacity" values="0;0.4;0" dur="2.5s" begin="1.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="42" cy="28" r="1" fill="#38bdf8">
+    <animate attributeName="opacity" values="0;0.4;0" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
+  </circle>
 </svg>
