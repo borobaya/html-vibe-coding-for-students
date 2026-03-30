@@ -4,18 +4,19 @@
   <path d="M22,30 L16,24 L10,34 C8,38 10,42 14,40 Z" fill="#38bdf8" opacity="0.4" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round"/>
   <!-- Tip -->
   <circle cx="12" cy="38" r="2" fill="#38bdf8"/>
-  <!-- Sparkles — creation particles -->
+  <!-- Sparkles — creation particles (scale/radius pulses for GIF compatibility) -->
   <circle cx="8" cy="20" r="2" fill="#38bdf8">
-    <animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="1;3;1" dur="1.5s" repeatCount="indefinite"/>
   </circle>
   <circle cx="18" cy="10" r="1.5" fill="#38bdf8">
-    <animate attributeName="opacity" values="0.1;0.7;0.1" dur="1.8s" begin="0.4s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="0.5;2.5;0.5" dur="1.8s" begin="0.4s" repeatCount="indefinite"/>
   </circle>
   <circle cx="42" cy="22" r="1.5" fill="#38bdf8">
-    <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" begin="0.8s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="0.5;2.5;0.5" dur="2s" begin="0.8s" repeatCount="indefinite"/>
   </circle>
   <!-- Small star -->
-  <path d="M6,10 L7,13 L10,13 L8,15 L9,18 L6,16 L3,18 L4,15 L2,13 L5,13 Z" fill="#38bdf8" opacity="0.5">
-    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" begin="0.2s" repeatCount="indefinite"/>
-  </path>
+  <g transform-origin="6 14">
+    <path d="M6,10 L7,13 L10,13 L8,15 L9,18 L6,16 L3,18 L4,15 L2,13 L5,13 Z" fill="#38bdf8"/>
+    <animateTransform attributeName="transform" type="scale" values="0.5;1.2;0.5" dur="2s" begin="0.2s" repeatCount="indefinite"/>
+  </g>
 </svg>
