@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Funnel / flow shape -->
+  <path d="M6,8 L42,8 L30,24 L30,38 L18,42 L18,24 Z" fill="#334155" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Input dots falling in -->
+  <circle cx="14" cy="4" r="2" fill="#38bdf8">
+    <animate attributeName="cy" values="2;10;2" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="24" cy="4" r="2" fill="#38bdf8">
+    <animate attributeName="cy" values="2;10;2" dur="2s" begin="0.4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" begin="0.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="34" cy="4" r="2" fill="#38bdf8">
+    <animate attributeName="cy" values="2;10;2" dur="2s" begin="0.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" begin="0.8s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Processing glow inside -->
+  <circle cx="24" cy="20" r="4" fill="#38bdf8" opacity="0.2">
+    <animate attributeName="opacity" values="0.1;0.4;0.1" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="3;5;3" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Output sparkle -->
+  <circle cx="22" cy="44" r="2.5" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+</svg>

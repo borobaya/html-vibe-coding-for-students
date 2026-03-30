@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Headphone band -->
+  <path d="M8,26 C8,16 14,8 24,8 C34,8 40,16 40,26" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Left ear cup -->
+  <rect x="4" y="24" width="8" height="14" rx="4" fill="#334155" stroke="#38bdf8" stroke-width="2"/>
+  <!-- Right ear cup -->
+  <rect x="36" y="24" width="8" height="14" rx="4" fill="#334155" stroke="#38bdf8" stroke-width="2"/>
+  <!-- Sound waves from right cup -->
+  <path d="M34,28 C32,30 32,34 34,36" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.4" stroke-linecap="round">
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+  <path d="M30,26 C27,30 27,34 30,38" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.3" stroke-linecap="round">
+    <animate attributeName="opacity" values="0.1;0.4;0.1" dur="1.5s" begin="0.3s" repeatCount="indefinite"/>
+  </path>
+  <!-- Music note -->
+  <g opacity="0.7">
+    <circle cx="20" cy="40" r="3" fill="#38bdf8" opacity="0.5">
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <line x1="23" y1="40" x2="23" y2="32" stroke="#38bdf8" stroke-width="1.5"/>
+    <path d="M23,32 C26,31 28,33 25,34" fill="#38bdf8" opacity="0.5"/>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Warning triangle -->
+  <path d="M24,6 L44,42 L4,42 Z" fill="#334155" stroke="#eab308" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Exclamation mark -->
+  <line x1="24" y1="18" x2="24" y2="30" stroke="#eab308" stroke-width="3" stroke-linecap="round">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  </line>
+  <circle cx="24" cy="36" r="2" fill="#eab308">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

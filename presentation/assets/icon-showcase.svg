@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Trophy cup -->
+  <path d="M16,10 L32,10 L30,26 C30,30 27,32 24,32 C21,32 18,30 18,26 Z" fill="#334155" stroke="#38bdf8" stroke-width="2"/>
+  <!-- Handles -->
+  <path d="M16,14 C10,14 8,18 10,22 C12,24 16,22 16,22" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32,14 C38,14 40,18 38,22 C36,24 32,22 32,22" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+  <!-- Base -->
+  <line x1="24" y1="32" x2="24" y2="38" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="17" y="38" width="14" height="4" rx="2" fill="#334155" stroke="#38bdf8" stroke-width="2"/>
+  <!-- Star -->
+  <path d="M24,15 L25.5,19 L30,19 L26.5,22 L28,26 L24,23 L20,26 L21.5,22 L18,19 L22.5,19 Z" fill="#38bdf8" opacity="0.6">
+    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2s" repeatCount="indefinite"/>
+  </path>
+</svg>

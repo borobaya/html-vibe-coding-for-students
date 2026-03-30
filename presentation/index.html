@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An interactive AI presentation for students covering machine learning, generative AI, agents, and vibe coding.">
+  <title>AI &amp; the Future — Presentation</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- Back to homepage -->
+  <a href="../index.html" class="back-link">← Back to all projects</a>
+
+  <!-- Particle background -->
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- Progress bar -->
+  <div class="progress-bar" aria-hidden="true">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <!-- Slide 1: Title -->
+  <section class="slide active" data-slide="1" role="group" aria-roledescription="slide" aria-label="Slide 1: AI and the Future">
+    <div class="slide-content">
+      <h1 class="title-hero animate-in">AI &amp; the <span class="highlight">Future</span></h1>
+      <p class="tag-line animate-in">Artificial Intelligence · Generative AI · Agents · Vibe Coding</p>
+      <p class="hosted-by animate-in">Hosted by Muhammed, Ranjan, Farhad, Kelvin, Chaitanya, Krishna</p>
+    </div>
+  </section>
+
+  <!-- Slide 2: Agenda -->
+  <section class="slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="Slide 2: Session Overview">
+    <div class="slide-content">
+      <p class="slide-label animate-in">Overview</p>
+      <h1 class="animate-in">Session <span class="highlight">Overview</span></h1>
+      <ul class="agenda-list">
+        <li class="animate-in"><span class="agenda-num">1</span>Welcome &amp; Introduction</li>
+        <li class="animate-in"><span class="agenda-num">2</span>Ice Breaker &amp; Quiz</li>
+        <li class="animate-in"><span class="agenda-num">3</span>How we got here — from Machine Learning to Agents</li>
+        <li class="animate-in"><span class="agenda-num">4</span>Generative AI &amp; using it responsibly</li>
+        <li class="animate-in"><span class="agenda-num">5</span>Vibe Coding — what &amp; why</li>
+        <li class="animate-in"><span class="agenda-num">6</span>Interactive Q&amp;A &amp; demos</li>
+        <li class="animate-in"><span class="agenda-num">7</span>Getting set up &amp; hands‑on Vibe Coding session</li>
+        <li class="animate-in"><span class="agenda-num">8</span>Showcase &amp; wrap‑up</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Slide 3: Team Members -->
+  <section class="slide" data-slide="3" role="group" aria-roledescription="slide" aria-label="Slide 3: Team Members">
+    <div class="slide-content">
+      <p class="slide-label animate-in">Your Hosts</p>
+      <h1 class="animate-in">Team <span class="highlight">Members</span></h1>
+      <div class="team-grid">
+        <div class="team-card animate-in">
+          <div class="team-avatar" aria-hidden="true">RP</div>
+          <strong>Ranjan Patalasingh</strong>
+          <p>Principal AI Engineer</p>
+        </div>
+        <div class="team-card animate-in">
+          <div class="team-avatar" aria-hidden="true">MM</div>
+          <strong>Muhammed Miah</strong>
+          <p>Senior AI Engineer</p>
+        </div>
+        <div class="team-card animate-in">
+          <div class="team-avatar" aria-hidden="true">FH</div>
+          <strong>Farhad Hussain</strong>
+          <p>Senior AI Engineer</p>
+        </div>
+        <div class="team-card animate-in">
+          <div class="team-avatar" aria-hidden="true">KC</div>
+          <strong>Kelvin Chan</strong>
+          <p>AI Engineer</p>
+        </div>
+        <div class="team-card animate-in">
+          <div class="team-avatar" aria-hidden="true">CK</div>
+          <strong>Chaitanya Katukuri</strong>
+          <p>Engineering Lead</p>
+        </div>
+        <div class="team-card animate-in">
+          <div class="team-avatar" aria-hidden="true">KK</div>
+          <strong>Krishna Konduru</strong>
+          <p>Data Engineer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 4: Ice Breaker -->
+  <section class="slide" data-slide="4" role="group" aria-roledescription="slide" aria-label="Slide 4: Ice Breaker">
+    <div class="slide-content">
+      <p class="slide-label animate-in">Warm Up</p>
+      <h1 class="animate-in">Let's Break the <span class="highlight">Ice!</span></h1>
+      <p class="subtitle animate-in">Quick‑fire round — shout your answer!</p>
+      <ul class="feature-list" id="icebreaker-list">
+        <li class="click-reveal">
+          <img class="icon glow" src="assets/icon-robot.svg" alt="Robot">
+          <div><strong>What AI tool have you used in the last week?</strong></div>
+        </li>
+        <li class="click-reveal">
+          <img class="icon glow" src="assets/icon-lightbulb.svg" alt="Idea">
+          <div><strong>Name one thing you think AI <em>cannot</em> do (yet).</strong></div>
+        </li>
+        <li class="click-reveal">
+          <img class="icon glow" src="../vibe-coding-intro/assets/icon-rocket.svg" alt="Rocket">
+          <div><strong>If you could build any app with AI, what would it be?</strong></div>
+        </li>
+        <li class="click-reveal">
+          <img class="icon glow" src="../vibe-coding-intro/assets/icon-target.svg" alt="Target">
+          <div><strong>What do you most want to learn today?</strong></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Slide 5: Quiz -->
+  <section class="slide" data-slide="5" role="group" aria-roledescription="slide" aria-label="Slide 5: Quiz">
+    <div class="slide-content">
+      <p class="slide-label animate-in">Challenge</p>
+      <h1 class="animate-in"><span class="highlight">Quiz</span></h1>
+      <p class="subtitle animate-in">Fast facts — first answer wins</p>
+      <p class="analogy animate-in">(Interactive quiz content delivered live)</p>
+    </div>
+  </section>
+
+  <!-- Slide 6: The Hook -->
+  <section class="slide" data-slide="6" role="group" aria-roledescription="slide" aria-label="Slide 6: What if you could build a website just by describing it?">
+    <div class="slide-content">
+      <p class="slide-label animate-in">The Big Idea</p>
+      <h1 class="animate-in">What if you could build a website<br><span class="highlight">just by describing it?</span></h1>
+      <p class="subtitle animate-in">No tutorials. No experience needed. <strong>Just your ideas.</strong></p>
+      <img class="hero-graphic animate-in float" src="../vibe-coding-intro/assets/hero-flow.svg" alt="Flow: you describe, AI builds, you see it">
+    </div>
+  </section>
+
+  <!-- Slide 7: How We Got Here -->
+  <section class="slide" data-slide="7" role="group" aria-roledescription="slide" aria-label="Slide 7: How We Got Here">
+    <div class="slide-content slide-content-wide">
+      <p class="slide-label animate-in">The Journey</p>
+      <h1 class="animate-in">How We Got Here — From Learning to <span class="highlight">Doing</span></h1>
+      <p class="subtitle animate-in">AI evolved in three big leaps — each one unlocked the next.</p>
+      <div class="roles-grid roles-grid-3">
+        <div class="role-card animate-in">
+          <img class="role-icon glow" src="assets/icon-analyst.svg" alt="Analyst">
+          <h2>The Analyst</h2>
+          <p class="role-subtitle">Machine Learning &amp; Deep Learning · ~2010s</p>
+          <p>Learns from data, recognises patterns, makes predictions. <strong>Classifies what already exists.</strong></p>
+          <p class="block-example">Spotify recommendations, FaceID, spam filters.</p>
+        </div>
+        <div class="role-card animate-in">
+          <img class="role-icon glow" src="assets/icon-creator.svg" alt="Creator">
+          <h2>The Creator</h2>
+          <p class="role-subtitle">LLMs &amp; Generative AI · ~2018–2022</p>
+          <p>Understands language, then starts <strong>generating</strong> new things — text, images, code, music.</p>
+          <p class="block-example">ChatGPT writing an essay, Midjourney generating artwork.</p>
+        </div>
+        <div class="role-card animate-in">
+          <img class="role-icon glow" src="assets/icon-doer.svg" alt="Doer">
+          <h2>The Doer</h2>
+          <p class="role-subtitle">Agents · ~2024</p>
+          <p>AI that can <strong>act autonomously</strong> — browses the web, runs code, plans multi‑step tasks and carries them out.</p>
+          <p class="block-example">GitHub Copilot coding agent building features for you.</p>
+        </div>
+      </div>
+      <div class="payoff-banner animate-in">
+        <img class="role-icon glow" src="../vibe-coding-intro/assets/icon-rocket.svg" alt="Vibe Coding">
+        <div>
+          <h2>The Payoff — <span class="highlight">Vibe Coding</span> <span class="block-year">~2025</span></h2>
+          <p>Combine the <strong>Creator</strong> (GenAI that writes code) with the <strong>Doer</strong> (agents that take action): <strong>you describe, AI builds, you see results.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 8: Generative AI — Where You See It Today -->
+  <section class="slide" data-slide="8" role="group" aria-roledescription="slide" aria-label="Slide 8: Generative AI">
+    <div class="slide-content slide-content-wide">
+      <p class="slide-label animate-in">In the Wild</p>
+      <h1 class="animate-in">Generative AI — Where You <span class="highlight">See It</span> Today</h1>
+
+      <h2 class="section-heading animate-in">How it works</h2>
+      <ul class="feature-list feature-list-compact">
+        <li class="animate-in">
+          <img class="icon glow" src="../vibe-coding-intro/assets/icon-describe.svg" alt="Prompt">
+          <div>
+            <strong>You write a prompt</strong>
+            <p>Describe what you want in plain language</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="icon glow" src="assets/icon-flow.svg" alt="Process">
+          <div>
+            <strong>The model processes it</strong>
+            <p>Breaks your words into small chunks (tokens) and predicts what comes next</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="icon glow" src="assets/icon-genai.svg" alt="Output">
+          <div>
+            <strong>You get the output</strong>
+            <p>Text, an image, code, audio, or video</p>
+          </div>
+        </li>
+      </ul>
+
+      <h2 class="section-heading animate-in">Tools you might already know</h2>
+      <div class="tools-grid">
+        <div class="tool-card animate-in">
+          <img class="tool-icon glow" src="assets/icon-chat.svg" alt="Text and Chat">
+          <strong>Text &amp; Chat</strong>
+          <p>ChatGPT, Claude, Gemini, Grok</p>
+          <p>Writing, coding, tutoring</p>
+        </div>
+        <div class="tool-card animate-in">
+          <img class="tool-icon glow" src="assets/icon-image-video.svg" alt="Images and Video">
+          <strong>Images &amp; Video</strong>
+          <p>GPT Image, Midjourney, Google Veo</p>
+          <p>Creative content from a prompt</p>
+        </div>
+        <div class="tool-card animate-in">
+          <img class="tool-icon glow" src="assets/icon-code.svg" alt="Code Generation">
+          <strong>Code Generation</strong>
+          <p>GitHub Copilot, Cursor, Claude Code</p>
+          <p>Autocomplete, explain, refactor code</p>
+        </div>
+        <div class="tool-card animate-in">
+          <img class="tool-icon glow" src="assets/icon-audio.svg" alt="Audio and Music">
+          <strong>Audio &amp; Music</strong>
+          <p>ElevenLabs, Suno, Udio</p>
+          <p>Voice cloning, song creation</p>
+        </div>
+      </div>
+
+      <div class="warning-banner animate-in">
+        <img class="warning-icon" src="assets/icon-warning.svg" alt="Warning">
+        <p>Generative AI can confidently produce <strong>wrong answers</strong> — this is called <strong>hallucination</strong>. It sounds right, it reads right, but it's made up. <strong>Always verify.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 9: Use AI Responsibly -->
+  <section class="slide" data-slide="9" role="group" aria-roledescription="slide" aria-label="Slide 9: Use AI Responsibly">
+    <div class="slide-content">
+      <p class="slide-label animate-in">Stay Sharp</p>
+      <h1 class="animate-in">Use AI <span class="highlight">Responsibly</span></h1>
+      <p class="subtitle animate-in">AI is powerful — but it's not perfect. Here are things to watch out for:</p>
+      <ul class="feature-list">
+        <li class="animate-in">
+          <img class="icon glow" src="assets/icon-deepfake.svg" alt="Deepfake">
+          <div>
+            <strong>Deepfakes</strong>
+            <p>AI can create convincing fake images, audio, and video of real people</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="icon glow" src="assets/icon-bias.svg" alt="Bias">
+          <div>
+            <strong>Bias</strong>
+            <p>AI learns from human data — so it can repeat unfair patterns and stereotypes</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="icon glow" src="assets/icon-misinfo.svg" alt="Misinformation">
+          <div>
+            <strong>Misinformation</strong>
+            <p>AI-generated text can sound authoritative even when it's completely wrong</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="icon glow" src="assets/icon-copyright.svg" alt="Copyright">
+          <div>
+            <strong>Copyright</strong>
+            <p>AI may generate content that's too similar to someone else's work</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Slide 10: What is Vibe Coding? -->
+  <section class="slide" data-slide="10" role="group" aria-roledescription="slide" aria-label="Slide 10: What is Vibe Coding?">
+    <div class="slide-content">
+      <p class="slide-label animate-in">The Idea</p>
+      <h1 class="animate-in">What is <span class="highlight">Vibe Coding</span>?</h1>
+      <ul class="feature-list">
+        <li class="animate-in">
+          <img class="icon glow" src="../vibe-coding-intro/assets/icon-describe.svg" alt="Describe">
+          <div>
+            <strong>You describe</strong>
+            <p>Tell AI what you want in plain English</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="icon glow" src="../vibe-coding-intro/assets/icon-ai.svg" alt="AI builds">
+          <div>
+            <strong>AI builds</strong>
+            <p>GitHub Copilot writes the code for you</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="icon glow" src="../vibe-coding-intro/assets/icon-browser.svg" alt="See results">
+          <div>
+            <strong>You see results</strong>
+            <p>Open the browser and watch it come to life</p>
+          </div>
+        </li>
+      </ul>
+      <img class="mockup-graphic animate-in" id="workflowSvg" src="../vibe-coding-intro/assets/vscode-workflow.svg" alt="VS Code chat on the left, quiz game in the browser on the right">
+    </div>
+  </section>
+
+  <!-- Slide 11: Why Vibe Coding Matters -->
+  <section class="slide" data-slide="11" role="group" aria-roledescription="slide" aria-label="Slide 11: Why Vibe Coding Matters">
+    <div class="slide-content">
+      <p class="slide-label animate-in">Why It Matters</p>
+      <h1 class="animate-in">Why Vibe Coding <span class="highlight">Matters</span></h1>
+      <ul class="feature-list">
+        <li class="animate-in">
+          <img class="icon glow" src="assets/icon-nosyntax.svg" alt="No syntax">
+          <div>
+            <strong>No syntax memorisation needed</strong>
+            <p>Describe ideas in plain English</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="icon glow" src="assets/icon-iterate.svg" alt="Iterate">
+          <div>
+            <strong>Iterate in seconds, not hours</strong>
+            <p>See results in your browser almost immediately</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="icon glow" src="assets/icon-learn.svg" alt="Learn">
+          <div>
+            <strong>Learn by doing</strong>
+            <p>Read &amp; edit AI‑generated code to understand how it works</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="icon glow" src="assets/icon-prototype.svg" alt="Prototype">
+          <div>
+            <strong>Ideal for prototypes &amp; side projects</strong>
+            <p>Go from idea to working thing fast</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="comparison-grid animate-in">
+        <div class="compare-col">
+          <h3>Traditional coding</h3>
+          <ul>
+            <li>Write every line manually</li>
+            <li>Debug from scratch</li>
+            <li>Steep learning curve</li>
+          </ul>
+        </div>
+        <div class="compare-col compare-col-accent">
+          <h3>Vibe coding</h3>
+          <ul>
+            <li>Describe → review → refine</li>
+            <li>AI helps find &amp; fix issues</li>
+            <li>Low barrier to entry</li>
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- Slide 12: What's Possible -->
+  <section class="slide" data-slide="12" role="group" aria-roledescription="slide" aria-label="Slide 12: What's Possible">
+    <div class="slide-content">
+      <p class="slide-label animate-in">What's Possible</p>
+      <h1 class="animate-in">People have already built <span class="highlight">all of this</span></h1>
+      <div class="project-grid">
+        <a href="../pixel-art-editor/index.html" target="_blank" class="project-card animate-in">
+          <img src="../pixel-art-editor/assets/thumbnail.png" alt="Pixel Art Editor preview">
+          <span>Pixel Art Editor</span>
+        </a>
+        <a href="../snake-with-powerups/index.html" target="_blank" class="project-card animate-in">
+          <img src="../snake-with-powerups/assets/thumbnail.png" alt="Snake Game preview">
+          <span>Snake Game</span>
+        </a>
+        <a href="../beat-maker/index.html" target="_blank" class="project-card animate-in">
+          <img src="../beat-maker/assets/thumbnail.png" alt="Beat Maker preview">
+          <span>Beat Maker</span>
+        </a>
+        <a href="../personality-quiz/index.html" target="_blank" class="project-card animate-in">
+          <img src="../personality-quiz/assets/thumbnail.png" alt="Personality Quiz preview">
+          <span>Personality Quiz</span>
+        </a>
+        <a href="../dungeon-crawler/index.html" target="_blank" class="project-card animate-in">
+          <img src="../dungeon-crawler/assets/thumbnail.png" alt="Dungeon Crawler preview">
+          <span>Dungeon Crawler</span>
+        </a>
+        <a href="../weather-dashboard/index.html" target="_blank" class="project-card animate-in">
+          <img src="../weather-dashboard/assets/thumbnail.png" alt="Weather Dashboard preview">
+          <span>Weather Dashboard</span>
+        </a>
+        <a href="../endless-runner/index.html" target="_blank" class="project-card animate-in">
+          <img src="../endless-runner/assets/thumbnail.png" alt="Endless Runner preview">
+          <span>Endless Runner</span>
+        </a>
+        <a href="../memory-card-match/index.html" target="_blank" class="project-card animate-in">
+          <img src="../memory-card-match/assets/thumbnail.png" alt="Memory Card Match preview">
+          <span>Memory Match</span>
+        </a>
+      </div>
+      <p class="subtitle animate-in">All built by describing ideas in plain English — <strong>no coding experience needed.</strong></p>
+    </div>
+  </section>
+
+  <!-- Slide 13: Q&A -->
+  <section class="slide" data-slide="13" role="group" aria-roledescription="slide" aria-label="Slide 13: Q&A and Live Demo">
+    <div class="slide-content">
+      <p class="slide-label animate-in">Ask Us Anything</p>
+      <h1 class="animate-in">Interactive Q&amp;A &amp; <span class="highlight">Live Demo</span></h1>
+      <p class="subtitle animate-in">Got questions? Curious about something? Now's the time — ask us anything!</p>
+    </div>
+  </section>
+
+  <!-- Slide 14: Tips -->
+  <section class="slide" data-slide="14" role="group" aria-roledescription="slide" aria-label="Slide 14: Quick tips before you start">
+    <div class="slide-content">
+      <p class="slide-label animate-in">Let's Go!</p>
+      <h1 class="animate-in">Quick tips before you <span class="highlight">start</span></h1>
+      <div class="tips-grid">
+        <div class="tip-card animate-in">
+          <img class="tip-icon glow" src="../vibe-coding-intro/assets/icon-target.svg" alt="Be specific">
+          <strong>🎯 Be specific</strong>
+          <p>"Add a red button that plays a drum sound" works way better than "make it cool"</p>
+        </div>
+        <div class="tip-card animate-in">
+          <img class="tip-icon glow" src="../vibe-coding-intro/assets/icon-blocks.svg" alt="Build step by step">
+          <strong>🧱 Build step by step</strong>
+          <p>Start simple, then keep adding. Don't try to describe everything at once.</p>
+        </div>
+        <div class="tip-card animate-in">
+          <img class="tip-icon glow" src="../vibe-coding-intro/assets/icon-flask.svg" alt="Experiment">
+          <strong>🧪 Experiment!</strong>
+          <p>Nothing can break permanently. Just try things and see what happens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 15: Hands-On -->
+  <section class="slide" data-slide="15" role="group" aria-roledescription="slide" aria-label="Slide 15: Hands-On Build Session">
+    <div class="slide-content slide-content-wide">
+      <p class="slide-label animate-in">Your Turn</p>
+      <h1 class="animate-in">Hands‑On: Build Something <span class="highlight">Today!</span></h1>
+      <ol class="steps-list">
+        <li class="animate-in">
+          <img class="step-icon glow" src="../vibe-coding-intro/assets/icon-idea.svg" alt="Pick idea">
+          <div>
+            <strong>Pick your idea</strong>
+            <p>Choose a starter or dream up your own</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="step-icon glow" src="../vibe-coding-intro/assets/icon-describe.svg" alt="Build with AI">
+          <div>
+            <strong>Build with AI</strong>
+            <p>Describe what you want in plain English</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="step-icon glow" src="../vibe-coding-intro/assets/icon-browser.svg" alt="Test and fix">
+          <div>
+            <strong>Test &amp; fix</strong>
+            <p>See results, tweak, iterate</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="step-icon glow" src="assets/icon-showcase.svg" alt="Demo">
+          <div>
+            <strong>Demo to the group</strong>
+            <p>Show off what you built!</p>
+          </div>
+        </li>
+      </ol>
+
+      <h2 class="section-heading animate-in">Project ideas <em>(or choose your own!)</em></h2>
+      <div class="ideas-grid">
+        <div class="idea-card animate-in">
+          <span class="idea-emoji">🧠</span>
+          <strong>Quiz generator</strong>
+          <p>Build a web quiz on any topic you love</p>
+        </div>
+        <div class="idea-card animate-in">
+          <span class="idea-emoji">🍳</span>
+          <strong>Recipe recommender</strong>
+          <p>Type ingredients, get a recipe</p>
+        </div>
+        <div class="idea-card animate-in">
+          <span class="idea-emoji">📚</span>
+          <strong>Study planner</strong>
+          <p>AI that schedules A‑Level revision</p>
+        </div>
+        <div class="idea-card animate-in">
+          <span class="idea-emoji">🗣️</span>
+          <strong>Chatbot persona</strong>
+          <p>A bot that talks like a historical figure</p>
+        </div>
+        <div class="idea-card animate-in">
+          <span class="idea-emoji">🎮</span>
+          <strong>Mini game</strong>
+          <p>Text‑based adventure or number guessing game</p>
+        </div>
+        <div class="idea-card animate-in">
+          <span class="idea-emoji">🌍</span>
+          <strong>Climate dashboard</strong>
+          <p>Visualise climate data with charts and facts</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 16: Showcase & Wrap-Up -->
+  <section class="slide" data-slide="16" role="group" aria-roledescription="slide" aria-label="Slide 16: Showcase and Wrap-Up">
+    <div class="slide-content">
+      <p class="slide-label animate-in">Finale</p>
+      <h1 class="animate-in">Showcase &amp; <span class="highlight">Wrap‑Up</span></h1>
+      <p class="subtitle animate-in">Each group: <strong>60–120 seconds</strong> to demo what you built.</p>
+
+      <h2 class="section-heading animate-in">Key takeaways</h2>
+      <ul class="feature-list">
+        <li class="animate-in">
+          <img class="icon glow" src="assets/icon-analyst.svg" alt="AI is a tool">
+          <div>
+            <strong>AI is a tool</strong>
+            <p>The human with the best questions wins</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="icon glow" src="assets/icon-creator.svg" alt="Building blocks">
+          <div>
+            <strong>Analyst → Creator → Doer</strong>
+            <p>The Analyst recognises → the Creator generates → the Doer acts — each built on the last</p>
+          </div>
+        </li>
+        <li class="animate-in">
+          <img class="icon glow" src="../vibe-coding-intro/assets/icon-rocket.svg" alt="Vibe coding">
+          <div>
+            <strong>Vibe coding</strong>
+            <p>Lets you ship ideas without years of training</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Slide 17: Thank You -->
+  <section class="slide" data-slide="17" role="group" aria-roledescription="slide" aria-label="Slide 17: Thank You">
+    <div class="slide-content">
+      <p class="slide-label animate-in">That's a Wrap</p>
+      <h1 class="animate-in">Thank <span class="highlight">You</span></h1>
+      <div class="cta animate-in">
+        <p>Now go build something amazing!</p>
+        <span class="go">Go! 🚀</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <nav class="slide-nav" aria-label="Slide navigation">
+    <button class="nav-btn" id="prevBtn" aria-label="Previous slide">◀</button>
+    <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">17</span></span>
+    <button class="nav-btn" id="nextBtn" aria-label="Next slide">▶</button>
+  </nav>
+
+  <div class="keyboard-hint" id="keyboardHint">Use ← → arrow keys to navigate</div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

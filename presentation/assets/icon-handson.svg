@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Keyboard base -->
+  <rect x="4" y="28" width="40" height="14" rx="3" fill="#334155" stroke="#38bdf8" stroke-width="2"/>
+  <!-- Keys -->
+  <rect x="8" y="31" width="5" height="4" rx="1" fill="#1e293b" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+  <rect x="15" y="31" width="5" height="4" rx="1" fill="#1e293b" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+  <rect x="22" y="31" width="5" height="4" rx="1" fill="#1e293b" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+  <rect x="29" y="31" width="5" height="4" rx="1" fill="#1e293b" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+  <rect x="36" y="31" width="5" height="4" rx="1" fill="#1e293b" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+  <rect x="10" y="37" width="28" height="3" rx="1" fill="#1e293b" stroke="#38bdf8" stroke-width="1" opacity="0.4"/>
+  <!-- Sparkle above — idea forming -->
+  <circle cx="24" cy="14" r="3" fill="#38bdf8" opacity="0.4">
+    <animate attributeName="r" values="2;4;2" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="16" cy="10" r="1.5" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.1;0.6;0.1" dur="1.5s" begin="0.3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="32" cy="10" r="1.5" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.1;0.6;0.1" dur="1.5s" begin="0.7s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Rising arrow -->
+  <line x1="24" y1="24" x2="24" y2="18" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <polyline points="20,21 24,17 28,21" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+</svg>

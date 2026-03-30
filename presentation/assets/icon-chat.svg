@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Chat bubbles -->
+  <rect x="4" y="6" width="28" height="18" rx="4" fill="#334155" stroke="#38bdf8" stroke-width="2"/>
+  <polygon points="12,24 10,32 18,24" fill="#334155" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Second bubble -->
+  <rect x="18" y="22" width="26" height="14" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+  <polygon points="36,36 38,42 30,36" fill="#1e293b" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Typing dots in second bubble -->
+  <circle cx="26" cy="29" r="2" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="32" cy="29" r="2" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="38" cy="29" r="2" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.4s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Text lines in first bubble -->
+  <line x1="10" y1="12" x2="26" y2="12" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <line x1="10" y1="17" x2="20" y2="17" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Large gear -->
+  <g transform-origin="24 24">
+    <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="6s" repeatCount="indefinite"/>
+    <path d="M24,8 L27,12 L32,10 L32,15 L37,16 L34,20 L38,24 L34,28 L37,32 L32,33 L32,38 L27,36 L24,40 L21,36 L16,38 L16,33 L11,32 L14,28 L10,24 L14,20 L11,16 L16,15 L16,10 L21,12 Z" fill="#334155" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="24" cy="24" r="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+  </g>
+  <!-- Lightning bolt — action -->
+  <path d="M22,20 L26,20 L24,25 L28,25 L21,34 L23,27 L20,27 Z" fill="#38bdf8" opacity="0.8">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+</svg>

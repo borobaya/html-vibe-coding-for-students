@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Central sparkle burst -->
+  <g transform-origin="24 24">
+    <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="12s" repeatCount="indefinite"/>
+    <!-- Four-point star -->
+    <path d="M24,6 L27,20 L42,24 L27,28 L24,42 L21,28 L6,24 L21,20 Z" fill="#38bdf8" opacity="0.15" stroke="#38bdf8" stroke-width="1.5" stroke-linejoin="round"/>
+  </g>
+  <!-- Inner glow -->
+  <circle cx="24" cy="24" r="5" fill="#38bdf8" opacity="0.3">
+    <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Orbiting sparkles -->
+  <circle cx="36" cy="10" r="2" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="12" cy="38" r="1.5" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.1;0.7;0.1" dur="1.8s" begin="0.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="40" cy="36" r="1.5" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" begin="1s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Plus sign — creation -->
+  <line x1="24" y1="19" x2="24" y2="29" stroke="#f1f5f9" stroke-width="2" stroke-linecap="round"/>
+  <line x1="19" y1="24" x2="29" y2="24" stroke="#f1f5f9" stroke-width="2" stroke-linecap="round"/>
+</svg>
