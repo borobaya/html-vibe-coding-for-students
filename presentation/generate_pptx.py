@@ -350,6 +350,7 @@ def add_card(slide, left, top, width, height, texts, *,
         p.font.color.rgb = clr
         p.font.name = "Segoe UI"
         p.alignment = PP_ALIGN.CENTER
+        p.line_spacing = 1.2
     return shape
 
 
@@ -416,9 +417,11 @@ def add_icon_rows(slide, rows, *, left=Inches(1.0), top=Inches(2.4),
         r1.font.bold = True
         r1.font.color.rgb = TEXT
         r1.font.name = "Segoe UI"
+        p.line_spacing = 1.2
         if desc_txt:
             p2 = tf.add_paragraph()
             p2.space_before = Pt(2)
+            p2.line_spacing = 1.2
             r2 = p2.add_run()
             r2.text = desc_txt
             r2.font.size = Pt(desc_size)
@@ -615,11 +618,13 @@ p.font.size = Pt(18)
 p.font.bold = True
 p.font.color.rgb = ACCENT
 p.font.name = "Segoe UI"
+p.line_spacing = 1.2
 p2 = tf.add_paragraph()
 p2.text = "Combine the Creator (GenAI that writes code) with the Doer (agents that take action): you describe, AI builds, you see results."
 p2.font.size = Pt(13)
 p2.font.color.rgb = TEXT
 p2.font.name = "Segoe UI"
+p2.line_spacing = 1.2
 
 
 # ── Slide 8: Generative AI ────────────────────────────────────
@@ -703,11 +708,13 @@ p.font.size = Pt(14)
 p.font.bold = True
 p.font.color.rgb = WARNING
 p.font.name = "Segoe UI"
+p.line_spacing = 1.2
 p2 = tf.add_paragraph()
 p2.text = "Generative AI can confidently produce wrong answers. It sounds right, reads right, but it's made up. Always verify."
 p2.font.size = Pt(13)
 p2.font.color.rgb = TEXT
 p2.font.name = "Segoe UI"
+p2.line_spacing = 1.2
 
 
 # ── Slide 9: Use AI Responsibly ────────────────────────────────
