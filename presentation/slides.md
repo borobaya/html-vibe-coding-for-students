@@ -1,7 +1,5 @@
 # AI & the Future
-
 Artificial Intelligence · Generative AI · Agents · Vibe Coding
-Hosted by Muhammed, Ranjan, Farhad, Kelvin, Chaitanya, Krishna
 
 ---
 
@@ -20,17 +18,6 @@ Hosted by Muhammed, Ranjan, Farhad, Kelvin, Chaitanya, Krishna
 
 ---
 
-## Team Members
-
-- **Ranjan Patalasingh** — Principal AI Engineer
-- **Muhammed Miah** — Senior AI Engineer
-- **Farhad Hussain** — Senior AI Engineer
-- **Kelvin Chan** — AI Engineer
-- **Chaitanya Katukuri** — Engineering Lead
-- **Krishna Konduru** — Data Engineer
-
----
-
 ## Let's Break the Ice!
 
 Quick‑fire round — shout your answer!
@@ -46,6 +33,9 @@ Quick‑fire round — shout your answer!
 
 **Fast facts — first answer wins**
 *(Interactive quiz content delivered live)*
+---
+
+> **Section: Machine Learning, Generative AI & Agents**
 
 ---
 
@@ -80,6 +70,22 @@ Combine the **Creator** (GenAI that writes code) with the **Doer** (agents that 
 
 ---
 
+## ML, Deep Learning and LLM
+
+Machine learning is a subset of artificial intelligence that enables systems to learn from data without being explicitly programmed.
+
+![Machine Learning](assets/diagram-ml.png)
+
+Deep learning is a subset of machine learning that uses neural networks to analyze data.
+
+![Deep Learning](assets/diagram-dl.png)
+
+Large language models are a type of Deep Learning model specifically designed for natural language processing tasks.
+
+![LLM](assets/diagram-llm.png)
+
+---
+
 ## Generative AI — Where You See It Today
 
 ### How it works
@@ -101,14 +107,22 @@ Combine the **Creator** (GenAI that writes code) with the **Doer** (agents that 
 
 ---
 
-## Use AI Responsibly
+## Humans VS Artificial Intelligence
 
-AI is powerful — but it's not perfect. Here are things to watch out for:
+This infographic tracks how AI performance has evolved relative to human baseline (100%) across several technical domains from 2012 to 2024.
 
-- **Deepfakes** — AI can create convincing fake images, audio, and video of real people
-- **Bias** — AI learns from human data — so it can repeat unfair patterns and stereotypes
-- **Misinformation** — AI-generated text can sound authoritative even when it's completely wrong
-- **Copyright** — AI may generate content that's too similar to someone else's work
+- Visual Reasoning & Medium-Level Reading Comprehension
+- English Language Understanding
+- Multitask Language Understanding
+- Competition-Level Mathematics
+- PhD-Level Science Questions
+- Multimodal Understanding & Reasoning
+
+![Benchmark chart](assets/benchmark-chart.png)
+
+---
+
+> **Section: Vibe Coding**
 
 ---
 
@@ -148,6 +162,10 @@ All built by describing ideas in plain English — **no coding experience needed
 ## Interactive Q&A & Live Demo
 
 Got questions? Curious about something? Now's the time — ask us anything!
+
+---
+
+> **Section: Hands‑on Vibe Coding**
 
 ---
 
@@ -191,6 +209,31 @@ Each group: **60–120 seconds** to demo what you built.
 
 ---
 
+> **Section: Warning & Risks**
+
+---
+
+## Pitfalls of Vibe Coding
+
+- **Security Risks** — Vibe-coding can lead to hidden vulnerabilities, exposing systems to potential threats and compromising security.
+- **Maintainability Challenges** — Incremental prompting typically results in poorly structured code, making debugging, extending, or refactoring difficult.
+- **Compliance Issues** — Coding without proper understanding may bypass regulations, leading to compliance problems and legal risks.
+
+![Pitfalls of Vibe Coding](assets/pitfalls-vibe.png)
+
+---
+
+## Use AI Responsibly
+
+AI is powerful — but it's not perfect. Here are things to watch out for:
+
+- **Deepfakes** — AI can create convincing fake images, audio, and video of real people
+- **Bias** — AI learns from human data — so it can repeat unfair patterns and stereotypes
+- **Misinformation** — AI-generated text can sound authoritative even when it's completely wrong
+- **Copyright** — AI may generate content that's too similar to someone else's work
+
+---
+
 ## Thank You
 
-**Now go build something amazing!**
+**Now go build something amazing! 🚀**

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <circle cx="100" cy="100" r="100" fill="#1e293b"/>
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#38bdf8" stroke-width="3"/>
+  <circle cx="100" cy="72" r="28" fill="#38bdf8" opacity="0.2"/>
+  <path d="M100 108c-30 0-54 16-54 36v6h108v-6c0-20-24-36-54-36z" fill="#38bdf8" opacity="0.2"/>
+  <text x="100" y="115" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="60" font-weight="bold" fill="#38bdf8">FH</text>
+</svg>
