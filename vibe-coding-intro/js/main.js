@@ -42,10 +42,33 @@ function restartSVGs(slide) {
   });
 }
 
+// Auto-loop SVG animations on specific slides (restart a few seconds after they finish)
+let svgLoopTimer = null;
+const SVG_LOOP_DELAY = 12000; // total animation ~8-9s + 3s pause before restart
+
+function startSVGLoop(slide) {
+  stopSVGLoop();
+  const slideNum = parseInt(slide.dataset.slide, 10);
+  // Only loop on slides 2 and 5 (the mockup SVGs)
+  if (slideNum !== 2 && slideNum !== 5) return;
+
+  svgLoopTimer = setInterval(() => {
+    restartSVGs(slide);
+  }, SVG_LOOP_DELAY);
+}
+
+function stopSVGLoop() {
+  if (svgLoopTimer) {
+    clearInterval(svgLoopTimer);
+    svgLoopTimer = null;
+  }
+}
+
 function goToSlide(index) {
   if (index < 0 || index >= total) return;
 
   resetSlide(slides[current]);
+  stopSVGLoop();
   slides[current].classList.add("exiting");
   slides[current].classList.remove("active");
 
@@ -56,6 +79,7 @@ function goToSlide(index) {
 
   animateSlide(slides[current]);
   restartSVGs(slides[current]);
+  startSVGLoop(slides[current]);
   slides[current].classList.add("active");
   currentSlideEl.textContent = current + 1;
   progressFill.style.width = ((current + 1) / total) * 100 + "%";

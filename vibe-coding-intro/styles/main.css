@@ -329,7 +329,102 @@ h1 {
   margin-top: 0.15rem;
 }
 
-/* ---- Tips grid (Slide 5) ---- */
+/* ---- Section heading ---- */
+.section-heading {
+  text-align: center;
+  color: var(--accent);
+  margin-top: clamp(1rem, 2.5vh, 2rem);
+  margin-bottom: clamp(0.4rem, 1vh, 0.75rem);
+  font-size: clamp(0.9rem, 1.8vh, 1.2rem);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ---- Comparison grid (Slide 3) ---- */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: clamp(1rem, 2.5vh, 2rem) auto;
+  max-width: 560px;
+  text-align: left;
+}
+
+.compare-col {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+
+.compare-col-accent {
+  border-color: var(--accent);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.compare-col h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.compare-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.compare-col li {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.compare-col li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* ---- Ideas grid (Slide 5) ---- */
+.ideas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin: clamp(1rem, 2.5vh, 2rem) auto;
+  max-width: 700px;
+}
+
+.idea-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+}
+
+.idea-emoji {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.idea-card strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
+}
+
+.idea-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+/* ---- Tips grid (Slide 6) ---- */
 .tips-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -365,7 +460,7 @@ h1 {
   line-height: 1.4;
 }
 
-/* ---- CTA (Slide 5) ---- */
+/* ---- CTA (Slide 6) ---- */
 .cta {
   margin-top: 2rem;
 }
@@ -506,6 +601,12 @@ h1 {
 }
 
 /* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .ideas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 640px) {
   .project-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -514,6 +615,14 @@ h1 {
   .tips-grid {
     grid-template-columns: 1fr;
     max-width: 340px;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ideas-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .visual {
