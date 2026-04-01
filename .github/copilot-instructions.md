@@ -111,10 +111,10 @@ Notes:
 
 ## Local Preview
 
-To view a project's page, use a local static server from that project's directory:
+To preview any project, start the website from the repository root:
 
 ```bash
-cd project-name && python3 -m http.server 5500
+python3 server.py
 ```
 
 Then open:

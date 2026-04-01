@@ -72,10 +72,9 @@ game-of-life/
 No build tools or dependencies required. Clone the repo and open the project:
 
 ```bash
-cd game-of-life
-python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500` in your browser.
+Then visit `http://localhost:5500/game-of-life` in your browser.
 
 Alternatively, open `index.html` directly in any modern browser.

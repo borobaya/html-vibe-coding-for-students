@@ -46,8 +46,7 @@ space-tracker/
 The app makes API calls, so it needs to be served over HTTP rather than opened as a plain file.
 
 ```bash
-cd space-tracker
-python3 -m http.server 5500
+python3 server.py
 ```
 
-Then open `http://localhost:5500` in your browser.
+Then open `http://localhost:5500/space-tracker` in your browser.

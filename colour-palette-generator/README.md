@@ -61,10 +61,10 @@ Clone the repository and open the project folder:
 cd colour-palette-generator
 ```
 
-Then either open `index.html` directly in a browser, or start a local server:
+Open `index.html` directly in a browser, or start the website from the project root:
 
 ```bash
-python3 -m http.server 5500
+python3 server.py
 ```
 
-Visit `http://localhost:5500` to use the app.
+Visit `http://localhost:5500/colour-palette-generator` to use the app.

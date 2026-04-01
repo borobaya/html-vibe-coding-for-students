@@ -17,10 +17,10 @@ A personal portfolio website to introduce yourself and show off your projects.
 Open `index.html` in your browser, or run:
 
 ```bash
-cd portfolio && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500`.
+Then visit `http://localhost:5500/portfolio`.
 
 ## Ideas to Make It Yours
 

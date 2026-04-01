@@ -64,8 +64,7 @@ open index.html
 Or start a local server for a full development experience:
 
 ```bash
-cd traffic-light-simulator
-python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500` in your browser.
+Then visit `http://localhost:5500/traffic-light-simulator` in your browser.

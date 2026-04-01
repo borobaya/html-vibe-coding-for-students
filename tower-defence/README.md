@@ -77,10 +77,10 @@ Clone the repository and open the project folder:
 cd tower-defence
 ```
 
-Then either open `index.html` directly in your browser, or start a local server:
+Open `index.html` directly in your browser, or start the website from the project root:
 
 ```bash
-python3 -m http.server 5500
+python3 server.py
 ```
 
-Visit `http://localhost:5500` to play.
+Visit `http://localhost:5500/tower-defence` to play.

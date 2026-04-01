@@ -80,6 +80,6 @@ Clone the repository and open the project directly in your browser:
 open ecosystem-simulator/index.html
 
 # Option 2 — serve locally
-cd ecosystem-simulator && python3 -m http.server 5500
-# then visit http://localhost:5500
+python3 server.py
+# then visit http://localhost:5500/ecosystem-simulator
 ```

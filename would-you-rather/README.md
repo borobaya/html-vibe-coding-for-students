@@ -52,7 +52,7 @@ Double-click `index.html` in your browser (or drag it onto an open browser windo
 **Option B — Local dev server**
 
 ```bash
-cd would-you-rather && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500` in your browser.
+Then visit `http://localhost:5500/would-you-rather` in your browser.

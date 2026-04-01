@@ -54,16 +54,10 @@ habit-tracker/
 
 No build tools or dependencies required. To run locally:
 
-1. Clone the repository and navigate to the project folder:
+1. Open `index.html` directly in your browser, or start the website from the project root:
 
    ```bash
-   cd habit-tracker
+   python3 server.py
    ```
 
-2. Open `index.html` directly in your browser, or start a local server:
-
-   ```bash
-   python3 -m http.server 5500
-   ```
-
-   Then visit `http://localhost:5500` in your browser.
+   Then visit `http://localhost:5500/habit-tracker` in your browser.

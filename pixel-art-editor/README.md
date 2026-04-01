@@ -66,10 +66,10 @@ cd pixel-art-editor
 
 **Option A** — Open `index.html` directly in your browser.
 
-**Option B** — Serve with a local static server:
+**Option B** — Start the website from the project root:
 
 ```bash
-python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500` in your browser.
+Then visit `http://localhost:5500/pixel-art-editor` in your browser.

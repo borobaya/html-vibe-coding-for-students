@@ -16,13 +16,13 @@ This is a monorepo where each student project lives in its own folder. Projects 
 
 ## Previewing Your Project
 
-Open `index.html` directly in your browser, or start a local server:
+Open `index.html` directly in your browser, or start the website from the repository root:
 
 ```bash
-cd your-project-folder && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500`.
+Then visit `http://localhost:5500/your-project-folder`.
 
 ## Your Projects
 

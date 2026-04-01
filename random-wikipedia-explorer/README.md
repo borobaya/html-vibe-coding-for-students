@@ -48,7 +48,7 @@ random-wikipedia-explorer/
 This project makes API calls to Wikipedia, so it needs to be served over HTTP rather than opened directly as a file.
 
 ```bash
-cd random-wikipedia-explorer && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then open `http://localhost:5500` in your browser.
+Then open `http://localhost:5500/random-wikipedia-explorer` in your browser.

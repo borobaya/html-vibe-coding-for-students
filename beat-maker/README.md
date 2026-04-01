@@ -69,7 +69,7 @@ Open `index.html` in your browser.
 **Option 2 — Local server:**
 
 ```bash
-cd beat-maker && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500` in your browser.
+Then visit `http://localhost:5500/beat-maker` in your browser.

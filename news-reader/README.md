@@ -16,10 +16,10 @@ A news website with a featured article, card grid, and category filters.
 Open `index.html` in your browser, or run:
 
 ```bash
-cd news-reader && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500`.
+Then visit `http://localhost:5500/news-reader`.
 
 ## Ideas to Make It Yours
 

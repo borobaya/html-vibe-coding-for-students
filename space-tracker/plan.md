@@ -1349,7 +1349,7 @@ document.addEventListener('DOMContentLoaded', init)
 1. Create `index.html` with the full HTML structure (Section 4).
 2. Create `styles/main.css` with CSS variables and reset only — verify the page loads with the dark background.
 3. Create empty JS files: `js/main.js`, `js/modules/config.js`, `js/modules/api.js`, `js/modules/map.js`, `js/modules/crew.js`, `js/modules/ui.js`.
-4. Start local server: `cd space-tracker && python3 -m http.server 5500`.
+4. Start local server: `python3 server.py` and visit `http://localhost:5500/space-tracker`.
 5. Confirm the page loads with correct fonts, dark background, and no console errors.
 
 ### Phase 2 — Map Foundation

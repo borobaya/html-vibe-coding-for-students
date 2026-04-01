@@ -59,7 +59,7 @@ Open `index.html` in your browser.
 **Option 2 — Local server:**
 
 ```bash
-cd budget-tracker && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500` in your browser.
+Then visit `http://localhost:5500/budget-tracker` in your browser.

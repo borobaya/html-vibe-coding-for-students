@@ -67,10 +67,10 @@ Clone the repository and open the project:
 cd gravity-sandbox
 ```
 
-Then either open `index.html` directly in your browser, or start a local server:
+Open `index.html` directly in your browser, or start the website from the project root:
 
 ```bash
-python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500` in your browser.
+Then visit `http://localhost:5500/gravity-sandbox` in your browser.

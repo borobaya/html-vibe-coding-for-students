@@ -51,7 +51,7 @@ weather-dashboard/
 4. Open `index.html` directly in your browser, or start a local server:
 
 ```bash
-cd weather-dashboard && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500` in your browser.
+Then visit `http://localhost:5500/weather-dashboard` in your browser.

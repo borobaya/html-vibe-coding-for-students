@@ -16,10 +16,10 @@ A simple online shop with product listings, category filters, and a sliding cart
 Open `index.html` in your browser, or run:
 
 ```bash
-cd e-commerce && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500`.
+Then visit `http://localhost:5500/e-commerce`.
 
 ## Ideas to Make It Yours
 

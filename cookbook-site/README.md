@@ -17,10 +17,10 @@ A recipe collection you can browse, search, and filter by meal type.
 Open `index.html` in your browser, or run:
 
 ```bash
-cd cookbook-site && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500`.
+Then visit `http://localhost:5500/cookbook-site`.
 
 ## Ideas to Make It Yours
 

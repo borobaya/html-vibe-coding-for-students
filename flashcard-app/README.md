@@ -52,16 +52,10 @@ flashcard-app/
 
 No dependencies or build tools required. To run locally:
 
-1. Clone the repository and navigate to the project folder:
+1. Open `index.html` directly in your browser, or start the website from the project root:
 
    ```bash
-   cd flashcard-app
+   python3 server.py
    ```
 
-2. Open `index.html` directly in your browser, or start a local server:
-
-   ```bash
-   python3 -m http.server 5500
-   ```
-
-3. Visit `http://localhost:5500` if using the server.
+2. Visit `http://localhost:5500/flashcard-app` if using the server.

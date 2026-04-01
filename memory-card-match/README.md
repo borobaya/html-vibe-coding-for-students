@@ -66,7 +66,7 @@ Open `index.html` in any modern browser.
 **Option B — Local server**
 
 ```bash
-cd memory-card-match && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500` in your browser.
+Then visit `http://localhost:5500/memory-card-match` in your browser.

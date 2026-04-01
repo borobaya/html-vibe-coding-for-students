@@ -55,7 +55,7 @@ Open `index.html` in any modern browser.
 **Option 2 — Local server**
 
 ```bash
-cd personality-quiz && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500` in your browser.
+Then visit `http://localhost:5500/personality-quiz` in your browser.

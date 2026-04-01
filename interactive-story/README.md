@@ -16,10 +16,10 @@ A "choose your adventure" game where clicking different choices takes you down d
 Open `index.html` in your browser, or run:
 
 ```bash
-cd interactive-story && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500`.
+Then visit `http://localhost:5500/interactive-story`.
 
 ## Ideas to Make It Yours
 

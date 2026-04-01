@@ -67,7 +67,7 @@ Open `index.html` in your browser by double-clicking the file.
 **Option 2 — Local server (recommended for ES modules):**
 
 ```bash
-cd quiz-battle && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500` in your browser.
+Then visit `http://localhost:5500/quiz-battle` in your browser.

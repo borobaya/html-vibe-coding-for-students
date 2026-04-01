@@ -1451,5 +1451,5 @@ State transitions are managed by `hideAllStates()` followed by showing the relev
 - [ ] All text rendered with `textContent` (never `innerHTML` with API data)
 - [ ] No API keys or secrets in source
 - [ ] All paths are relative (`js/main.js`, `styles/main.css`)
-- [ ] Test via local server: `cd random-wikipedia-explorer && python3 -m http.server 5500`
+- [ ] Test via local server: `python3 server.py` and visit `http://localhost:5500/random-wikipedia-explorer`
 - [ ] Write `README.md` with project description and run instructions

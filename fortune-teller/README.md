@@ -58,7 +58,7 @@ Open `index.html` in any modern browser.
 **Option B — Local server**
 
 ```bash
-cd fortune-teller && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500` in your browser.
+Then visit `http://localhost:5500/fortune-teller` in your browser.

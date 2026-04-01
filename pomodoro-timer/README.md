@@ -59,7 +59,7 @@ Open `index.html` in any modern browser.
 **Option B — local server:**
 
 ```bash
-cd pomodoro-timer && python3 -m http.server 5500
+python3 server.py
 ```
 
-Then visit `http://localhost:5500` in your browser.
+Then visit `http://localhost:5500/pomodoro-timer` in your browser.
