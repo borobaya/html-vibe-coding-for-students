@@ -38,37 +38,6 @@ This document defines how Copilot should assist in this repository for front-end
 
 ---
 
-## Recommended Project Structure
-
-This is a monorepo. Each project lives in its own top-level folder. When a student asks to build something new, create the folder and set up this structure for them:
-
-```text
-project-root/
-  ├── .github/
-  │   └── copilot-instructions.md
-  ├── project-a/
-  │   ├── index.html
-  │   ├── js/
-  │   │   ├── main.js
-  │   │   └── modules/
-  │   ├── styles/
-  │   │   └── main.css
-  │   ├── assets/
-  │   └── README.md
-  ├── project-b/
-  │   └── ...
-  ├── README.md
-  └── .gitignore
-```
-
-Notes:
-
-- Each project has its own folder at the repo root.
-- Website files live directly in the project folder.
-- Do not commit secrets or local environment files.
-
----
-
 ## HTML Standards
 
 - Use relative paths for all links, scripts, stylesheets, and assets (e.g. `js/main.js`, `styles/main.css`). Never use absolute paths starting with `/`. This ensures pages work whether served from a static server or opened directly via the file system.
@@ -106,6 +75,7 @@ Notes:
 - Sanitize dynamic content before rendering to prevent XSS.
 - Never insert untrusted HTML directly with `innerHTML`.
 - Avoid exposing API keys in front-end source.
+- Do not commit secrets or local environment files.
 
 ---
 
