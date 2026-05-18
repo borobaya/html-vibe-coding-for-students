@@ -37,12 +37,14 @@ These are ready-to-go projects with basic structure and starter content. Open on
 
 | Preview | Project | Description |
 |---------|---------|-------------|
-| ![](portfolio/assets/thumbnail.png) | [portfolio](portfolio/README.md) | Personal homepage with about section, project showcase, and contact form |
-| ![](blog/assets/thumbnail.png) | [blog](blog/README.md) | Blog with posts, tag filtering, search, and a sidebar |
-| ![](e-commerce/assets/thumbnail.png) | [e-commerce](e-commerce/README.md) | Online shop with product grid, category filters, and a cart drawer |
-| ![](interactive-story/assets/thumbnail.png) | [interactive-story](interactive-story/README.md) | Choose-your-adventure game with branching paths and multiple endings |
-| ![](cookbook-site/assets/thumbnail.png) | [cookbook-site](cookbook-site/README.md) | Recipe collection with search, meal-type filters, and detail modals |
-| ![](news-reader/assets/thumbnail.png) | [news-reader](news-reader/README.md) | News site with featured article, category filters, and article cards |
+| ![](budget-tracker/assets/thumbnail.png) | [budget-tracker](budget-tracker/README.md) | Track expenses, visualize spending, and manage budgets with charts |
+| ![](space-tracker/assets/thumbnail.png) | [space-tracker](space-tracker/README.md) | Live ISS tracking, crew roster, and real-time data visualization |
+| ![](weather-dashboard/assets/thumbnail.png) | [weather-dashboard](weather-dashboard/README.md) | Multi-city weather forecasts and real-time conditions |
+| ![](habit-tracker/assets/thumbnail.png) | [habit-tracker](habit-tracker/README.md) | Track daily goals with a heatmap and streak analytics |
+| ![](pomodoro-timer/assets/thumbnail.png) | [pomodoro-timer](pomodoro-timer/README.md) | Focus timer with session analytics and productivity stats |
+| ![](e-commerce/assets/thumbnail.png) | [e-commerce](e-commerce/README.md) | Simple online shop with cart and checkout |
+| ![](fake-text-generator/assets/thumbnail.png) | [fake-text-generator](fake-text-generator/README.md) | Instantly generate random placeholder text for mockups |
+| ![](memory-card-match/assets/thumbnail.png) | [memory-card-match](memory-card-match/README.md) | Flip cards to find matching pairs and test your memory |
 
 ### More Ideas
 

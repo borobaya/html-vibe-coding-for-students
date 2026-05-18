@@ -26,7 +26,7 @@ const interactions = {
     await page.evaluate(() => {
       const pads = document.querySelectorAll(".sequencer__pad");
       // Classic rock-ish pattern across the 6×16 grid
-      [0,4,8,12, 17,21,25,29, 34,38,42,46, 51,55,59,63, 66,70,74,78, 83,87,91,95]
+      [0, 4, 8, 12, 17, 21, 25, 29, 34, 38, 42, 46, 51, 55, 59, 63, 66, 70, 74, 78, 83, 87, 91, 95]
         .forEach((i) => { if (pads[i]) pads[i].click(); });
     });
     await wait(500);
@@ -60,191 +60,33 @@ const interactions = {
     await page.click("#btn-new-game");
     await wait(1000);
   },
-
-  "ecosystem-simulator": async (page) => {
-    await page.click("#btn-play");
-    await wait(2000);
+},
   },
+await page.$eval("#contactName", (el) =>
+  await wait(300);
+await page.type("#input-question", "What is the chemical symbol for water?");
+await wait(300);
 
-  "endless-runner": async (page) => {
-    await page.click("#start-screen");
-    await wait(2000);
-  },
+await page.evaluate(() => {
+  await page.type("#input-habit-name", "Drink water");
 
-  "fake-text-generator": async (page) => {
-    await page.$eval("#contactName", (el) => (el.value = ""));
-    await page.type("#contactName", "Best Friend 😎");
-    await page.$eval("#contactName", (el) =>
-      el.dispatchEvent(new Event("input", { bubbles: true }))
-    );
-    await wait(300);
-    await page.click('input[name="direction"][value="received"]');
-    await page.type("#messageText", "Hey! Are you coming to the party tonight? 🎉");
-    await page.click("#addMessageBtn");
-    await wait(300);
-    await page.click('input[name="direction"][value="sent"]');
-    await page.type("#messageText", "Yes definitely! What time does it start?");
-    await page.click("#addMessageBtn");
-    await wait(300);
-    await page.click('input[name="direction"][value="received"]');
-    await page.type("#messageText", "8pm! See you there 🙌");
-    await page.click("#addMessageBtn");
-    await wait(300);
-  },
-
-  "flashcard-app": async (page) => {
-    await page.click("#btn-new-deck");
-    await wait(300);
-    await page.type("#input-deck-name", "Science Revision");
-    await page.click("#btn-save-deck");
-    await wait(300);
-    await page.click("#btn-add-card");
-    await wait(300);
-    await page.type("#input-question", "What is the chemical symbol for water?");
-    await page.type("#input-answer", "H₂O");
-    await page.click("#btn-save-card");
-    await wait(300);
-    await page.click("#btn-add-card");
-    await wait(300);
-    await page.type("#input-question", "What planet is closest to the Sun?");
-    await page.type("#input-answer", "Mercury");
-    await page.click("#btn-save-card");
-    await wait(300);
-  },
-
-  "fortune-teller": async (page) => {
-    await page.type("#question-input", "Will I pass my exams?");
-    await page.click("#shake-btn");
-    await wait(2000);
-  },
-
-  "game-of-life": async (page) => {
-    await page.click("#btn-random");
-    await wait(500);
-  },
-
-  "github-profile-viewer": async (page) => {
-    await page.type("#search-input", "octocat");
-    await page.click(".search__button");
-    await wait(3000);
-  },
-
-  "gravity-sandbox": async (page) => {
-    await page.evaluate(() => {
-      const slider = document.getElementById("mass-slider");
-      if (slider) { slider.value = 50; slider.dispatchEvent(new Event("input")); }
-    });
-    await page.mouse.click(400, 300);
-    await wait(200);
-    await page.evaluate(() => {
-      const slider = document.getElementById("mass-slider");
-      if (slider) { slider.value = 15; slider.dispatchEvent(new Event("input")); }
-    });
-    await page.mouse.click(550, 250);
-    await wait(200);
-    await page.mouse.click(300, 450);
-    await wait(200);
-    await page.mouse.click(200, 200);
-    await wait(500);
-  },
-
-  "habit-tracker": async (page) => {
-    await page.type("#input-habit-name", "Exercise");
-    await page.$eval("#input-habit-emoji", (el) => (el.value = "💪"));
-    await page.click(".add-habit__form .btn--accent");
-    await wait(300);
-    await page.type("#input-habit-name", "Read 30 mins");
-    await page.$eval("#input-habit-emoji", (el) => (el.value = "📚"));
-    await page.click(".add-habit__form .btn--accent");
-    await wait(300);
-    await page.type("#input-habit-name", "Drink water");
-    await page.$eval("#input-habit-emoji", (el) => (el.value = "💧"));
-    await page.click(".add-habit__form .btn--accent");
-    await wait(300);
-  },
-
-  "meme-generator": async (page) => {
-    await page.evaluate(() => {
-      const canvas = document.createElement("canvas");
-      canvas.width = 500;
-      canvas.height = 400;
-      const ctx = canvas.getContext("2d");
-      const grad = ctx.createLinearGradient(0, 0, 500, 400);
-      grad.addColorStop(0, "#667eea");
-      grad.addColorStop(1, "#764ba2");
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, 500, 400);
-      canvas.toBlob((blob) => {
-        const file = new File([blob], "sample.png", { type: "image/png" });
-        const dt = new DataTransfer();
-        dt.items.add(file);
-        document.getElementById("file-input").files = dt.files;
-        document.getElementById("file-input").dispatchEvent(
-          new Event("change", { bubbles: true })
+  canvas.toBlob((blob) => {
         );
-      });
-    });
-    await wait(1000);
-    await page.type("#top-text", "WHEN THE CODE WORKS");
-    await page.type("#bottom-text", "ON THE FIRST TRY");
-    await wait(500);
-  },
+  await page.type("#bottom-text", "ON THE FIRST TRY");
+  await page.click("#start-btn");
+},
+      const colours = ["#FF6B6B", "#4ECDC4", "#45B7D1", "#96CEB4", "#FFEAA7", "#DDA0DD", "#FF8C00", "#00CED1"];
+await wait(1000);
 
-  "memory-card-match": async (page) => {
-    await page.click("#start-btn");
-    await wait(500);
-    const cards = await page.$$("#card-grid .card");
-    if (cards.length > 0) { await cards[0].click(); await wait(300); }
-    if (cards.length > 2) { await cards[2].click(); await wait(300); }
-  },
-
-  "personality-quiz": async (page) => {
-    await page.click("#btn-start");
-    await wait(500);
-  },
-
-  "pixel-art-editor": async (page) => {
-    await page.evaluate(() => {
-      const colours = ["#FF6B6B","#4ECDC4","#45B7D1","#96CEB4","#FFEAA7","#DDA0DD","#FF8C00","#00CED1"];
-      document.querySelectorAll(".pixel").forEach((cell) => {
-        if (Math.random() < 0.35) {
-          cell.style.backgroundColor = colours[Math.floor(Math.random() * colours.length)];
-        }
-      });
-    });
-    await wait(300);
-  },
-
-  "quiz-battle": async (page) => {
-    await page.type("#player1-name", "Alice");
-    await page.type("#player2-name", "Bob");
-    await page.click("#start-btn");
-    await wait(1000);
-  },
-
-  "random-wikipedia-explorer": async (page) => {
-    await page.click("#surprise-btn");
-    await wait(3000);
-  },
-
-  "snake-with-powerups": async (page) => {
-    await page.click("#btn-start");
-    await wait(2000);
-  },
-
-  "traffic-light-simulator": async (page) => {
-    await page.click("#start-btn");
-    await wait(3000);
-  },
-
-  "tower-defence": async (page) => {
-    await wait(1000);
-    const buildBtns = await page.$$("#build-menu button");
-    if (buildBtns.length > 0) await buildBtns[0].click();
-    await wait(300);
-    await page.click("#btn-start-wave");
-    await wait(2000);
-  },
+// Only kept projects below
+"tower-defence": async (page) => {
+  await wait(1000);
+  const buildBtns = await page.$$("#build-menu button");
+  if (buildBtns.length > 0) await buildBtns[0].click();
+  await wait(300);
+  await page.click("#btn-start-wave");
+  await wait(2000);
+},
 
   "typing-speed-racer": async (page) => {
     await page.click("#start-btn");
@@ -260,22 +102,22 @@ const interactions = {
     await wait(500);
   },
 
-  "zodiac-compatibility": async (page) => {
-    await page.$eval("#birthday-1", (el) => {
-      el.value = "1999-07-15";
-      el.dispatchEvent(new Event("change", { bubbles: true }));
-      el.dispatchEvent(new Event("input", { bubbles: true }));
-    });
-    await wait(500);
-    await page.$eval("#birthday-2", (el) => {
-      el.value = "2000-03-22";
-      el.dispatchEvent(new Event("change", { bubbles: true }));
-      el.dispatchEvent(new Event("input", { bubbles: true }));
-    });
-    await wait(500);
-    await page.click("#check-btn");
-    await wait(1500);
-  },
+    "zodiac-compatibility": async (page) => {
+      await page.$eval("#birthday-1", (el) => {
+        el.value = "1999-07-15";
+        el.dispatchEvent(new Event("change", { bubbles: true }));
+        el.dispatchEvent(new Event("input", { bubbles: true }));
+      });
+      await wait(500);
+      await page.$eval("#birthday-2", (el) => {
+        el.value = "2000-03-22";
+        el.dispatchEvent(new Event("change", { bubbles: true }));
+        el.dispatchEvent(new Event("input", { bubbles: true }));
+      });
+      await wait(500);
+      await page.click("#check-btn");
+      await wait(1500);
+    },
 };
 
 // ── Static file server ──────────────────────────────────────────────
