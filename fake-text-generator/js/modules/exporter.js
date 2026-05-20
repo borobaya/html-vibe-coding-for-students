@@ -1,7 +1,7 @@
 /**
  * File: exporter.js
  * Description: PNG export using html2canvas
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

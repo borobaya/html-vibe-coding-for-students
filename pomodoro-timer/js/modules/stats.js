@@ -1,7 +1,7 @@
 /**
  * File: stats.js
  * Description: Session statistics — track, persist, and reset daily
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

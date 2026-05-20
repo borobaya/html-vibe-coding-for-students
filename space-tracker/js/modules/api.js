@@ -1,7 +1,7 @@
 /**
  * File: api.js
  * Description: HTTP requests to Open Notify API for ISS position and crew data
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

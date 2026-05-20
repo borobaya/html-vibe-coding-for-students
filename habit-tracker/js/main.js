@@ -1,7 +1,7 @@
 /**
  * File: main.js
  * Description: Entry point — wires events for habit CRUD, modals, heatmap navigation
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

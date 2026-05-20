@@ -1,7 +1,7 @@
 /**
  * File: categories.js
  * Description: Income and expense category definitions with colours
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

@@ -1,7 +1,7 @@
 /**
  * File: search.js
  * Description: Search input handling and recent search chip interactions
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

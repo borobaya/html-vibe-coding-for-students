@@ -1,7 +1,7 @@
 /**
  * File: cards.js
  * Description: Card symbols, deck generation, and shuffle
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2026-03-27
  * Last Modified: 2026-03-27
  */

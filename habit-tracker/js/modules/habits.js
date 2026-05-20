@@ -1,7 +1,7 @@
 /**
  * File: habits.js
  * Description: Habit CRUD and completion toggling with in-memory state
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

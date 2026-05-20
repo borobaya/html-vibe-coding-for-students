@@ -1,7 +1,7 @@
 /**
  * File: main.js
  * Description: Entry point — orchestrates timer, settings, stats, audio, and UI
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

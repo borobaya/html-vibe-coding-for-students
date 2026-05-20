@@ -1,7 +1,7 @@
 /**
  * File: main.js
  * Description: Application entry point — polling, crew loading, event bindings
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

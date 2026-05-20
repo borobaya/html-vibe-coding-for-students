@@ -1,7 +1,7 @@
 /**
  * File: storage.js
  * Description: localStorage wrapper for settings and stats persistence
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

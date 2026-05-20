@@ -1,7 +1,7 @@
 /**
  * File: renderer.js
  * Description: Renders messages into the phone frame chat area
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

@@ -1,7 +1,7 @@
 /**
  * File: utils.js
  * Description: Utility functions — ID generation, time formatting, sanitisation
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

@@ -1,7 +1,7 @@
 /**
  * File: demo-data.js
  * Description: Mock weather data for demo mode (when no API key is set)
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2026-03-28
  */
 

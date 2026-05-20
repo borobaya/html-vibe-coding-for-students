@@ -1,7 +1,7 @@
 /**
  * File: api.js
  * Description: API calls to OpenWeatherMap — fetches weather and forecast data
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

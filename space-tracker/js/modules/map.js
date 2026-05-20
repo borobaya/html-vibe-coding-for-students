@@ -1,7 +1,7 @@
 /**
  * File: map.js
  * Description: Leaflet map initialisation, ISS marker, and orbit trail
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

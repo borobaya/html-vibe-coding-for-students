@@ -1,7 +1,7 @@
 /**
  * File: config.js
  * Description: API key and endpoint constants for OpenWeatherMap
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

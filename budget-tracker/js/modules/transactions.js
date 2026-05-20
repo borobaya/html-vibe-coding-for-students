@@ -1,7 +1,7 @@
 /**
  * File: transactions.js
  * Description: Transaction creation, deletion, filtering, and sorting
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

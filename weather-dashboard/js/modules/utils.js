@@ -1,7 +1,7 @@
 /**
  * File: utils.js
  * Description: Helper functions — date formatting, wind direction, temp conversion, icon mapping
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

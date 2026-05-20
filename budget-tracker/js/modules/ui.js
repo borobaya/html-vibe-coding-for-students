@@ -1,7 +1,7 @@
 /**
  * File: ui.js
  * Description: DOM management — form handling, filters, rendering, summary cards
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */

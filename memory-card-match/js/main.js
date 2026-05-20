@@ -1,7 +1,7 @@
 /**
  * File: main.js
  * Description: Memory Card Match entry point – DOM wiring
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2026-03-27
  * Last Modified: 2026-03-27
  */

@@ -1,7 +1,7 @@
 /**
  * File: ui.js
  * Description: DOM updates — timer display, progress ring, modes, session dots
- * Author: AI4Students
+ * Author: AI4Execs
  * Created: 2025-01-20
  * Last Modified: 2025-01-20
  */
