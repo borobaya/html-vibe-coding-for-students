@@ -7,10 +7,13 @@
  */
 
 import { addDragDropListeners } from './modules/upload.js';
+import { loadImage } from './modules/upload.js';
 import { initCanvas, drawMeme } from './modules/canvas.js';
 import { drawAllText } from './modules/text.js';
 import { downloadMeme } from './modules/export.js';
 import { showCanvas, enableControls, resetToUpload } from './modules/ui.js';
+
+const STARTER_IMAGE_SRC = 'assets/starter-meme.svg';
 
 /** @type {HTMLImageElement|null} */
 let currentImage = null;
@@ -29,6 +32,7 @@ const textColour = document.getElementById('text-colour');
 const strokeColour = document.getElementById('stroke-colour');
 const changeImageBtn = document.getElementById('change-image-btn');
 const downloadBtn = document.getElementById('download-btn');
+const starterImageBtn = document.getElementById('starter-image-btn');
 
 /* ── Helpers ────────────────────────────────────────── */
 
@@ -67,6 +71,13 @@ function onImageLoaded(image) {
   renderCanvas();
 }
 
+async function loadStarterImage() {
+  const image = await loadImage(STARTER_IMAGE_SRC);
+  topTextInput.value = '';
+  bottomTextInput.value = '';
+  onImageLoaded(image);
+}
+
 /** Wires up upload (drag-drop + file picker) */
 function setupUploadListeners() {
   addDragDropListeners(dropZone, fileInput, onImageLoaded);
@@ -82,6 +93,8 @@ function setupControlListeners() {
 
 /** Wires up action buttons (change image, download) */
 function setupActionListeners() {
+  starterImageBtn.addEventListener('click', loadStarterImage);
+
   changeImageBtn.addEventListener('click', () => {
     currentImage = null;
     topTextInput.value = '';

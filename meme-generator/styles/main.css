@@ -126,6 +126,27 @@ body {
   border: 0;
 }
 
+.starter-image {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--clr-input-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.starter-image__preview {
+  width: 120px;
+  aspect-ratio: 18 / 13;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
 /* ── Canvas Section ─────────────────────────────────── */
 .canvas-section {
   width: 100%;
@@ -268,6 +289,16 @@ body {
 
   .upload-zone__inner {
     padding: 2rem 1rem;
+  }
+
+  .starter-image {
+    align-items: stretch;
+  }
+
+  .starter-image__preview {
+    width: 100%;
+    max-width: 220px;
+    margin: 0 auto;
   }
 
   .controls {

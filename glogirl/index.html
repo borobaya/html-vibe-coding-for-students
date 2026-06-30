@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GloGirl is a colourful wellness app for fitness, sleep, confidence, and daily wellbeing.">
+  <title>GloGirl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-panel" aria-label="GloGirl dashboard">
+      <div class="brand-row">
+        <img src="assets/glogirl-mark.svg" alt="GloGirl sparkle logo" class="brand-row__mark">
+        <div>
+          <h1>GloGirl</h1>
+          <p id="today-label">Today's planner</p>
+        </div>
+      </div>
+
+      <div class="hero-stack">
+        <div class="score-card" aria-label="Wellness score">
+          <span class="score-card__label">Wellness score</span>
+          <strong id="glow-score">0%</strong>
+          <div class="score-card__bar" aria-hidden="true"><span id="glow-bar"></span></div>
+        </div>
+
+        <div class="daily-quote-card" aria-label="Daily confidence quote">
+          <span>Quote of the day</span>
+          <p id="daily-quote">Loading today's confidence boost...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-view app-view--active" id="home-view" aria-label="Home wellness dashboard">
+      <div class="planner-grid">
+        <article class="panel mood-panel">
+          <h2>Vibe</h2>
+          <div class="vibe-picker" id="vibe-picker" aria-label="Choose today's vibe">
+            <button type="button" data-vibe="Energised">Energised</button>
+            <button type="button" data-vibe="Calm">Calm</button>
+            <button type="button" data-vibe="Strong">Strong</button>
+            <button type="button" data-vibe="Focused">Focused</button>
+          </div>
+          <p class="vibe-output" id="vibe-output">Pick your vibe.</p>
+        </article>
+
+        <article class="panel checklist-panel">
+          <div class="panel-heading">
+            <h2>Wellness List</h2>
+            <button class="small-btn" id="reset-btn" type="button">Reset</button>
+          </div>
+          <ul class="glow-list" id="glow-list">
+            <li><label><input type="checkbox" data-task="water"> Drink water</label></li>
+            <li><label><input type="checkbox" data-task="move"> Move your body</label></li>
+            <li><label><input type="checkbox" data-task="stretch"> Stretch or mobility</label></li>
+            <li><label><input type="checkbox" data-task="goal"> Finish one goal</label></li>
+            <li><label><input type="checkbox" data-task="mind"> Mind reset</label></li>
+          </ul>
+        </article>
+
+        <article class="panel sleep-panel">
+          <h2>Sleep Tracker</h2>
+          <div class="sleep-inputs">
+            <label>Hours slept <input type="number" id="sleep-hours" min="0" max="14" step="0.5" value="8"></label>
+            <label>Sleep quality <input type="range" id="sleep-quality" min="1" max="5" value="3"></label>
+          </div>
+          <p class="sleep-output" id="sleep-output">Log your sleep.</p>
+        </article>
+
+        <article class="panel confidence-panel">
+          <h2>Confidence Boost</h2>
+          <p class="confidence-line" id="confidence-line">I can show up for myself today.</p>
+          <button class="action-btn" id="confidence-btn" type="button">New Boost</button>
+          <button class="small-btn calendar-toggle" id="quote-calendar-btn" type="button" disabled>Quote Calendar</button>
+          <div class="quote-calendar" id="quote-calendar" hidden>
+            <h3>Previous Quotes</h3>
+            <div id="quote-history" class="quote-history"></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="app-view" id="fitness-view" aria-label="Fitness plans" hidden>
+      <div class="section-heading">
+        <h2>Fitness</h2>
+        <p>Choose workouts by goal, open step-by-step instructions, and save favourites.</p>
+      </div>
+      <div class="fitness-stack">
+        <article class="fitness-hub-card" id="home-workouts-card">
+          <img src="assets/home-workout.svg" alt="Woman doing a home workout on a mat">
+          <div>
+            <p>Home workouts</p>
+            <h2>Train in your room</h2>
+            <span>Strength, cardio, core, and calm stretches.</span>
+          </div>
+          <div class="workout-list" id="home-workout-list" aria-label="Home workouts"></div>
+        </article>
+
+        <article class="fitness-hub-card" id="gym-workouts-card">
+          <img src="assets/gym-workout.svg" alt="Woman lifting weights in a gym">
+          <div>
+            <p>Gym workouts</p>
+            <h2>Build confidence at the gym</h2>
+            <span>Machines, dumbbells, lower body, upper body, and cardio.</span>
+          </div>
+          <div class="workout-list" id="gym-workout-list" aria-label="Gym workouts"></div>
+        </article>
+
+        <article class="fitness-hub-card fitness-hub-card--saved" id="saved-workouts-card">
+          <img src="assets/home-workout.svg" alt="First saved workout preview" id="saved-workout-image">
+          <div>
+            <p>My workouts</p>
+            <h2>Saved workouts</h2>
+            <span id="saved-workout-summary">Save a workout to build your list.</span>
+          </div>
+          <div class="workout-list" id="saved-workout-list" aria-label="Saved workouts"></div>
+        </article>
+
+        <article class="panel workout-detail" id="workout-detail" hidden>
+          <img src="assets/home-workout.svg" alt="Selected workout preview" id="workout-detail-image">
+          <div class="workout-detail__content">
+            <p id="workout-detail-goal">Goal</p>
+            <h2 id="workout-detail-title">Choose a workout</h2>
+            <ol id="workout-detail-steps"></ol>
+            <button class="action-btn" id="save-workout-btn" type="button">Save Workout</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="app-view" id="community-view" aria-label="Community stories" hidden>
+      <div class="section-heading community-heading">
+        <h2>Community</h2>
+        <p>Stories from women sharing health, fitness, sleep, and wellbeing journeys.</p>
+      </div>
+      <div class="community-feed">
+        <article class="story-card story-card--rose">
+          <div class="story-card__media"><span>Play</span></div>
+          <div class="story-card__actions" aria-label="Story actions">
+            <button type="button">♥</button>
+            <button type="button">＋</button>
+            <button type="button">↗</button>
+          </div>
+          <div class="story-card__caption">
+            <span>@maya.moves</span>
+            <h3>Maya's first gym week</h3>
+            <p>She started with light machines, short walks, and tracking how strong she felt after each session.</p>
+          </div>
+        </article>
+        <article class="story-card story-card--mint">
+          <div class="story-card__media"><span>Play</span></div>
+          <div class="story-card__actions" aria-label="Story actions">
+            <button type="button">♥</button>
+            <button type="button">＋</button>
+            <button type="button">↗</button>
+          </div>
+          <div class="story-card__caption">
+            <span>@aisha.rests</span>
+            <h3>Aisha's sleep reset</h3>
+            <p>She shares how a calm bedtime routine helped her wake up with more energy.</p>
+          </div>
+        </article>
+        <article class="story-card story-card--sky">
+          <div class="story-card__media"><span>Play</span></div>
+          <div class="story-card__actions" aria-label="Story actions">
+            <button type="button">♥</button>
+            <button type="button">＋</button>
+            <button type="button">↗</button>
+          </div>
+          <div class="story-card__caption">
+            <span>@lina.glows</span>
+            <h3>Lina's confidence journey</h3>
+            <p>She talks about learning to exercise for her mood, not just for appearance.</p>
+          </div>
+        </article>
+      </div>
+      <article class="panel community-messages">
+        <div class="panel-heading">
+          <h2>Messages</h2>
+          <span>Local demo</span>
+        </div>
+        <div class="message-list" id="community-message-list" aria-live="polite">
+          <p><strong>Maya:</strong> Anyone else doing a beginner gym week?</p>
+          <p><strong>Aisha:</strong> My sleep goal is no phone 20 mins before bed.</p>
+        </div>
+        <div class="message-controls">
+          <label class="sr-only" for="community-message-input">Community message</label>
+          <input id="community-message-input" type="text" maxlength="120" placeholder="Send a kind message...">
+          <button class="small-btn" id="community-message-btn" type="button">Send</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="app-view" id="mind-view" aria-label="Mind wellness tools" hidden>
+      <div class="section-heading">
+        <h2>Mind Wellness</h2>
+        <p>Breathing, reflections, and a gentle chat space for when you need to slow down.</p>
+      </div>
+      <div class="planner-grid">
+        <article class="panel breathing-panel">
+          <h2>Breathing Exercise</h2>
+          <div class="breath-circle" id="breath-circle">Breathe</div>
+          <p id="breath-text" class="breath-text">Press start for a calm breathing cycle.</p>
+          <button class="action-btn" id="breath-btn" type="button">Start Breathing</button>
+        </article>
+
+        <article class="panel reflection-panel">
+          <h2>Reflection</h2>
+          <p id="reflection-prompt" class="reflection-prompt">What is one thing your mind needs less of today?</p>
+          <button class="action-btn" id="reflection-btn" type="button">New Reflection</button>
+        </article>
+
+        <article class="panel chat-panel">
+          <h2>GloBot Chat</h2>
+          <p class="chat-note" id="chat-note">AI replies work when the local server is started with an AI key.</p>
+          <div class="chat-log" id="chat-log" aria-live="polite">
+            <p><strong>GloBot:</strong> Hi, I am here for a calm check-in. What is on your mind?</p>
+          </div>
+          <label class="sr-only" for="chat-input">Message GloBot</label>
+          <div class="chat-controls">
+            <input id="chat-input" type="text" maxlength="140" placeholder="Type how you feel...">
+            <button class="small-btn" id="chat-send-btn" type="button">Send</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="app-view" id="me-view" aria-label="Profile and personal notes" hidden>
+      <div class="profile-grid">
+        <article class="panel profile-panel">
+          <h2>My Profile</h2>
+          <button class="profile-toggle" id="public-goals-toggle" type="button" aria-pressed="false">Make my goals public</button>
+          <div class="profile-preview">
+            <img src="assets/glogirl-mark.svg" alt="Profile picture preview" id="profile-preview-img">
+            <div>
+              <strong id="profile-preview-name">Your name</strong>
+              <span id="profile-public-label">Goals private</span>
+            </div>
+          </div>
+          <label>Name <input id="profile-name-input" type="text" maxlength="32" placeholder="Your name"></label>
+          <label>Profile picture <input id="profile-picture-input" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml"></label>
+        </article>
+
+        <article class="panel public-goals-panel">
+          <h2>Public Goals</h2>
+          <label class="sr-only" for="public-goals-input">Public goals</label>
+          <textarea id="public-goals-input" rows="6" maxlength="220" placeholder="Share goals like: sleep 8 hours, train twice this week, feel more confident..."></textarea>
+          <p id="profile-save-status" class="save-status" aria-live="polite">Profile saved on this device.</p>
+        </article>
+
+        <article class="panel notes-panel">
+          <h2>One Thing</h2>
+          <label class="sr-only" for="goal-input">Today's one thing</label>
+          <textarea id="goal-input" rows="5" maxlength="160" placeholder="What would make today feel successful?"></textarea>
+          <p id="save-status" class="save-status" aria-live="polite">Saved on this device.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="App sections">
+    <button class="bottom-nav__item is-active" type="button" data-view="home-view" aria-controls="home-view" aria-current="page"><span>⌂</span>Home</button>
+    <button class="bottom-nav__item" type="button" data-view="fitness-view" aria-controls="fitness-view"><span>▰</span>Fitness</button>
+    <button class="bottom-nav__item bottom-nav__item--community" type="button" data-view="community-view" aria-controls="community-view"><span>◎</span>People</button>
+    <button class="bottom-nav__item" type="button" data-view="mind-view" aria-controls="mind-view"><span>◌</span>Mind</button>
+    <button class="bottom-nav__item" type="button" data-view="me-view" aria-controls="me-view"><span>◇</span>Me</button>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

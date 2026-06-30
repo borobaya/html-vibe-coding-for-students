@@ -19,8 +19,8 @@ const SPEED_BONUS_MAX = 5;
 export function createGameState(config) {
   return {
     players: [
-      { name: config.p1Name, score: 0, correct: 0, streak: 0, bestStreak: 0, totalTime: 0, answers: 0 },
-      { name: config.p2Name, score: 0, correct: 0, streak: 0, bestStreak: 0, totalTime: 0, answers: 0 },
+      { name: config.p1Name, score: 0, correct: 0, streak: 0, bestStreak: 0, totalTime: 0, answers: 0, powers: { freeze: true, double: true } },
+      { name: config.p2Name, score: 0, correct: 0, streak: 0, bestStreak: 0, totalTime: 0, answers: 0, powers: { freeze: true, double: true } },
     ],
     category: config.category,
     totalRounds: config.rounds,
@@ -30,8 +30,29 @@ export function createGameState(config) {
     timerSeconds: TIMER_SECONDS,
     timerInterval: null,
     timeLeft: TIMER_SECONDS,
+    doublePointsActive: false,
     status: 'playing',
   };
+}
+
+export function usePower(state, powerName) {
+  const player = state.players[state.currentPlayer];
+
+  if (!player.powers[powerName]) {
+    return { used: false };
+  }
+
+  player.powers[powerName] = false;
+
+  if (powerName === 'freeze') {
+    state.timeLeft = Math.min(TIMER_SECONDS, state.timeLeft + 5);
+  }
+
+  if (powerName === 'double') {
+    state.doublePointsActive = true;
+  }
+
+  return { used: true };
 }
 
 /**
@@ -69,10 +90,13 @@ export function submitAnswer(state, answerIndex) {
     const speedBonus = Math.max(0, Math.round((state.timeLeft / TIMER_SECONDS) * SPEED_BONUS_MAX));
     const streakBonus = Math.min(player.streak - 1, 3) * STREAK_BONUS;
     points = BASE_POINTS + speedBonus + streakBonus;
+    if (state.doublePointsActive) points *= 2;
     player.score += points;
   } else {
     player.streak = 0;
   }
+
+  state.doublePointsActive = false;
 
   return { correct, points, correctIndex: question.correct };
 }
@@ -86,6 +110,7 @@ export function handleTimeout(state) {
   player.answers++;
   player.totalTime += TIMER_SECONDS;
   player.streak = 0;
+  state.doublePointsActive = false;
 }
 
 /**
@@ -94,6 +119,8 @@ export function handleTimeout(state) {
  * @returns {string} 'continue' | 'next-round' | 'game-over'
  */
 export function nextTurn(state) {
+  state.doublePointsActive = false;
+
   if (state.currentPlayer === 0) {
     state.currentPlayer = 1;
     return 'continue';

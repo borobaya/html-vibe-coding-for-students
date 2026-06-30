@@ -1,0 +1,72 @@
+<svg width="900" height="650" viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Pop star concert starter meme image</title>
+  <desc id="desc">A colourful pop concert scene with a singer on stage, bright lights, speakers, and an excited crowd.</desc>
+  <defs>
+    <linearGradient id="stage" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#140d2f"/>
+      <stop offset="0.5" stop-color="#7b1e7a"/>
+      <stop offset="1" stop-color="#0bb4d8"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="32%" r="48%">
+      <stop offset="0" stop-color="#fff3bf" stop-opacity="0.95"/>
+      <stop offset="0.48" stop-color="#ff6bcb" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ff6bcb" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#020617" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="900" height="650" fill="url(#stage)"/>
+  <circle cx="450" cy="215" r="285" fill="url(#halo)"/>
+  <path d="M162 0 L344 430" stroke="#f8f9fa" stroke-width="30" stroke-linecap="round" opacity="0.2"/>
+  <path d="M738 0 L556 430" stroke="#f8f9fa" stroke-width="30" stroke-linecap="round" opacity="0.2"/>
+  <path d="M450 0 L450 430" stroke="#fff3bf" stroke-width="38" stroke-linecap="round" opacity="0.22"/>
+  <g opacity="0.75">
+    <circle cx="135" cy="118" r="23" fill="#ffd43b"/>
+    <circle cx="764" cy="120" r="23" fill="#ffd43b"/>
+    <circle cx="260" cy="74" r="18" fill="#69db7c"/>
+    <circle cx="640" cy="74" r="18" fill="#74c0fc"/>
+    <circle cx="450" cy="56" r="24" fill="#ff6bcb"/>
+  </g>
+  <rect x="0" y="446" width="900" height="204" fill="#111827" opacity="0.92"/>
+  <path d="M0 456 C124 411 210 479 326 445 C454 407 560 407 694 448 C780 474 840 458 900 432 L900 650 L0 650 Z" fill="#0b1021"/>
+  <rect x="110" y="348" width="128" height="182" rx="16" fill="#151a2d" filter="url(#shadow)"/>
+  <rect x="662" y="348" width="128" height="182" rx="16" fill="#151a2d" filter="url(#shadow)"/>
+  <circle cx="174" cy="408" r="38" fill="#2f3654"/>
+  <circle cx="174" cy="408" r="18" fill="#0b1021"/>
+  <circle cx="726" cy="408" r="38" fill="#2f3654"/>
+  <circle cx="726" cy="408" r="18" fill="#0b1021"/>
+  <circle cx="174" cy="480" r="26" fill="#2f3654"/>
+  <circle cx="726" cy="480" r="26" fill="#2f3654"/>
+  <g filter="url(#shadow)">
+    <ellipse cx="450" cy="552" rx="188" ry="28" fill="#020617" opacity="0.42"/>
+    <path d="M396 286 C392 229 425 190 475 190 C527 190 560 229 557 286 C553 349 520 382 476 382 C430 382 401 348 396 286 Z" fill="#ffe0bd"/>
+    <path d="M386 244 C410 172 522 148 566 232 C534 223 510 207 494 181 C480 213 435 239 386 244 Z" fill="#f8f0df"/>
+    <path d="M391 287 C363 320 358 382 374 448 L427 442 C412 385 414 338 431 314 Z" fill="#ff4d9d"/>
+    <path d="M555 286 C584 324 590 383 571 448 L519 442 C535 383 532 338 516 314 Z" fill="#ff4d9d"/>
+    <path d="M404 377 C428 355 522 355 545 377 L566 505 C508 532 440 532 380 505 Z" fill="#ff4d9d"/>
+    <path d="M421 376 C440 398 504 398 525 376 L513 512 C474 525 437 519 397 505 Z" fill="#f8f9fa" opacity="0.22"/>
+    <path d="M430 503 L411 603 H461 L466 508 Z" fill="#151a2d"/>
+    <path d="M502 508 L511 603 H560 L535 503 Z" fill="#151a2d"/>
+    <path d="M365 401 C318 418 293 449 282 493" stroke="#ffe0bd" stroke-width="28" stroke-linecap="round" fill="none"/>
+    <path d="M584 399 C629 421 657 453 671 494" stroke="#ffe0bd" stroke-width="28" stroke-linecap="round" fill="none"/>
+    <rect x="645" y="265" width="18" height="182" rx="9" fill="#101828" transform="rotate(-20 654 356)"/>
+    <circle cx="626" cy="269" r="23" fill="#f8f9fa"/>
+    <rect x="606" y="290" width="42" height="18" rx="9" fill="#101828" transform="rotate(-20 627 299)"/>
+    <path d="M433 318 C455 339 493 339 515 318" stroke="#8a3c28" stroke-width="10" stroke-linecap="round" fill="none"/>
+  </g>
+  <g fill="#f8f9fa" opacity="0.92">
+    <path d="M55 642 C62 566 93 532 122 642 Z"/>
+    <path d="M135 642 C144 548 188 516 213 642 Z"/>
+    <path d="M230 642 C239 571 276 532 304 642 Z"/>
+    <path d="M592 642 C604 560 642 530 670 642 Z"/>
+    <path d="M695 642 C706 548 752 522 779 642 Z"/>
+    <path d="M802 642 C812 568 850 526 882 642 Z"/>
+  </g>
+  <g stroke="#f8f9fa" stroke-width="12" stroke-linecap="round" opacity="0.9">
+    <path d="M87 548 L52 500"/>
+    <path d="M175 540 L198 486"/>
+    <path d="M716 538 L693 486"/>
+    <path d="M835 546 L872 500"/>
+  </g>
+</svg>

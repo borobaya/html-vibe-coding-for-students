@@ -1,0 +1,17 @@
+<svg width="900" height="650" viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Home workout</title>
+  <desc id="desc">A woman exercising on a mat at home with plants and sunlight.</desc>
+  <rect width="900" height="650" fill="#fff4ec"/>
+  <circle cx="690" cy="130" r="80" fill="#ffd166"/>
+  <rect x="85" y="115" width="250" height="330" rx="20" fill="#a8dadc"/>
+  <rect x="115" y="145" width="190" height="270" rx="12" fill="#f8fdff"/>
+  <rect x="500" y="145" width="230" height="340" rx="22" fill="#b7e4c7"/>
+  <path d="M555 485 C545 390 580 296 643 250 C720 312 729 395 704 485 Z" fill="#40916c"/>
+  <rect x="210" y="500" width="500" height="54" rx="27" fill="#ff5b8f"/>
+  <circle cx="430" cy="245" r="42" fill="#ffd7ba"/>
+  <path d="M378 298 C430 268 489 283 525 333 L493 386 L401 383 Z" fill="#66b8ff"/>
+  <path d="M399 383 L320 497" stroke="#2b1635" stroke-width="34" stroke-linecap="round"/>
+  <path d="M488 384 L602 499" stroke="#2b1635" stroke-width="34" stroke-linecap="round"/>
+  <path d="M405 329 L300 360" stroke="#ffd7ba" stroke-width="28" stroke-linecap="round"/>
+  <path d="M507 333 L615 310" stroke="#ffd7ba" stroke-width="28" stroke-linecap="round"/>
+</svg>

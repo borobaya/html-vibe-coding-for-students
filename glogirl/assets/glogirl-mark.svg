@@ -1,0 +1,10 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">GloGirl sparkle logo</title>
+  <desc id="desc">A glossy letter G with sparkles and soft colourful shapes.</desc>
+  <rect width="160" height="160" rx="32" fill="#FFF8F3"/>
+  <path d="M30 124C45 96 22 68 54 41C80 19 124 32 132 69C139 103 109 128 78 124C52 121 40 98 48 78C57 55 92 50 106 70" stroke="#FF5B8F" stroke-width="15" stroke-linecap="round"/>
+  <path d="M95 92H130" stroke="#5ED6B3" stroke-width="15" stroke-linecap="round"/>
+  <path d="M111 23L118 39L135 45L118 51L111 68L104 51L87 45L104 39L111 23Z" fill="#FFD166"/>
+  <path d="M35 31L40 42L51 47L40 52L35 63L30 52L19 47L30 42L35 31Z" fill="#66B8FF"/>
+  <circle cx="126" cy="122" r="11" fill="#FF8B6A"/>
+</svg>

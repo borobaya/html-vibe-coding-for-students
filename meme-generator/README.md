@@ -7,6 +7,7 @@ A browser-based meme generator that lets you upload any image, add fully customi
 ## Features
 
 - **Image Upload** — Drag and drop or click to upload any image file as the meme base.
+- **Starter Image** — Use the built-in meme image if you want to start quickly.
 - **Top & Bottom Text** — Add classic meme-style captions to the top and bottom of the image.
 - **Font Customisation** — Choose from a selection of fonts to style caption text.
 - **Colour Picker** — Set custom text and outline colours for each caption.
@@ -17,7 +18,7 @@ A browser-based meme generator that lets you upload any image, add fully customi
 ## How to Use
 
 1. Open the app in your browser.
-2. Click the upload area or drag and drop an image to use as the meme background.
+2. Click the upload area, drag and drop an image, or use the starter image.
 3. Type your desired text into the **Top Text** and **Bottom Text** fields.
 4. Use the font dropdown and colour pickers to style the captions.
 5. Preview the meme on the canvas in real time.

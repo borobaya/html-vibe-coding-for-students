@@ -96,6 +96,7 @@ Explore the projects below to see what you can build! Each folder has a README w
 | ![](pomodoro-timer/assets/thumbnail.png) | [pomodoro-timer](pomodoro-timer/README.md) | Study timer with work/break intervals and session stats |
 | ![](habit-tracker/assets/thumbnail.png) | [habit-tracker](habit-tracker/README.md) | Daily habit check-offs with streaks and a calendar heatmap |
 | ![](flashcard-app/assets/thumbnail.png) | [flashcard-app](flashcard-app/README.md) | Create decks, flip cards, and track mastery |
+| ![](glogirl/assets/thumbnail.png) | [glogirl](glogirl/README.md) | Wellness app with visual home/gym workouts, sleep, community stories, and mind tools |
 
 ### Simulation / Visual
 

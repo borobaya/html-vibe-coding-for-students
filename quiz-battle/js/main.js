@@ -7,7 +7,7 @@
  */
 
 import { getQuestions } from './modules/questions.js';
-import { createGameState, getCurrentQuestion, submitAnswer, handleTimeout, nextTurn, getResults, TIMER_SECONDS } from './modules/game.js';
+import { createGameState, getCurrentQuestion, submitAnswer, handleTimeout, nextTurn, getResults, usePower, TIMER_SECONDS } from './modules/game.js';
 
 let state = null;
 
@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('setup-form').addEventListener('submit', onStartBattle);
   document.getElementById('play-again-btn').addEventListener('click', () => showScreen('start-screen'));
   document.getElementById('change-category-btn').addEventListener('click', () => showScreen('start-screen'));
+  document.getElementById('freeze-power-btn').addEventListener('click', () => onUsePower('freeze'));
+  document.getElementById('double-power-btn').addEventListener('click', () => onUsePower('double'));
 
   const answerBtns = document.querySelectorAll('.answer-btn');
   answerBtns.forEach(btn => {
@@ -81,6 +83,7 @@ function startTurn() {
 
   // Update scores
   updateScoreboard();
+  updatePowerButtons();
 
   // Start timer
   updateTimerDisplay();
@@ -112,6 +115,16 @@ function onAnswer(index) {
   showFeedback(result.correct, result.points, result.correctIndex);
 }
 
+function onUsePower(powerName) {
+  if (!state) return;
+
+  const result = usePower(state, powerName);
+  if (!result.used) return;
+
+  updatePowerButtons();
+  updateTimerDisplay();
+}
+
 function showFeedback(correct, points, correctIndex) {
   const overlay = document.getElementById('feedback-overlay');
   const text = document.getElementById('feedback-text');
@@ -140,6 +153,16 @@ function updateScoreboard() {
   document.getElementById('game-p2-score').textContent = p2.score;
   document.getElementById('game-p1-streak').textContent = p1.streak > 1 ? `🔥${p1.streak}` : '';
   document.getElementById('game-p2-streak').textContent = p2.streak > 1 ? `🔥${p2.streak}` : '';
+}
+
+function updatePowerButtons() {
+  const player = state.players[state.currentPlayer];
+  const freezeBtn = document.getElementById('freeze-power-btn');
+  const doubleBtn = document.getElementById('double-power-btn');
+
+  freezeBtn.disabled = !player.powers.freeze;
+  doubleBtn.disabled = !player.powers.double || state.doublePointsActive;
+  doubleBtn.classList.toggle('power-btn--active', state.doublePointsActive);
 }
 
 function updateTimerDisplay() {

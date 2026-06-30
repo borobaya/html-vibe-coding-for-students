@@ -1,0 +1,17 @@
+<svg width="900" height="650" viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Gym workout</title>
+  <desc id="desc">A woman training with dumbbells in a bright gym.</desc>
+  <rect width="900" height="650" fill="#eef6ff"/>
+  <rect x="80" y="115" width="740" height="390" rx="28" fill="#d8ecff"/>
+  <path d="M145 505 H785" stroke="#2b1635" stroke-width="22" stroke-linecap="round"/>
+  <rect x="130" y="200" width="150" height="210" rx="18" fill="#ffffff"/>
+  <rect x="620" y="180" width="120" height="250" rx="18" fill="#ffffff"/>
+  <path d="M175 250 H248 M175 310 H248 M175 370 H248" stroke="#66b8ff" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="450" cy="230" r="44" fill="#ffd7ba"/>
+  <path d="M400 288 C445 252 508 268 536 323 L505 398 L405 392 Z" fill="#ff5b8f"/>
+  <path d="M405 393 L352 508" stroke="#2b1635" stroke-width="34" stroke-linecap="round"/>
+  <path d="M502 397 L560 508" stroke="#2b1635" stroke-width="34" stroke-linecap="round"/>
+  <path d="M400 315 L305 280" stroke="#ffd7ba" stroke-width="28" stroke-linecap="round"/>
+  <path d="M540 318 L638 280" stroke="#ffd7ba" stroke-width="28" stroke-linecap="round"/>
+  <path d="M270 280 H330 M612 280 H672" stroke="#2b1635" stroke-width="24" stroke-linecap="round"/>
+</svg>
